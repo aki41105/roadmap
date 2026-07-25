@@ -54,21 +54,21 @@ export const roadmapItems: RoadmapItem[] = [
     period: "2027 Q4",
     stage: "D1",
     research: "国内滞在の成果を執筆・投稿する。",
-    outside: "海外ホストへ連絡し、企業インターン候補を選ぶ。",
+    outside: "冬募集・個別案件へ応募し、企業メンターと成果条件を固定する。",
     life: "引っ越し候補を調べるが、まだ固定費は増やさない。",
   },
   {
-    period: "2028 Q1",
+    period: "2028.01–03",
     stage: "D1",
-    research: "副テーマ研究計画書と、正式な手続きを進める。",
-    outside: "企業研究インターンへ応募。海外テーマを6か月前に確定。",
+    research: "本命期間。企業研究インターンで研究2の主要実験を進める。",
+    outside: "6〜8週間〜2か月。論文・博士論文・知財条件を開始前に書面化。",
     life: "引っ越しと車は、海外留学後の負担まで含めて判定する。",
   },
   {
-    period: "2028 Q2",
+    period: "2028.04–06",
     stage: "D2",
-    research: "企業共同研究で研究2を進める。",
-    outside: "企業研究インターン6〜8週間。公開・知財条件を先に合意。",
+    research: "D1冬に実施できなかった場合だけ、企業共同研究で研究2を進める。",
+    outside: "代替期間。6月末までに終了し、海外留学との間を8週間以上空ける。",
     life: "寮を基本に固定費を抑える。一般バイトは減らす。",
   },
   {
@@ -184,13 +184,13 @@ export const externalProjects = [
   },
   {
     number: "02",
-    time: "D2 · 2028 春〜初夏",
+    time: "D1冬 本命 / D2前半 代替",
     title: "企業研究インターン",
-    duration: "6〜8週間",
-    result: "研究2・企業研究との適性確認",
-    purpose: "実世界データと現場課題に触れ、研究職の仕事内容を確かめる。",
+    duration: "6〜8週間〜2か月",
+    result: "研究2・論文・研究職の適性確認",
+    purpose: "博士論文の一章を進めながら、企業研究の進め方と就職先としての相性を確かめる。",
     caution:
-      "単独では博士インターンシップの単位要件を満たさない可能性がある。公開審査、知財、著者順を契約前に確認する。",
+      "JAISTが公開する博士課程の単位条件は高度な内容かつ合計おおむね3か月。2か月の論文インターンとは分け、2027年度に教務へ書面確認する。",
   },
   {
     number: "03",
@@ -218,7 +218,10 @@ export const hostCandidates = [
     label: "企業",
     items: [
       "CyberAgent AI Lab",
-      "Sony R&D",
+      "OMRON SINIC X",
+      "NEC 研究インターン",
+      "Honda Research Institute Japan（個別提案）",
+      "日立・Sony 長期有給インターン",
       "Preferred Networks",
       "ジョブ型研究インターンシップ",
     ],
@@ -240,11 +243,283 @@ export const hostCandidates = [
 export const eightWeekPlan = [
   ["1", "環境構築、データ確認、既存結果の再現"],
   ["2", "ベースラインと実験計画を凍結"],
-  ["3–4", "主実験"],
-  ["5", "追加実験とエラー分析"],
-  ["6", "統計解析と図表"],
-  ["7", "論文本文と関連研究"],
-  ["8", "内部発表、結果凍結、帰国後計画"],
+  ["3–5", "主実験、比較、アブレーション"],
+  ["6", "統計解析、追加実験、エラー分析"],
+  ["7", "図表と原稿、社内公開審査の開始"],
+  ["8", "内部発表、結果凍結、帰任後6週間の分担確定"],
+];
+
+export const internshipWindows = [
+  {
+    status: "本命",
+    time: "2028.01–03",
+    title: "D1冬に6〜8週間〜2か月",
+    text: "国内滞在の投稿後に実施する。終了後の6週間を論文化へ使っても、海外留学準備と重なりにくい。",
+  },
+  {
+    status: "代替",
+    time: "2028.04–06",
+    title: "D2前半、6月末まで",
+    text: "D1冬に募集または個別調整が成立しなかった場合だけ使う。渡航準備はインターン前から並行する。",
+  },
+  {
+    status: "入れない",
+    time: "2028.07–08",
+    title: "海外留学直前の実施",
+    text: "論文化、引継ぎ、休養、ビザ・住居・倫理の最終確認に固定する。大型案件の間は最低8週間空ける。",
+  },
+];
+
+export const internshipRules = [
+  {
+    label: "ジョブ型",
+    title: "標準2か月以上",
+    text: "博士学生向けの有給・雇用型。実際の案件は約1〜6か月で、指導教員の承認と終了時評価がある。",
+    href: "https://coopj-intern.com/faq",
+  },
+  {
+    label: "JAISTの単位",
+    title: "高度 ＋ 合計おおむね3か月",
+    text: "博士後期課程の選択必修として認定する公開条件。事前計画、担当教員、終了報告も必要になる。",
+    href: "https://www.jaist.ac.jp/careersupport/doctor/",
+  },
+  {
+    label: "この計画",
+    title: "論文目的は6〜8週間",
+    text: "開始前に問いとデータを固定し、主要実験と原稿60〜80%を持ち帰る設計。単位取得とは別に扱う。",
+    href: "https://www.jaist.ac.jp/education/courses/minor.html",
+  },
+];
+
+export const internshipProcedures = [
+  {
+    step: "01",
+    title: "参加申請",
+    text: "単位の有無や大学紹介かどうかに関係なく申請する。国内・オンラインは開始2週間前、海外は1か月前が公開上の期限。",
+  },
+  {
+    step: "02",
+    title: "単位の事前計画",
+    text: "博士後期課程は開始2週間前までに計画提案書と概要資料を提出。主・副指導教員はインターン指導教員を兼ねられない。",
+  },
+  {
+    step: "03",
+    title: "終了後の報告",
+    text: "成果報告書を指導教員と教務へ提出する。企業への勤務状況確認により、成績登録・最終承認に時間がかかる場合がある。",
+  },
+];
+
+export const internshipCandidates = [
+  {
+    rank: "01",
+    name: "CyberAgent AI Lab",
+    role: "論文・研究相性の総合本命",
+    facts: "2026年度は7〜10月内の2か月、月50万円。時期と勤務形態は個別相談。",
+    fit: "実環境インタラクション、ユーザ理解、店舗ロボット、マルチモーダル行動理解が研究テーマへ直結。",
+    caution: "2028年冬・春の募集は未定。国際会議投稿、博士論文利用、知財、終了後の執筆条件を案件ごとに確認。",
+    href: "https://www.cyberagent.co.jp/news/detail/id%3D33182",
+  },
+  {
+    rank: "02",
+    name: "OMRON SINIC X",
+    role: "3か月・単位候補と論文を両立",
+    facts: "2026年7月確認時点で通年募集。原則3か月、月24〜48万円、働き方は相談可能。",
+    fit: "Robotics、HCI、Interaction、機械学習。複数メンターとロボット・センサ等の研究環境がある。",
+    caution: "3か月なら自動的に単位になるわけではない。応募前にJAISTの計画承認と知財・公開条件を確認。",
+    href: "https://www.omron.com/sinicx/internship/",
+  },
+  {
+    rank: "03",
+    name: "NEC",
+    role: "大企業研究と共同論文の候補",
+    facts: "2026年度は8〜9月中心、一部長期・日程相談。時給1,500円。",
+    fit: "人間モデリング、マルチモーダル認識、Agent AI、Physical AIが近い。共同論文へ進んだ公式事例もある。",
+    caution: "募集要項ではインターン中の発明・著作権等はNEC帰属。博士論文利用と投稿可否は別途書面化する。",
+    href: "https://jpn.nec.com/rd/rdcareer/internship/guideline/",
+  },
+  {
+    rank: "04",
+    name: "Sony / 日立",
+    role: "長期企業研究・就職先判断",
+    facts: "Sonyは3か月以上・週2〜3日程度、日立は博士向け1.5〜3か月の長期有給枠を公開。",
+    fit: "ユーザモデル、Human-AI Interaction、Physical AI、音声・対話エージェント等の関連テーマがある。",
+    caution: "テーマ単位で論文・知財条件を確認。週2〜3日の暦3か月をJAISTがどう評価するかも事前確認。",
+    href: "https://www.sony.com/ja/SonyInfo/Jobs/sgc-recruit/newgrads/internship/master-doctor-internship/",
+  },
+  {
+    rank: "05",
+    name: "HRI-JP",
+    role: "研究適合が高い特別候補",
+    facts: "マルチモーダル対話、人中心AI、Social Interactionとの適合は高い。",
+    fit: "ラポール推定から社会的状態に適応するロボット行動へ進む共同研究案を個別提案する。",
+    caution: "2026年の博士学生向け正式公募、期間、報酬、知財条件は確認できていない。公募枠とは書かず個別打診する。",
+    href: "https://www.jp.honda-ri.com/recruit/",
+  },
+  {
+    rank: "06",
+    name: "PFN / Woven",
+    role: "技術・企業文化の探索",
+    facts: "PFNの2026年長期枠は約6週間、Wovenの公開枠は3か月・週5日。",
+    fit: "機械学習、ロボティクス、実世界AIの技術経験と就職先判断に向く。",
+    caution: "PFNは大学研究テーマの持込み不可、知財は同社帰属。論文が出ない場合は博士論文成果に数えない。",
+    href: "https://www.preferred.jp/ja/careers/internship",
+  },
+];
+
+export const internshipThemes = [
+  {
+    key: "A",
+    label: "PRIMARY",
+    title: "ラポールからロボット行動へ",
+    text: "対話品質・離脱予兆を使い、「継続・話題変更・終了前置き・対話終了」の選択を8週間で検証する。",
+  },
+  {
+    key: "B",
+    label: "MULTIMODAL",
+    title: "実環境の人間状態を理解する",
+    text: "発話、音声、視線、姿勢、時間変化、ロボット行動をマルチモーダルLLMで統合し、対話品質を評価する。",
+  },
+  {
+    key: "C",
+    label: "TRANSFER",
+    title: "環境を越えて一般化する",
+    text: "JAISTのドラッグストアデータと企業側環境の差を分析し、ドメイン一般化・適応の方法を検証する。",
+  },
+];
+
+export const internshipOutputModels = [
+  {
+    key: "A",
+    title: "論文優先型",
+    text: "公開可能なJAIST・公開データに企業の技術・計算環境を組み合わせる。投稿先と共著者を開始前に固定する。",
+    verdict: "第一選択",
+  },
+  {
+    key: "B",
+    title: "二層成果型",
+    text: "企業内は機密データ、公開論文はJAIST・公開・匿名化データで構成する。企業内成果と論文を分離する。",
+    verdict: "機密案件の現実解",
+  },
+  {
+    key: "C",
+    title: "キャリア経験型",
+    text: "製品実装や企業文化の理解を目的にし、公開論文を約束しない。博士論文の独立成果には数えない。",
+    verdict: "就職判断として実施",
+  },
+];
+
+export const internshipReadiness = [
+  ["研究質問", "100%", "8週間で答える一問と主評価指標を固定"],
+  ["データ・倫理・契約", "100%", "持込み、利用、公開、保管、終了後アクセスを承認済み"],
+  ["ベースライン", "1本以上", "開始初日に企業環境で再現できる状態"],
+  ["関連研究", "70〜80%", "主要引用と差分を整理"],
+  ["論文構成", "30〜40%", "仮題、主張、必要図表、投稿先を用意"],
+];
+
+export const internshipContractGroups = [
+  {
+    title: "投稿",
+    items: ["国際会議投稿の可否", "投稿先の制限", "社内審査に必要な週数", "特許判断と公開延期の期限"],
+  },
+  {
+    title: "博士論文",
+    items: ["章への利用可否", "機関リポジトリ公開", "エンバーゴ期間", "公聴会・審査資料での利用"],
+  },
+  {
+    title: "データ・コード",
+    items: ["JAIST資産の持込み", "終了後アクセス", "コード・重みの帰属", "持帰れる図表・集計値"],
+  },
+  {
+    title: "知財・著者",
+    items: ["発明・著作権の帰属", "第一著者と著者順", "企業共著者の条件", "JAIST側の責任著者"],
+  },
+  {
+    title: "継続",
+    items: ["週次メンター", "帰任後の担当者", "残実験と執筆の契約", "社内審査・投稿の期限"],
+  },
+];
+
+export const internshipScoreRows = [
+  "博士論文との連続性",
+  "論文公開の条件",
+  "週次メンター",
+  "独自データ・設備",
+  "8週間での実現性",
+  "知財・博士論文利用",
+  "終了後アクセス",
+  "報酬・住居・交通",
+  "就職先としての関心",
+];
+
+export const internshipRisks = [
+  ["機密データで投稿できない", "公開データを使う二層成果型へ切り替える"],
+  ["終了後に環境へ入れない", "終了前に結果・図表・許可範囲を凍結する"],
+  ["社内公開審査が遅れる", "投稿締切の6〜8週間前に審査へ出す"],
+  ["特許出願で公開が止まる", "契約時に特許判断の期限を決める"],
+  ["採用説明と研究現場が違う", "研究メンターと契約担当の双方から書面回答を取る"],
+  ["夜・週末まで研究が続く", "JAIST研究との二重稼働を前提にせず、一方を止める"],
+];
+
+export const internshipPrep = [
+  {
+    time: "2026.08–09",
+    title: "制度と研究者を調べる",
+    text: "JAIST窓口を確認し、CyberAgent・OMRON・NEC・HRI-JPの関連研究者を各3名調べる。",
+  },
+  {
+    time: "2026.10–12",
+    title: "応募の核をつくる",
+    text: "日英CV、1ページ研究概要、企業別提案、10枚以内の研究紹介、公開可能なコード・デモを作る。",
+  },
+  {
+    time: "2027.01–03",
+    title: "説明できる状態にする",
+    text: "90秒・5分・15分で修士研究と企業提案を説明し、D1冬かD2前半かを指導教員と仮決定する。",
+  },
+  {
+    time: "2027.04–09",
+    title: "募集監視と事前相談",
+    text: "ジョブ型システムへ登録し、毎年1月から募集を確認。応募資料は3月末までに更新する。",
+  },
+  {
+    time: "2027.10–12",
+    title: "4〜6テーマへ応募",
+    text: "論文重視、大企業研究、就職探索を混ぜて応募し、研究メンターと契約担当の双方から条件を取る。",
+  },
+];
+
+export const internshipFundingNotes = [
+  {
+    label: "JSPS DC",
+    title: "2026年度ルールを基準に、2028年度版を再確認",
+    text: "研究に資するトレーニング、研究への支障なし、受入研究者の承諾が前提で、参加は原則通算6か月以内。報酬受給の報告も含め、実施年度の手引を確認する。",
+  },
+  {
+    label: "JAIST SPRING",
+    title: "有給だから直ちに対象外ではない",
+    text: "現行JST FAQは有給インターンを推奨する一方、研究・育成活動への支障を見ます。高額・長期・継続雇用は事務局へ書面確認する。",
+  },
+  {
+    label: "雇用・税",
+    title: "契約形態で扱いが変わる",
+    text: "給与か謝金か、源泉徴収票、社会保険、雇用保険、交通・宿泊費の課税、DC・SPRINGへの報告方法を確認する。",
+  },
+];
+
+export const internshipGo = [
+  "論文・博士論文への利用条件が書面で明確",
+  "週次メンターと8週間の実験計画がある",
+  "終了時に原稿60〜80%と再現可能な結果を持ち帰れる",
+  "終了後6週間の執筆担当と投稿日が決まる",
+  "海外留学との間を8週間以上空けられる",
+];
+
+export const internshipReject = [
+  "論文公開または知財条件が0点",
+  "博士論文のどの章になるか説明できない",
+  "終了後にデータ・計算環境・図表へアクセスできない",
+  "研究メンターと契約担当の説明が一致しない",
+  "夜・週末にJAIST研究を並行しないと成立しない",
 ];
 
 export const overseasRoadmap = [
@@ -867,6 +1142,10 @@ export const sourceGroups: { title: string; links: LinkItem[] }[] = [
         href: "https://www.jaist.ac.jp/education/courses/minor.html",
       },
       {
+        label: "博士後期課程・インターンシップの単位化",
+        href: "https://www.jaist.ac.jp/careersupport/doctor/",
+      },
+      {
         label: "研究留学・国際会議・インターン助成",
         href: "https://www.jaist.ac.jp/studentlife/support/grant.html",
       },
@@ -916,6 +1195,14 @@ export const sourceGroups: { title: string; links: LinkItem[] }[] = [
         href: "https://www.jst.go.jp/jisedai/spring/",
       },
       {
+        label: "ジョブ型研究インターンシップ FAQ",
+        href: "https://coopj-intern.com/faq",
+      },
+      {
+        label: "ジョブ型研究インターンシップ 参加機関",
+        href: "https://coopj-intern.com/membership",
+      },
+      {
         label: "JREC-IN Portal",
         href: "https://jrecin.jst.go.jp/seek/SeekTop",
       },
@@ -933,8 +1220,32 @@ export const sourceGroups: { title: string; links: LinkItem[] }[] = [
         href: "https://www.cyberagent.co.jp/news/detail/id%3D33182",
       },
       {
+        label: "OMRON SINIC X Internship",
+        href: "https://www.omron.com/sinicx/internship/",
+      },
+      {
+        label: "NEC 研究インターンシップ",
+        href: "https://jpn.nec.com/rd/rdcareer/internship/guideline/",
+      },
+      {
+        label: "Honda Research Institute Japan",
+        href: "https://www.jp.honda-ri.com/recruit/",
+      },
+      {
+        label: "Sony 長期有給インターンシップ",
+        href: "https://www.sony.com/ja/SonyInfo/Jobs/sgc-recruit/newgrads/internship/master-doctor-internship/",
+      },
+      {
+        label: "日立 博士向けインターンシップ",
+        href: "https://www.hitachi.co.jp/recruit/doctor/",
+      },
+      {
         label: "Preferred Networks Internship",
-        href: "https://www.preferred.jp/en/careers/internship",
+        href: "https://www.preferred.jp/ja/careers/internship",
+      },
+      {
+        label: "Woven by Toyota Internship",
+        href: "https://woven.toyota/en/careers/internship/",
       },
       {
         label: "RIKEN Student Researcher",

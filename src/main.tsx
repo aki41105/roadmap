@@ -10,6 +10,20 @@ import {
   eightWeekPlan,
   externalProjects,
   hostCandidates,
+  internshipCandidates,
+  internshipContractGroups,
+  internshipFundingNotes,
+  internshipGo,
+  internshipOutputModels,
+  internshipPrep,
+  internshipProcedures,
+  internshipReadiness,
+  internshipReject,
+  internshipRisks,
+  internshipRules,
+  internshipScoreRows,
+  internshipThemes,
+  internshipWindows,
   jaistOverseasGrant,
   jspsRoutes,
   lifeCards,
@@ -37,6 +51,7 @@ const navigation = [
   ["#overview", "全体像"],
   ["#timeline", "年表"],
   ["#research", "研究"],
+  ["#internship", "企業インターン"],
   ["#overseas", "海外留学"],
   ["#degree", "学位・制度"],
   ["#career", "就活"],
@@ -168,7 +183,7 @@ function App() {
                 </div>
               </dl>
               <p>
-                このページの「公式」は2026年7月25日時点の公開情報、「計画」は本人の希望から作った内部目標です。
+                このページの「公式」は2026年7月26日時点の公開情報、「計画」は本人の希望から作った内部目標です。
               </p>
             </aside>
           </div>
@@ -478,9 +493,333 @@ function App() {
           </details>
         </section>
 
-        <section className="section overseas-section" id="overseas">
+        <section className="section internship-section" id="internship">
           <SectionHeading
             number="04"
+            eyebrow="ENTERPRISE RESEARCH INTERNSHIP · PRIMARY PLAN"
+            title="企業研究インターンは、一度に絞る"
+            text="博士論文の一章、国際論文、就職先判断を同時に残す6〜8週間〜2か月。本命はD1冬、代替はD2前半とし、海外留学の直前には入れません。"
+          />
+
+          <div className="internship-hero">
+            <div className="internship-date">
+              <span>PRIMARY · D1 WINTER</span>
+              <strong>2028.01—03</strong>
+              <p>
+                募集または個別調整が成立した場合に、6〜8週間〜2か月実施。終了後6週間を論文化へ固定する。
+              </p>
+            </div>
+            <div className="internship-principle">
+              <p className="eyebrow">THE ONE-INTERNSHIP RULE</p>
+              <h3>「企業を経験した」ではなく、研究成果を持ち帰る。</h3>
+              <p>
+                8週間で答える一問、週次メンター、公開条件、帰任後の執筆契約がそろった案件だけを選びます。単位、論文、就職探索は同じ制度ではないため、目的を混同しません。
+              </p>
+            </div>
+          </div>
+
+          <div className="internship-windows" aria-label="企業研究インターンの時期">
+            {internshipWindows.map((window) => (
+              <article className={window.status === "入れない" ? "is-avoid" : ""} key={window.status}>
+                <div>
+                  <span>{window.status}</span>
+                  <time>{window.time}</time>
+                </div>
+                <h3>{window.title}</h3>
+                <p>{window.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="subsection-heading internship-subheading">
+            <div>
+              <p className="eyebrow">THREE DIFFERENT CLOCKS</p>
+              <h3>2か月と3か月は、別の条件</h3>
+            </div>
+            <p>
+              添付調査で混在していた期間を整理しました。2026年7月時点の公開情報であり、実施年度の履修案内と書面回答で確定します。
+            </p>
+          </div>
+
+          <div className="internship-rule-grid">
+            {internshipRules.map((rule) => (
+              <article key={rule.label}>
+                <span className="fact-badge">{rule.label}</span>
+                <h3>{rule.title}</h3>
+                <p>{rule.text}</p>
+                <ExternalLink href={rule.href} className="text-link">
+                  公式情報を開く
+                </ExternalLink>
+              </article>
+            ))}
+          </div>
+
+          <div className="internship-correction">
+            <strong>この計画の扱い</strong>
+            <p>
+              6〜8週間〜2か月の企業インターンは、論文と就職判断のために実施する。JAISTの博士課程2単位を狙う場合は、
+              <b>高度な内容・合計おおむね3か月・事前承認</b>
+              を別途満たせるか、2027年度に教育支援課へ書面で確認する。
+            </p>
+          </div>
+
+          <div className="internship-procedure-grid">
+            {internshipProcedures.map((procedure) => (
+              <article key={procedure.step}>
+                <span>{procedure.step}</span>
+                <h3>{procedure.title}</h3>
+                <p>{procedure.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="subsection-heading internship-subheading">
+            <div>
+              <p className="eyebrow">CANDIDATE SHORTLIST</p>
+              <h3>目的で選ぶ、企業候補</h3>
+            </div>
+            <p>
+              報酬・期間は2026年度または2026年7月確認時点の情報です。2028年度の募集、応募資格、勤務形態、知財条件を再確認します。
+            </p>
+          </div>
+
+          <div className="internship-candidate-grid">
+            {internshipCandidates.map((candidate) => (
+              <article key={candidate.name}>
+                <div className="internship-candidate-top">
+                  <span>{candidate.rank}</span>
+                  <p>{candidate.role}</p>
+                </div>
+                <h3>{candidate.name}</h3>
+                <dl>
+                  <div>
+                    <dt>公開情報</dt>
+                    <dd>{candidate.facts}</dd>
+                  </div>
+                  <div>
+                    <dt>研究との接続</dt>
+                    <dd>{candidate.fit}</dd>
+                  </div>
+                  <div>
+                    <dt>確認事項</dt>
+                    <dd>{candidate.caution}</dd>
+                  </div>
+                </dl>
+                <ExternalLink href={candidate.href} className="text-link">
+                  公式ページ
+                </ExternalLink>
+              </article>
+            ))}
+          </div>
+
+          <div className="internship-choice">
+            <div>
+              <span>論文優先</span>
+              <strong>CyberAgent AI Lab</strong>
+              <p>2か月で論文へ進める本命。冬・春の実施可否は将来の募集または個別調整次第。</p>
+            </div>
+            <div>
+              <span>単位も検討</span>
+              <strong>OMRON SINIC X</strong>
+              <p>3か月設計の候補。ただし期間だけで単位認定されるわけではなく、JAISTの事前承認が必要。</p>
+            </div>
+            <div>
+              <span>個別提案</span>
+              <strong>HRI-JP</strong>
+              <p>研究適合は高いが、公開中の博士向け枠は未確認。共同研究案として研究者経由で打診する。</p>
+            </div>
+          </div>
+
+          <div className="subsection-heading internship-subheading">
+            <div>
+              <p className="eyebrow">RESEARCH QUESTION</p>
+              <h3>8週間で答える一問</h3>
+            </div>
+            <p>
+              新しいテーマを探す期間にはしません。「推定 → 予測 → 適応」の博士研究から、企業環境でしか検証できない一問を切り出します。
+            </p>
+          </div>
+
+          <div className="internship-theme-grid">
+            {internshipThemes.map((theme) => (
+              <article key={theme.key}>
+                <div>
+                  <span>{theme.key}</span>
+                  <small>{theme.label}</small>
+                </div>
+                <h3>{theme.title}</h3>
+                <p>{theme.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="internship-output-grid">
+            {internshipOutputModels.map((model) => (
+              <article key={model.key}>
+                <div>
+                  <span>型 {model.key}</span>
+                  <em>{model.verdict}</em>
+                </div>
+                <h3>{model.title}</h3>
+                <p>{model.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="subsection-heading internship-subheading">
+            <div>
+              <p className="eyebrow">8-WEEK EXECUTION</p>
+              <h3>開始前に、半分終わらせる</h3>
+            </div>
+            <p>
+              企業内の8週間は実験に集中します。問い、許可、倫理、契約は100%完了し、終了時に原稿60〜80%と投稿までの担当を持ち帰ります。
+            </p>
+          </div>
+
+          <div className="internship-execution">
+            <div className="internship-readiness">
+              <p className="eyebrow">DAY 0 READINESS</p>
+              <h3>開始時の完成度</h3>
+              <dl>
+                {internshipReadiness.map(([item, target, detail]) => (
+                  <div key={item}>
+                    <dt>{item}</dt>
+                    <dd>
+                      <strong>{target}</strong>
+                      <span>{detail}</span>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            <ol>
+              {eightWeekPlan.map(([week, action]) => (
+                <li key={week}>
+                  <span>WEEK {week}</span>
+                  <p>{action}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <details className="internship-details">
+            <summary>
+              <span>
+                <small>BEFORE SIGNING</small>
+                契約前チェックリスト
+              </span>
+              <i aria-hidden="true">＋</i>
+            </summary>
+            <p>
+              オファー受諾後ではなく、テーマ面談または契約確認時に書面でそろえます。特に「公開できる」と「博士論文へ使える」は別の質問です。
+            </p>
+            <div>
+              {internshipContractGroups.map((group) => (
+                <section key={group.title}>
+                  <h3>{group.title}</h3>
+                  <ul>
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          </details>
+
+          <div className="internship-score">
+            <div className="internship-score-copy">
+              <p className="eyebrow">ACCEPTANCE SCORE · 18 POINTS</p>
+              <h3>雰囲気ではなく、9項目で受諾する</h3>
+              <p>各項目0〜2点。論文公開または知財・博士論文利用が0点なら、総得点にかかわらず中核研究にはしません。</p>
+              <div>
+                <span><b>15–18</b> 博士論文の中心候補</span>
+                <span><b>11–14</b> キャリア形成として実施</span>
+                <span><b>0–10</b> 辞退または短期訪問</span>
+              </div>
+            </div>
+            <ol>
+              {internshipScoreRows.map((item, index) => (
+                <li key={item}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <p>{item}</p>
+                  <em>0 · 1 · 2</em>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="internship-risk-list">
+            <div>
+              <p className="eyebrow">RISK CONTROL</p>
+              <h3>論文にならない原因を、契約前に消す</h3>
+            </div>
+            <dl>
+              {internshipRisks.map(([risk, response]) => (
+                <div key={risk}>
+                  <dt>{risk}</dt>
+                  <dd>{response}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="subsection-heading internship-subheading">
+            <div>
+              <p className="eyebrow">APPLICATION PREPARATION</p>
+              <h3>2026年から作る応募導線</h3>
+            </div>
+            <p>
+              募集は年度ごとに変わるため、毎年1月から監視し、3月末までに応募資料を完成させます。D1冬は冬募集と個別案件を中心に探します。
+            </p>
+          </div>
+
+          <div className="internship-prep">
+            {internshipPrep.map((phase, index) => (
+              <article key={phase.time}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <time>{phase.time}</time>
+                <h3>{phase.title}</h3>
+                <p>{phase.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="internship-funding">
+            {internshipFundingNotes.map((note) => (
+              <article key={note.label}>
+                <span className="fact-badge">{note.label}</span>
+                <h3>{note.title}</h3>
+                <p>{note.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="internship-gates">
+            <div className="internship-go">
+              <p className="eyebrow">GO</p>
+              <h3>受ける条件</h3>
+              <ul>
+                {internshipGo.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="internship-reject">
+              <p className="eyebrow">DECLINE / REDESIGN</p>
+              <h3>断る、または短期訪問へ変える条件</h3>
+              <ul>
+                {internshipReject.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="section overseas-section" id="overseas">
+          <SectionHeading
+            number="05"
             eyebrow="OVERSEAS RESEARCH · PRIMARY PLAN"
             title="本命は、D2の2028年9〜11月"
             text="海外研究留学は3か月。D1でテーマ・受入先・倫理・資金を固め、D2春〜夏に予備実験まで終え、帰国後6〜8週間で投稿します。"
@@ -709,7 +1048,7 @@ function App() {
 
         <section className="section degree-section" id="degree">
           <SectionHeading
-            number="05"
+            number="06"
             eyebrow="DEGREE & SUPPORT"
             title="学位の公式要件と、申請候補の支援制度"
             text="修了要件は制度上の基準です。日程表はJAISTの標準月と個人の内部締切を分けて表示し、各年度に最新版へ差し替えます。"
@@ -718,7 +1057,7 @@ function App() {
           <div className="official-note">
             <span className="fact-badge">公式情報</span>
             <p>
-              2026年7月25日時点で確認できる公開情報を基準にしています。「内部目標」は余裕を持たせた個人の締切です。研究領域独自の条件や正確な提出日は、指導教員・教務・担当窓口へ確認します。
+              2026年7月26日時点で確認できる公開情報を基準にしています。「内部目標」は余裕を持たせた個人の締切です。研究領域独自の条件や正確な提出日は、指導教員・教務・担当窓口へ確認します。
             </p>
           </div>
 
@@ -805,7 +1144,7 @@ function App() {
 
         <section className="section career-section" id="career">
           <SectionHeading
-            number="06"
+            number="07"
             eyebrow="CAREER"
             title="就活は早く始め、D3前半で終える"
             text="D3後半に選考を残すと、学位論文骨子・予備審査・提出と衝突します。探索はD1、体験はD2、決定はD3前半へ。"
@@ -838,7 +1177,7 @@ function App() {
 
         <section className="section life-section" id="life">
           <SectionHeading
-            number="07"
+            number="08"
             eyebrow="LIFE & MONEY"
             title="暮らしも、博士課程の設計に入れる"
             text="引っ越し、車、山小屋、恋愛、健康は研究の外側ではありません。固定費と時間を先に見積もり、実行条件を明確にします。"
@@ -916,7 +1255,7 @@ function App() {
 
         <section className="section decisions-section" id="decisions">
           <SectionHeading
-            number="08"
+            number="09"
             eyebrow="DECISION GATES"
             title="予定ではなく、条件で決める"
             text="その時点で条件がそろっていなければ、延期・縮小・中止できるようにします。"
@@ -996,7 +1335,7 @@ function App() {
 
         <section className="section sources-section" id="sources">
           <SectionHeading
-            number="09"
+            number="10"
             eyebrow="SOURCES & UPDATES"
             title="参考資料と更新ルール"
             text="制度・募集・学会締切は変わります。公式資料と個人の計画案を分け、定期的に差し替えます。"
@@ -1070,7 +1409,7 @@ function App() {
           </span>
         </div>
         <p>
-          計画基準日 2026.07.25
+          計画基準日 2026.07.26
           <br />
           次回更新：月末レビュー
         </p>
