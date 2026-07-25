@@ -10,9 +10,19 @@ import {
   eightWeekPlan,
   externalProjects,
   hostCandidates,
+  jaistOverseasGrant,
+  jspsRoutes,
   lifeCards,
   nextTwelveMonths,
   oneTimeCosts,
+  overseasChecks,
+  overseasCosts,
+  overseasDelay,
+  overseasExecution,
+  overseasExploration,
+  overseasGo,
+  overseasRoadmap,
+  overseasThemes,
   recoveryWindows,
   researchArc,
   riskRows,
@@ -27,6 +37,7 @@ const navigation = [
   ["#overview", "全体像"],
   ["#timeline", "年表"],
   ["#research", "研究"],
+  ["#overseas", "海外留学"],
   ["#degree", "学位・制度"],
   ["#career", "就活"],
   ["#life", "生活"],
@@ -467,9 +478,238 @@ function App() {
           </details>
         </section>
 
-        <section className="section degree-section" id="degree">
+        <section className="section overseas-section" id="overseas">
           <SectionHeading
             number="04"
+            eyebrow="OVERSEAS RESEARCH · PRIMARY PLAN"
+            title="本命は、D2の2028年9〜11月"
+            text="海外研究留学は3か月。D1でテーマ・受入先・倫理・資金を固め、D2春〜夏に予備実験まで終え、帰国後6〜8週間で投稿します。"
+          />
+
+          <div className="overseas-hero">
+            <div className="overseas-date">
+              <span>D2 · 3 MONTHS</span>
+              <strong>2028.09—11</strong>
+              <p>
+                Visiting PhD等の受入身分 ＋ JAISTの必要手続き ＋
+                JAIST助成・JSPS・受入先支援を比較し、併給条件に合う資金を選ぶ。
+              </p>
+            </div>
+            <div className="overseas-why">
+              <p className="eyebrow">WHY THIS WINDOW</p>
+              <h3>研究を始めに行くのではなく、完成させに行く。</h3>
+              <p>
+                D1末までに博士研究の位置付けを決め、D2春〜夏に倫理・契約・実装・予備実験を終えます。D3前に投稿期間を残せるため、学位日程と就活を守れます。
+              </p>
+            </div>
+          </div>
+
+          <div className="overseas-roadmap" aria-label="海外研究留学の準備工程">
+            {overseasRoadmap.map((phase, index) => (
+              <article key={phase.time}>
+                <span className="phase-index">{String(index + 1).padStart(2, "0")}</span>
+                <p className="eyebrow">{phase.label}</p>
+                <time>{phase.time}</time>
+                <h3>{phase.title}</h3>
+                <p>{phase.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="subsection-heading overseas-subheading">
+            <div>
+              <p className="eyebrow">RESEARCH QUESTION</p>
+              <h3>海外へ行く必然性を、研究テーマにする</h3>
+            </div>
+            <p>
+              受入先は知名度ではなく、固有のデータ・設備・方法、3か月での完結性、定期指導、投稿可否、帰国後の継続性で選びます。
+            </p>
+          </div>
+
+          <div className="overseas-theme-grid">
+            {overseasThemes.map((theme) => (
+              <article key={theme.key}>
+                <div>
+                  <span>{theme.key}</span>
+                  <small>{theme.label}</small>
+                </div>
+                <h3>{theme.title}</h3>
+                <p>{theme.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="subsection-heading overseas-subheading">
+            <div>
+              <p className="eyebrow">3-MONTH EXECUTION</p>
+              <h3>出発前から帰国までの完成条件</h3>
+            </div>
+            <p>
+              現地の3か月を探索期間にしません。研究質問と条件を先に固定し、毎月の出口を論文の完成度で測ります。
+            </p>
+          </div>
+
+          <div className="overseas-execution">
+            {overseasExecution.map((phase) => (
+              <article key={phase.label}>
+                <p className="eyebrow">{phase.label}</p>
+                <h3>{phase.title}</h3>
+                <ul>
+                  {phase.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <details className="overseas-operations" open>
+            <summary>
+              <span>
+                <small>OPERATIONS CHECK</small>
+                倫理・データ・知財・ビザの実務
+              </span>
+              <i aria-hidden="true">＋</i>
+            </summary>
+            <div>
+              {overseasChecks.map((check) => (
+                <section key={check.title}>
+                  <h3>{check.title}</h3>
+                  <ul>
+                    {check.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+            <p>
+              倫理審査には8〜12週間の余裕を置きます。制度・手続き・ビザは年度と国・受入身分で変わるため、2028年度の公式資料と担当窓口で再確認します。
+            </p>
+          </details>
+
+          <details className="overseas-operations overseas-exploration">
+            <summary>
+              <span>
+                <small>OPTIONS &amp; EXPLORATION</small>
+                留学形態・第二候補・外部資金・受入先の選び方
+              </span>
+              <i aria-hidden="true">＋</i>
+            </summary>
+            <div>
+              {overseasExploration.map((group) => (
+                <section key={group.title}>
+                  <h3>{group.title}</h3>
+                  <ul>
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+            <p>
+              第二候補や外部制度は本命計画を増やすためではなく、本命が成立しない場合の代替案です。募集・利用資格・受入条件は申請年度に公式情報で確認します。
+            </p>
+          </details>
+
+          <div className="subsection-heading overseas-subheading">
+            <div>
+              <p className="eyebrow">FUNDING · JSPS</p>
+              <h3>在学中の留学資金と、修了後の海外制度を分ける</h3>
+            </div>
+            <p>
+              「JSPSの海外留学」は一つの制度ではありません。3か月留学に使える可能性がある枠、欧州限定の条件付き支援、修了後2年間の制度を区別します。
+            </p>
+          </div>
+
+          <div className="jsps-grid">
+            <article className="jaist-grant-card">
+              <div className="jsps-card-top">
+                <span className="fact-badge">{jaistOverseasGrant.label}</span>
+                <small>2028年度に再確認</small>
+              </div>
+              <h3>{jaistOverseasGrant.title}</h3>
+              <p>{jaistOverseasGrant.body}</p>
+              <div className="jsps-action">
+                <strong>この計画での扱い</strong>
+                <p>{jaistOverseasGrant.action}</p>
+              </div>
+              <ExternalLink href={jaistOverseasGrant.href} className="text-link">
+                JAIST現行実施要項
+              </ExternalLink>
+            </article>
+            {jspsRoutes.map((route) => (
+              <article key={route.title}>
+                <div className="jsps-card-top">
+                  <span className="fact-badge">{route.label}</span>
+                  <small>{route.status}</small>
+                </div>
+                <h3>{route.title}</h3>
+                <p>{route.body}</p>
+                <div className="jsps-action">
+                  <strong>この計画での扱い</strong>
+                  <p>{route.action}</p>
+                </div>
+                <ExternalLink href={route.href} className="text-link">
+                  JSPS公式情報
+                </ExternalLink>
+              </article>
+            ))}
+          </div>
+
+          <div className="overseas-money">
+            <div className="overseas-cost-total">
+              <p className="eyebrow">GROSS COST · BEFORE FUNDING</p>
+              <strong>76—190<small>万円</small></strong>
+              <p>
+                助成前の3か月総費用。JAISTの授業料、日本の住居・通信・車などの固定費は別に確認し、採択後に自己負担額を再計算します。
+              </p>
+            </div>
+            <dl>
+              {overseasCosts.map(([label, amount]) => (
+                <div key={label}>
+                  <dt>{label}</dt>
+                  <dd>{amount}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="overseas-order">
+              <p className="eyebrow">LIFE ORDER</p>
+              <ol>
+                <li>D1〜D2前半は寮</li>
+                <li>車を買わない</li>
+                <li>海外研究留学を実行</li>
+                <li>帰国後に引っ越し・車を再判定</li>
+              </ol>
+            </div>
+          </div>
+
+          <div className="overseas-gates">
+            <div className="overseas-go">
+              <p className="eyebrow">GO · 2028.08</p>
+              <h3>すべてそろえば出発</h3>
+              <ul>
+                {overseasGo.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="overseas-delay">
+              <p className="eyebrow">DELAY / REDESIGN</p>
+              <h3>一つでも重大なら延期</h3>
+              <ul>
+                {overseasDelay.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="section degree-section" id="degree">
+          <SectionHeading
+            number="05"
             eyebrow="DEGREE & SUPPORT"
             title="学位の公式要件と、申請候補の支援制度"
             text="修了要件は制度上の基準です。日程表はJAISTの標準月と個人の内部締切を分けて表示し、各年度に最新版へ差し替えます。"
@@ -565,7 +805,7 @@ function App() {
 
         <section className="section career-section" id="career">
           <SectionHeading
-            number="05"
+            number="06"
             eyebrow="CAREER"
             title="就活は早く始め、D3前半で終える"
             text="D3後半に選考を残すと、学位論文骨子・予備審査・提出と衝突します。探索はD1、体験はD2、決定はD3前半へ。"
@@ -598,7 +838,7 @@ function App() {
 
         <section className="section life-section" id="life">
           <SectionHeading
-            number="06"
+            number="07"
             eyebrow="LIFE & MONEY"
             title="暮らしも、博士課程の設計に入れる"
             text="引っ越し、車、山小屋、恋愛、健康は研究の外側ではありません。固定費と時間を先に見積もり、実行条件を明確にします。"
@@ -676,7 +916,7 @@ function App() {
 
         <section className="section decisions-section" id="decisions">
           <SectionHeading
-            number="07"
+            number="08"
             eyebrow="DECISION GATES"
             title="予定ではなく、条件で決める"
             text="その時点で条件がそろっていなければ、延期・縮小・中止できるようにします。"
@@ -756,7 +996,7 @@ function App() {
 
         <section className="section sources-section" id="sources">
           <SectionHeading
-            number="08"
+            number="09"
             eyebrow="SOURCES & UPDATES"
             title="参考資料と更新ルール"
             text="制度・募集・学会締切は変わります。公式資料と個人の計画案を分け、定期的に差し替えます。"
