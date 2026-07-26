@@ -22,6 +22,7 @@ const fieldLabels: Record<string, string> = {
   href: "公式・参考リンク",
   secondaryHref: "関連する公式リンク",
   internal: "この計画での目標",
+  item: "費目",
   items: "確認項目",
   label: "区分",
   monthly: "月額",
@@ -290,6 +291,7 @@ function recordTitle(item: UnknownRecord, index: number) {
   const title =
     item.title ??
     item.name ??
+    item.item ??
     item.label ??
     item.time ??
     item.period ??

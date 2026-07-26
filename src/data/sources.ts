@@ -14,6 +14,10 @@ const knownSourceIds: Record<string, string> = {
     "jaist-research-stay-rules",
   "https://www.jaist.ac.jp/studentlife/support/scholarships.html": "jaist-scholarships",
   "https://www.jaist.ac.jp/international/abroad/": "jaist-study-abroad",
+  "https://www.jaist.ac.jp/english/education/courses/ts-d-internship.html":
+    "jaist-overseas-research-challenge",
+  "https://www.jaist.ac.jp/english/international/exchange/":
+    "jaist-exchange-agreements",
   "https://www.jaist.ac.jp/jisedai/": "jaist-spring",
   "https://www.jsps.go.jp/j-pd/pd_tebiki.html": "jsps-dc-guide",
   "https://www.jsps.go.jp/j-grantsinaid/20_tokushourei/index.html": "jsps-research-grant",
@@ -22,7 +26,8 @@ const knownSourceIds: Record<string, string> = {
   "https://www.jsps.go.jp/j-abc/": "jsps-overseas-challenge-closed",
   "https://www.jst.go.jp/jisedai/spring/": "jst-spring",
   "https://coopj-intern.com/faq": "job-internship-faq",
-  "https://www.jasso.go.jp/ryugaku/study_a/index.html": "jasso-study-abroad",
+  "https://www.jasso.go.jp/ryugaku/scholarship_a/haken/index.html":
+    "jasso-agreement-dispatch",
   "https://www.nii.ac.jp/research/kenkyou/tokubetsukenkyuin/": "nii-special-researcher",
   "https://www.nii.ac.jp/en/faculty/society/bono_mayumi/": "nii-bono-profile",
   "https://research.nii.ac.jp/~bono/en/aboutus/internship.html": "nii-bono-internship",

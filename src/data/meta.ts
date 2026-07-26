@@ -35,7 +35,7 @@ export const routes: RouteDefinition[] = [
     path: "/roadmap/internships/",
     label: "インターン・就活",
     shortLabel: "インターン・就活",
-    description: "D1〜D3のインターンと就活の大きな時期を確認する。",
+    description: "D1・D2のインターンと就活の大きな時期を確認する。",
     order: 2,
   },
   {
@@ -43,7 +43,7 @@ export const routes: RouteDefinition[] = [
     path: "/roadmap/overseas/",
     label: "留学",
     shortLabel: "留学",
-    description: "D2冬の約3か月の海外研究留学を確認する。",
+    description: "D2の約6か月の海外研究留学を確認する。",
     order: 3,
   },
   {

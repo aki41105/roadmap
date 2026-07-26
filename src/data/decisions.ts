@@ -70,7 +70,7 @@ const gateNormalization: Record<string, GateNormalization> = {
     priority: "高",
   },
   海外研究留学・最終GO: {
-    sortDate: "2028-09-30",
+    sortDate: "2028-05-31",
     category: "海外研究",
     priority: "高",
     sourceIds: ["jaist-research-stay-rules", "jaist-research-grants"],
@@ -80,7 +80,7 @@ const gateNormalization: Record<string, GateNormalization> = {
     category: "資金・生活",
     priority: "中",
   },
-  D3夏の学位ゲート: {
+  D3博士論文の進捗確認: {
     sortDate: "2029-05-31",
     category: "学位",
     priority: "最優先",
@@ -91,20 +91,10 @@ const gateNormalization: Record<string, GateNormalization> = {
     category: "キャリア",
     priority: "高",
   },
-  D3夏の条件付き受諾: {
-    sortDate: "2029-06-30",
-    category: "企業インターン",
-    priority: "高",
-  },
-  D3夏の骨子後再確認: {
+  博士論文骨子後の再確認: {
     sortDate: "2029-07",
-    category: "企業インターン",
+    category: "学位",
     priority: "高",
-  },
-  D3企業活動の終了: {
-    sortDate: "2029-09",
-    category: "企業インターン",
-    priority: "最優先",
   },
   予備審査願: {
     sortDate: "2029-10",
@@ -188,10 +178,6 @@ const riskNormalization: Record<string, RiskNormalization> = {
   孤立: {
     category: "健康・人間関係",
     priority: "中",
-  },
-  D3企業の残務が続く: {
-    category: "学位",
-    priority: "高",
   },
 };
 

@@ -61,8 +61,8 @@ const careerNormalization: CareerNormalization[] = [
   },
   {
     date: {
-      start: "2029-05",
-      end: "2029-09",
+      start: "2029-04",
+      end: "2029-06",
       precision: "月",
       display: careerSteps[5][0],
     },
@@ -91,7 +91,7 @@ export const careerDecisionPolicy = {
   target:
     "主要な就職先の比較と選考は早めに始め、2029年6月までの仮決定を目標にする。",
   safeguard:
-    "D3夏の企業研究は就職活動の代替にせず、5月31日の学位ゲートを通過した場合だけ実施する。",
+    "企業研究インターンはD1・D2で終え、D3は博士論文と就職先の決定に集中する。",
   status: "予定" as const,
   certainty: "本人計画" as const,
   sourceIds: ["personal-integrated-plan", "roadmap-planning-proposal"],

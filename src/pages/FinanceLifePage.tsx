@@ -8,7 +8,7 @@ import {
   moneyRules,
   oneTimeCostEstimates,
   overseasCostEstimates,
-  overseasStayFunding,
+  overseasPrimaryFundingRoutes,
   universityAndExternalFunding,
 } from "../data/finances";
 import {
@@ -44,7 +44,7 @@ const recurringExpenses = [
   ["食費・日用品", "概算", "月次支出記録から本人実績へ置換"],
   ["学会費・研究費", "概算", "参加費、交通、宿泊、投稿費、予備費"],
   ["国内滞在費", "概算", "短期住居、往復交通、食費、寮との二重負担"],
-  ["海外留学費", "概算", "渡航、住居、保険、ビザ、現地交通、二重家賃"],
+  ["海外留学費", "要再試算", "6か月分の渡航、住居、保険、ビザ、現地交通、二重家賃"],
   ["車の維持費", "概算", "保険、税、車検、冬タイヤ、燃料、駐車場、償却"],
 ] as const;
 
@@ -156,7 +156,9 @@ export function FinanceLifePage() {
             status={(item) => String(item.status ?? "要確認")}
             columns={2}
           />
-          <h3 className="rm-subheading">JSPSを含む海外資金ルート</h3>
+          <h3 className="rm-subheading">
+            JSPS制度の位置付け（主なD2留学資金とは分ける）
+          </h3>
           <RecordCards
             items={jspsFundingRoutes}
             status={(item) => String(item.status ?? "候補")}
@@ -219,26 +221,37 @@ export function FinanceLifePage() {
         id="stays"
         eyebrow="RESEARCH STAY COSTS"
         title="国内滞在・海外留学の資金"
-        intro="国内で在学中一回の海外向け助成候補を消費しないこと、海外は二重家賃を含めることを基本にします。"
+        intro="国内で在学中一回の海外向け助成候補を消費しないこと、海外6か月は二重家賃を含めて再試算することを基本にします。"
       >
-        <CardGrid columns={2}>
-          <Card title={domesticStayFunding.title} badge="要確認">
-            <p>{domesticStayFunding.body}</p>
-            <KeyValueList
-              items={[
-                ["概算", domesticStayFunding.estimate],
-                ["次の行動", domesticStayFunding.action],
-              ]}
-            />
-          </Card>
-          <Card title={overseasStayFunding.title} badge="要確認">
-            <p>{overseasStayFunding.body}</p>
-            <p>
-              <strong>次の行動：</strong>
-              {overseasStayFunding.action}
-            </p>
-          </Card>
-        </CardGrid>
+        <Card title={domesticStayFunding.title} badge="要確認">
+          <p>{domesticStayFunding.body}</p>
+          <KeyValueList
+            items={[
+              ["概算", domesticStayFunding.estimate],
+              ["次の行動", domesticStayFunding.action],
+            ]}
+          />
+        </Card>
+
+        <h3 className="rm-subheading">海外6か月の主な資金候補</h3>
+        <RecordCards
+          items={overseasPrimaryFundingRoutes}
+          status={(item) => String(item.status ?? "要確認")}
+          columns={3}
+        />
+
+        <Callout
+          title="6か月の総費用は受入先決定後に再試算"
+          badge="要再試算"
+          tone="warning"
+        >
+          <p>
+            国・都市・為替・住居条件・日本側の二重家賃で大きく変わります。
+            現時点では費目を確認するための一覧とし、返金不能な契約前に
+            6か月分の月別資金繰りを作ります。
+          </p>
+        </Callout>
+
         <CardGrid columns={3}>
           {overseasCostEstimates.map((cost) => (
             <Card key={cost.id} title={cost.item} badge="推定">

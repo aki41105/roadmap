@@ -7,11 +7,9 @@ import {
   domesticRoadmap,
   domesticSixWeekPlan,
   hostCandidates,
-  jaistOverseasGrant,
   jspsRoutes,
   overseasChecks,
   overseasCompanyCandidates,
-  overseasCosts,
   overseasDelay,
   overseasExecution,
   overseasExploration,
@@ -19,6 +17,10 @@ import {
   overseasRoadmap,
   overseasThemes,
 } from "../data";
+import {
+  overseasCostEstimates,
+  overseasPrimaryFundingRoutes,
+} from "../data/finances";
 import { organizations } from "../data/organizations";
 import { sourceById } from "../data/sources";
 import {
@@ -50,16 +52,16 @@ const stayComparison = [
     "第1優先。ただしD1企業論文投稿が条件",
   ],
   [
-    "D2冬・海外大学研究",
-    "3か月",
+    "D2後半・海外大学研究",
+    "6か月",
     "渡航・住居・保険・ビザ・二重家賃",
-    "JAIST研究留学助成、JSPS等を最新年度で確認",
+    "JAIST研究留学助成、JASSO協定派遣、受入先支援を最新年度で確認",
     "高い：既存成果の一般化・外的妥当性",
     "研究C・統合章の検証",
     "高：受入、資金、倫理、データ移転、知財、著者順、ビザ",
     "高：海外生活と帰国後の回復",
-    "2028年11月〜2029年1月",
-    "最重要の海外枠。最低4週間、計画上は8週間空ける",
+    "2028年9月〜2029年2月",
+    "最重要の海外枠。D2企業は6〜8週間に抑え、8月を移行月として保護",
   ],
 ] as const;
 
@@ -118,12 +120,12 @@ function StayOrganizationCards({
                   organization.fit ??
                     "候補研究室の最近の論文を読み、研究A〜Cとの接続を面談で確認する。",
                 ],
-                ["想定期間", isDomestic ? "4〜6週間" : "3か月"],
+                ["想定期間", isDomestic ? "4〜6週間" : "6か月"],
                 [
                   "推奨時期",
                   isDomestic
                     ? "D1冬・2028年1月中旬〜2月末"
-                    : "D2冬・2028年11月〜2029年1月",
+                    : "D2後半・2028年9月〜2029年2月",
                 ],
               ]}
             />
@@ -140,7 +142,7 @@ function StayOrganizationCards({
                     "資金",
                     isDomestic
                       ? "国内は別予算を基本とし、短期住居・交通・二重住居費を確認。"
-                      : "JAIST研究留学助成、JSPS等、受入先支援を実施年度に確認。",
+                      : "JAIST研究留学助成、JASSO協定派遣、受入先支援を主候補として実施年度に確認。",
                   ],
                   [
                     "事前準備",
@@ -156,7 +158,7 @@ function StayOrganizationCards({
                   [
                     "リスク",
                     organization.caution ??
-                      "受入制度、3か月の指導、論文公開、データ移転、生活条件が未確認。",
+                      "受入制度、6か月の継続指導、論文公開、データ移転、生活条件が未確認。",
                   ],
                 ]}
               />
@@ -177,7 +179,7 @@ export function ResearchStaysPage() {
   return (
     <>
       <Lead>
-        国内滞在はD1冬に一度、海外研究はD2冬に一度だけ置きます。
+        国内滞在はD1冬に一度、海外研究はD2後半に一度だけ置きます。
         国内は「推定の根拠を深める方法論」、海外は「既存成果の一般化・外的妥当性」
         と役割を分け、企業研究と同じ成果を繰り返しません。
       </Lead>
@@ -196,7 +198,7 @@ export function ResearchStaysPage() {
         headingLevel={2}
       >
         <p>
-          D1冬の4〜6週間、D2冬の3か月はいずれも本人の計画です。
+          D1冬の4〜6週間、D2後半の6か月はいずれも本人の計画です。
           受入教員の同意、JAIST側手続き、受入機関の正式承認、資金、倫理、
           データ・知財条件が揃うまで、返金不能な契約はしません。
         </p>
@@ -294,21 +296,39 @@ export function ResearchStaysPage() {
       <Section
         id="overseas"
         eyebrow="OVERSEAS RESEARCH"
-        title="D2冬の海外研究留学"
-        intro="2028年11月〜2029年1月の3か月を本命とし、D2企業研究で作った成果を別環境で検証して完成させます。探索だけで終わらせないことが目的です。"
+        title="D2後半の海外研究留学"
+        intro="2028年9月〜2029年2月の6か月を本命とし、D2企業研究で作った成果を別環境で検証し、共同研究を深めます。探索だけで終わらせず、博士論文へ統合できる成果を残します。"
       >
         <Callout title="海外枠の位置付け" badge="予定" tone="success">
           <p>
-            D2夏の企業研究終了から海外開始まで最低4週間、
-            計画上は8週間を確保し、
-            企業論文を投稿してから出発します。企業インターンを追加する枠ではなく、
-            大学・研究機関で外的妥当性を検証する共同研究枠です。
+            D2企業研究は2028年6〜7月の6〜8週間に抑え、
+            8月を成果整理・回復・渡航準備の専用月として保護します。
+            9月からの海外研究は企業インターンを追加する枠ではなく、
+            大学・研究機関で外的妥当性を検証する6か月の共同研究枠です。
+          </p>
+        </Callout>
+
+        <Callout title="6か月は制度上も検討できる長さ" badge="公式情報" tone="info">
+          <p>
+            JAISTのOverseas Research Challenge Cは2か月超を対象とし、
+            JASSOの協定派遣は8日以上1年以内を対象範囲としています。
+            したがって6か月は期間だけで除外されませんが、受入形態・学内推薦・
+            単位・資金の適用は2028年度に個別確認します。
+          </p>
+          <p>
+            <SourceAnchor href="https://www.jaist.ac.jp/english/education/courses/ts-d-internship.html">
+              JAISTの科目区分
+            </SourceAnchor>
+            {" ／ "}
+            <SourceAnchor href="https://www.jasso.go.jp/ryugaku/scholarship_a/haken/index.html">
+              JASSO協定派遣
+            </SourceAnchor>
           </p>
         </Callout>
 
         <h3 className="rm-subheading">海外大学・研究機関候補</h3>
         <p className="rm-inline-note">
-          候補名は探索リストです。3か月の受入、指導教員、資金、テーマ、
+          候補名は探索リストです。6か月の受入、継続的な指導、資金、テーマ、
           論文化が確定しているという意味ではありません。
         </p>
         <StayOrganizationCards
@@ -353,37 +373,35 @@ export function ResearchStaysPage() {
           />
         </details>
 
-        <CardGrid columns={2}>
-          <Card title="JAIST研究留学助成" badge="要確認">
-            <p>{jaistOverseasGrant.body}</p>
-            <KeyValueList
-              items={[
-                ["位置付け", jaistOverseasGrant.label],
-                ["次の行動", jaistOverseasGrant.action],
-                [
-                  "公式情報",
-                  <SourceAnchor href={jaistOverseasGrant.href}>
-                    {jaistOverseasGrant.title}
-                  </SourceAnchor>,
-                ],
-              ]}
-            />
-          </Card>
-          <Card title="海外滞在費の見積項目" badge="概算">
-            <TupleTable
-              headings={["費目", "計画上の扱い"]}
-              rows={overseasCosts}
-              caption="海外研究留学の費用項目"
-            />
-          </Card>
-        </CardGrid>
+        <h3 className="rm-subheading">6か月留学の主な資金候補</h3>
+        <RecordCards
+          items={overseasPrimaryFundingRoutes}
+          status={(item) => String(item.status ?? "要確認")}
+          columns={3}
+        />
 
-        <h3 className="rm-subheading">JSPSを含む資金ルート</h3>
+        <Card title="海外滞在費の見積項目" badge="要再試算">
+          <p>
+            6か月分は国・都市・為替・二重家賃で大きく変わるため、
+            受入先決定後に月別で再試算します。
+          </p>
+          <RecordCards
+            items={overseasCostEstimates}
+            status="推定"
+            columns={3}
+          />
+        </Card>
+
+        <h3 className="rm-subheading">
+          JSPS制度の位置付け（主なD2留学資金とは分ける）
+        </h3>
+        <p className="rm-inline-note">
+          若手研究者海外挑戦プログラムは募集終了済みです。
+          海外特別研究員は博士修了後2年間の制度で、D2の留学資金ではありません。
+        </p>
         <RecordCards
           items={jspsRoutes}
-          status={(item) =>
-            String(item.status ?? "").includes("終了") ? "要確認" : "候補"
-          }
+          status={(item) => item.label === "旧制度" ? "中止" : "候補"}
           columns={2}
         />
 

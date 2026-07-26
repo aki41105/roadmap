@@ -425,8 +425,8 @@ function assessWarning(rule: ScheduleWarningRule): RealityAssessment {
         : {
             state: "plan-clear",
             label: "計画上クリア",
-            summary: "D3夏の任意枠は最大4週間に制限されています。",
-            evidence: ["D3条件付き企業研究インターン：原則2〜4週間"],
+            summary: "D3後半に長期の外部活動は置いていません。",
+            evidence: ["D3は博士論文・審査・就職決定に集中"],
           };
     }
 

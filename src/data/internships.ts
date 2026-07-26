@@ -23,8 +23,8 @@ import { organizations } from "./organizations";
 import { externalResearchProjects } from "./research";
 
 export const internshipProgram = {
-  id: "three-summer-enterprise-research",
-  title: "D1・D2・D3の論文型企業研究",
+  id: "two-summer-enterprise-research",
+  title: "D1・D2の論文型企業研究",
   status: "予定" as const,
   certainty: "本人計画" as const,
   windows: internshipWindows,
@@ -78,7 +78,7 @@ export const shortResearchInternshipCandidates = {
 export const nttReference = {
   status: "候補" as const,
   certainty: "公式" as const,
-  role: "D3候補の一つであり、固定先ではない",
+  role: "D2の比較候補。6〜8週間と論文化条件を満たす場合だけ選ぶ",
   themes: nttInternshipThemes,
   sourceIds: [
     "personal-integrated-plan",

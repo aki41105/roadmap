@@ -2,7 +2,7 @@ import { Lead, Section } from "./PageKit";
 
 const workPeriods = [
   {
-    period: "2027.07–09",
+    period: "2027.07–08",
     dateTime: "2027-07",
     label: "D1 企業研究インターン",
     purpose:
@@ -10,7 +10,7 @@ const workPeriods = [
     outputs: ["主な実験結果", "再現可能なコード", "投稿原稿の土台"],
   },
   {
-    period: "2028.06–08",
+    period: "2028.06–07",
     dateTime: "2028-06",
     label: "D2 企業研究インターン",
     purpose:
@@ -28,10 +28,10 @@ const workPeriods = [
   {
     period: "2029.04–09",
     dateTime: "2029-04",
-    label: "D3 就職決定・条件付きインターン",
+    label: "D3 博士論文・就職決定",
     purpose:
-      "博士論文を最優先にしながら就職先を決め、余裕がある場合だけ短期インターンを行います。",
-    outputs: ["進路決定", "博士論文との両立判断", "必要な場合の就職先比較メモ"],
+      "新しいインターンは入れず、博士論文を完成させながら就職先を決めます。",
+    outputs: ["進路決定", "博士論文の全体初稿", "審査準備"],
   },
 ] as const;
 

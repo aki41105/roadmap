@@ -184,9 +184,9 @@ export function validateRoadmapData(): DataValidationReport {
       );
     }
   }
-  if (doctoralDecisionPoints.length !== 8) {
+  if (doctoralDecisionPoints.length !== 7) {
     throw new Error(
-      `博士課程判断ポイントは8件である必要があります: ${doctoralDecisionPoints.length}`,
+      `博士課程判断ポイントは7件である必要があります: ${doctoralDecisionPoints.length}`,
     );
   }
 

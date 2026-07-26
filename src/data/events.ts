@@ -24,6 +24,58 @@ type TimelineNormalization = {
   priority: Priority;
 };
 
+const d2InternshipTimeline = {
+  date: {
+    start: "2028-06",
+    end: "2028-07",
+    precision: "月",
+    display: "2028.06–07",
+  },
+  phase: "D2",
+  category: "企業インターン",
+  title: "D2夏の論文型企業研究（6〜8週間）",
+  priority: "高",
+} satisfies TimelineNormalization;
+
+const d2TransitionTimeline = {
+  date: {
+    start: "2028-08",
+    end: "2028-08",
+    precision: "月",
+    display: "2028.08",
+  },
+  phase: "D2",
+  category: "海外研究",
+  title: "企業成果の整理・回復・海外研究の最終準備",
+  priority: "最優先",
+} satisfies TimelineNormalization;
+
+const d2OverseasTimeline = {
+  date: {
+    start: "2028-09",
+    end: "2029-02",
+    precision: "月",
+    display: "2028.09–2029.02",
+  },
+  phase: "D2",
+  category: "海外研究",
+  title: "6か月の海外共同研究で外的妥当性を検証",
+  priority: "高",
+} satisfies TimelineNormalization;
+
+const d2ReturnTimeline = {
+  date: {
+    start: "2029-03",
+    end: "2029-03",
+    precision: "月",
+    display: "2029.03",
+  },
+  phase: "D2",
+  category: "研究",
+  title: "帰国・回復・海外成果の統合",
+  priority: "最優先",
+} satisfies TimelineNormalization;
+
 const timelineNormalization: Record<string, TimelineNormalization> = {
   "2026 Q3": {
     date: {
@@ -121,54 +173,10 @@ const timelineNormalization: Record<string, TimelineNormalization> = {
     title: "国内成果の原稿化とD2企業研究の準備",
     priority: "最優先",
   },
-  "2028.06–08": {
-    date: {
-      start: "2028-06",
-      end: "2028-08",
-      precision: "月",
-      display: "2028.06–08",
-    },
-    phase: "D2",
-    category: "企業インターン",
-    title: "D2夏の論文型企業研究",
-    priority: "高",
-  },
-  "2028.09–10": {
-    date: {
-      start: "2028-09",
-      end: "2028-10",
-      precision: "月",
-      display: "2028.09–10",
-    },
-    phase: "D2",
-    category: "海外研究",
-    title: "D2企業論文の投稿と海外研究の最終準備",
-    priority: "最優先",
-  },
-  "2028.11–2029.01": {
-    date: {
-      start: "2028-11",
-      end: "2029-01",
-      precision: "月",
-      display: "2028.11–2029.01",
-    },
-    phase: "D2",
-    category: "海外研究",
-    title: "海外大学で外的妥当性を検証",
-    priority: "高",
-  },
-  "2029.02–03": {
-    date: {
-      start: "2029-02",
-      end: "2029-03",
-      precision: "月",
-      display: "2029.02–03",
-    },
-    phase: "D2",
-    category: "研究",
-    title: "海外成果の投稿と博士論文構成の固定",
-    priority: "最優先",
-  },
+  "2028.06–07": d2InternshipTimeline,
+  "2028.08": d2TransitionTimeline,
+  "2028.09–2029.02": d2OverseasTimeline,
+  "2029.03": d2ReturnTimeline,
   "2029 Q2": {
     date: {
       start: "2029-04",
@@ -178,7 +186,7 @@ const timelineNormalization: Record<string, TimelineNormalization> = {
     },
     phase: "D3",
     category: "学位",
-    title: "博士論文初稿とD3夏の学位ゲート",
+    title: "博士論文初稿と就職先の決定",
     priority: "最優先",
   },
   "2029 Q3": {
@@ -190,7 +198,7 @@ const timelineNormalization: Record<string, TimelineNormalization> = {
     },
     phase: "D3",
     category: "学位",
-    title: "学位論文骨子と条件付きの追加企業研究",
+    title: "学位論文骨子と博士論文全体初稿",
     priority: "最優先",
   },
   "2029 Q4": {

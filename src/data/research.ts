@@ -42,7 +42,7 @@ const projectNormalization: ProjectNormalization[] = [
     id: "d1-enterprise-research",
     date: {
       start: "2027-07",
-      end: "2027-09",
+      end: "2027-08",
       precision: "月",
       display: externalProjects[0].time,
     },
@@ -70,7 +70,7 @@ const projectNormalization: ProjectNormalization[] = [
     id: "d2-enterprise-research",
     date: {
       start: "2028-06",
-      end: "2028-08",
+      end: "2028-07",
       precision: "月",
       display: externalProjects[2].time,
     },
@@ -78,13 +78,13 @@ const projectNormalization: ProjectNormalization[] = [
     category: "企業インターン",
     status: "予定",
     relatedResearchIds: ["research-b", "research-c"],
-    relatedOrganizationIds: ["hitachi-rd", "omron-sinic-x", "nec-rd"],
+    relatedOrganizationIds: ["hitachi-rd", "omron-sinic-x", "nec-rd", "ntt-rd"],
   },
   {
     id: "d2-overseas-university-research",
     date: {
-      start: "2028-11",
-      end: "2029-01",
+      start: "2028-09",
+      end: "2029-02",
       precision: "月",
       display: externalProjects[3].time,
     },
@@ -100,24 +100,10 @@ const projectNormalization: ProjectNormalization[] = [
       "ubc",
     ],
   },
-  {
-    id: "d3-enterprise-additional-paper",
-    date: {
-      start: "2029-08",
-      end: "2029-09",
-      precision: "月",
-      display: externalProjects[4].time,
-    },
-    phase: "D3",
-    category: "企業インターン",
-    status: "候補",
-    relatedResearchIds: ["research-c"],
-    relatedOrganizationIds: ["ntt-rd", "omron-sinic-x", "nec-rd"],
-  },
 ];
 
 export const externalResearchProjects: ExternalResearchProject[] =
-  externalProjects.map((project, index) => {
+  externalProjects.slice(0, projectNormalization.length).map((project, index) => {
     const normalized = projectNormalization[index];
     const organizationSourceIds = normalized.relatedOrganizationIds.flatMap(
       (organizationId) => organizationById[organizationId]?.sourceIds ?? [],
@@ -136,7 +122,7 @@ export const externalResearchProjects: ExternalResearchProject[] =
       caution: project.caution,
       status: normalized.status,
       certainty: "本人計画",
-      priority: index < 4 ? "高" : "中",
+      priority: "高",
       relatedResearchIds: normalized.relatedResearchIds,
       relatedOrganizationIds: normalized.relatedOrganizationIds,
       sourceIds: [
@@ -166,25 +152,17 @@ export const thesisChapterRelations: ThesisChapterRelation[] = [
   {
     id: "chapter-d2-enterprise",
     label: "D2夏",
-    target: "別企業で博士論文の第二研究を進める",
+    target: "別企業で6〜8週間研究し、博士論文の第二研究となる論文1本を完成する",
     thesisRole: "博士論文の中核となる研究2",
     status: "予定",
     sourceIds: ["personal-integrated-plan", "roadmap-planning-proposal"],
   },
   {
     id: "chapter-d2-overseas",
-    label: "D2冬",
-    target: "海外大学で既存成果の外的妥当性を検証する",
-    thesisRole: "企業研究とは異なる外部検証",
+    label: "D2後半",
+    target: "海外大学で6か月の共同研究を行い、博士論文の一章と投稿原稿1本を作る",
+    thesisRole: "企業研究とは異なる長期の外部検証",
     status: "予定",
-    sourceIds: ["personal-integrated-plan", "roadmap-planning-proposal"],
-  },
-  {
-    id: "chapter-d3-enterprise",
-    label: "D3夏",
-    target: "5月末の学位ゲートを通過した場合だけ、2〜4週間で既存テーマを追加検証する",
-    thesisRole: "学位を遅らせない任意の追加成果・就職先比較",
-    status: "候補",
     sourceIds: ["personal-integrated-plan", "roadmap-planning-proposal"],
   },
 ];

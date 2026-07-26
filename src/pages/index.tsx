@@ -54,7 +54,7 @@ const pages: Record<RouteId, PageContent> = {
   },
   overseas: {
     title: "留学",
-    description: "D2冬の約3か月だけを、期間・目的・成果に絞って確認。",
+    description: "D2の約6か月だけを、期間・目的・成果に絞って確認。",
     eyebrow: "OVERSEAS RESEARCH · D2",
     updatedAt,
     Component: OverseasStudyPage,
@@ -68,7 +68,7 @@ const pages: Record<RouteId, PageContent> = {
   },
   internships: {
     title: "インターン・就活",
-    description: "D1〜D3のインターンと、早めに始めて早めに終える就活の時期だけを確認。",
+    description: "D1・D2のインターンと、早めに始めて早めに終える就活の時期だけを確認。",
     eyebrow: "INTERNSHIPS & CAREER",
     updatedAt,
     Component: WorkOverviewPage,
@@ -76,11 +76,11 @@ const pages: Record<RouteId, PageContent> = {
   "internship-details": {
     title: "企業研究インターン",
     description:
-      "D1は6〜8週間、D2は2〜3か月、D3は学位優先の条件付き2〜4週間とする企業研究インターン計画と候補比較。",
+      "D1・D2に各6〜8週間置き、どちらも論文成果を目指す企業研究インターン計画と候補比較。",
     eyebrow: "ENTERPRISE RESEARCH",
     updatedAt,
     toc: [
-      { id: "annual-plan", label: "三年間の計画" },
+      { id: "annual-plan", label: "D1・D2の計画" },
       { id: "candidates", label: "企業候補" },
       { id: "purpose", label: "目的分類" },
       { id: "research-design", label: "8週間の研究設計" },

@@ -30,7 +30,6 @@ const PRIMARY_BLOCK_IDS = [
   "d2-overseas-research-stay",
   "d3-thesis-and-career",
   "d3-thesis-outline",
-  "d3-conditional-research-internship",
   "d3-preliminary-review",
   "d3-final-examination",
   "d3-completion-transition",
@@ -49,7 +48,7 @@ interface TimelinePresentation {
 const PRESENTATION: Record<PrimaryBlockId, TimelinePresentation> = {
   "d1-corporate-internship": {
     title: "企業研究インターン",
-    date: "2027.07–09",
+    date: "2027.07–08",
     deliverables: ["主結果", "再現可能なコード", "論文図表"],
   },
   "d1-domestic-research-stay": {
@@ -59,37 +58,23 @@ const PRESENTATION: Record<PrimaryBlockId, TimelinePresentation> = {
   },
   "d2-corporate-internship": {
     title: "企業研究インターン",
-    date: "2028.06–08",
+    date: "2028.06–07",
     deliverables: ["研究の主結果", "再現可能なコード", "投稿可能な原稿"],
   },
   "d2-overseas-research-stay": {
     title: "海外研究留学",
-    date: "2028.11–2029.01",
-    deliverables: ["研究の主結果", "再現可能なコード", "論文図表"],
+    date: "2028.09–2029.02",
+    deliverables: ["博士論文の一章", "投稿原稿1本", "共同研究の継続計画"],
   },
   "d3-thesis-and-career": {
     title: "博士論文・就職",
-    date: "2029.04–06",
-    deliverables: ["各章初稿", "主要結果・図表", "学位論文骨子"],
+    date: "2029.04–09",
+    deliverables: ["各章初稿", "主要結果・図表", "博士論文の全体初稿"],
   },
   "d3-thesis-outline": {
     title: "博士論文骨子",
     date: "2029.07",
     deliverables: ["博士論文骨子", "全体構成の確認", "審査準備"],
-  },
-  "d3-conditional-research-internship": {
-    title: "条件付き研究インターン",
-    date: "2029.08–09",
-    deliverables: [
-      "就職先比較メモ",
-      "博士論文に使える追加検証",
-      "将来の共同研究関係",
-    ],
-    conditions: [
-      "主要実験と主要論文が完了している",
-      "博士論文初稿が70%以上できている",
-      "指導教員の承認と予備審査までの余白がある",
-    ],
   },
   "d3-preliminary-review": {
     title: "予備審査",

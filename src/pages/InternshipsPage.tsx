@@ -33,97 +33,86 @@ import {
   UpdateNotice,
 } from "./PageKit";
 
-type InternshipPhase = "all" | "D1" | "D2" | "D3";
-type InternshipPurpose = "all" | "publication" | "comparison" | "decision";
+type InternshipPhase = "all" | "D1" | "D2";
+type InternshipPurpose = "all" | "publication" | "comparison";
 
 const candidateFacets = [
   { phase: ["D1"], purpose: "publication" },
   { phase: ["D2"], purpose: "publication" },
   { phase: ["D2"], purpose: "publication" },
-  { phase: ["D2", "D3"], purpose: "publication" },
-  { phase: ["D3"], purpose: "decision" },
+  { phase: ["D2"], purpose: "publication" },
   { phase: ["D2"], purpose: "comparison" },
-  { phase: ["D2", "D3"], purpose: "comparison" },
+  { phase: ["D2"], purpose: "comparison" },
+  { phase: ["D2"], purpose: "comparison" },
 ] as const;
 
 const purposeLabels: Record<Exclude<InternshipPurpose, "all">, string> = {
   publication: "論文を作る",
   comparison: "企業研究職を比較",
-  decision: "就職先を最終判断",
 };
 
 const annualPlan = [
   {
     phase: "D1",
-    time: "2027年7〜9月",
+    time: "2027年7〜8月",
     title: "既存共同研究を論文へ",
     first: "CyberAgent AI Lab",
     duration: "6〜8週間",
-    goal: "主要結果・図表・再現コード・原稿60〜80%",
+    goal: "主結果・再現コード・投稿可能な論文1本",
     apply: "2027年度募集を確認し、2027年1〜6月に条件を確定",
     status: "予定",
   },
   {
     phase: "D2",
-    time: "2028年6〜8月",
-    title: "異なる企業で本格研究",
-    first: "OMRON・Sony・NEC・日立・Woven等から条件で一社",
-    duration: "2〜3か月",
-    goal: "D1と異なる研究質問・企業文化・国際論文",
-    apply: "2028年5月までに一社・契約・住居・海外までの余白を確定",
-    status: "候補",
-  },
-  {
-    phase: "D3",
-    time: "2029年8〜9月",
-    title: "学位優先の条件付き短期枠",
-    first: "企業名を固定せず条件で一社",
-    duration: "原則2〜4週間",
-    goal: "既存テーマの小規模検証・研究所比較・就職判断",
-    apply: "5月31日の学位ゲートと正式な骨子提出後だけ実施",
+    time: "2028年6〜7月",
+    title: "異なる企業で論文研究",
+    first: "OMRON・Sony・NEC・日立・Woven・NTT等から条件で一社",
+    duration: "6〜8週間",
+    goal: "D1と異なる研究質問から投稿可能な論文1本",
+    apply: "2028年5月までに一社・契約・住居・論文化条件を確定",
     status: "候補",
   },
 ] as const;
 
 const candidateOperationMeta = [
   {
-    duration: "2026年度実績は2か月。計画上は6〜8週間を相談",
+    duration: "2026年度実績は2か月。D1の6〜8週間として相談",
     application: "2027年度募集を2027年1月から毎月確認",
     compensation: "2026年度実績は月50万円。2027年度は要確認",
     ip: "案件ごとに投稿、知財、博士論文利用、終了後執筆を確認",
   },
   {
-    duration: "過年度実績は1.5〜3か月。D2の2〜3か月枠として比較",
+    duration: "過年度実績は1.5〜3か月。D2の6〜8週間で実施可能か確認",
     application: "2028年度テーマ・日程をD1後半から確認",
     compensation: "長期有給の実績。金額・交通・住居は要確認",
     ip: "公開、知財、博士論文利用、終了後アクセスを案件ごとに確認",
   },
   {
-    duration: "原則3か月。D2の2〜3か月枠として比較",
+    duration: "原則3か月。D2の6〜8週間へ調整可能な場合だけ比較",
     application: "2026年確認時点は通年募集。実施年度版を再確認",
     compensation: "2026年確認時点は月24〜48万円",
     ip: "公開・知財・博士論文利用を書面化",
   },
   {
-    duration: "過年度は8〜9月中心、一部長期・日程相談",
-    application: "D2・D3の当該年度テーマを確認",
+    duration: "過年度は8〜9月中心、一部長期・日程相談。D2は6〜8週間を確認",
+    application: "D2の当該年度テーマを確認",
     compensation: "給与・交通・住居は当該テーマで要確認",
     ip: "発明・著作権等はNEC帰属。投稿と博士論文利用を別途確認",
   },
   {
-    duration: "2026年度実績は2〜6週間未満。D3では2〜4週間の候補として比較",
-    application: "2029年度に既存テーマ・学位優先条件を満たす場合だけD3候補",
-    compensation: "待遇・住居は2029年度要項で要確認",
+    duration: "2026年度実績は2〜6週間未満。D2の6〜8週間に届くテーマだけ比較",
+    application: "2028年度に6〜8週間・論文化可能なテーマがあるか確認",
+    compensation: "待遇・住居は2028年度要項で要確認",
     ip: "知財はNTT帰属。公開・博士論文利用・終了後アクセスの書面許可が必要",
   },
   {
-    duration: "Sonyは3か月以上・週2日以上、Wovenは3か月・週5日が基準",
-    application: "D2の2〜3か月と論文公開条件が両立する年度だけ",
+    duration: "Sonyは3か月以上、Wovenは3か月が過年度の基準。6〜8週間への調整可否を確認",
+    application: "D2の6〜8週間と論文公開条件が両立する年度だけ",
     compensation: "有給実績あり。金額・住居・交通は実施年度要項で確認",
     ip: "企業・テーマごとに公開、知財、博士論文利用を確認",
   },
   {
-    duration: "案件ごとの個別募集。D2・D3の希望期間に合う確定枠ではない",
+    duration: "案件ごとの個別募集。D2の6〜8週間に合う確定枠ではない",
     application: "東京の博士向け研究求人を通年監視",
     compensation: "有償研究枠を想定するが、個別求人で要確認",
     ip: "投稿・知財・博士論文利用・終了後アクセスを個別確認",
@@ -150,32 +139,32 @@ export function InternshipsPage() {
   return (
     <>
       <Lead>
-        D1は6〜8週間の論文型、D2は2〜3か月の本格企業研究、
-        D3は学位進捗を守れる場合だけ2〜4週間の条件付き枠として設計します。
-        NTTを含め特定企業へ固定せず、期間、公開、知財、博士論文利用、
-        終了後アクセスを満たすテーマで選びます。
+        企業研究インターンはD1・D2に一回ずつ、各6〜8週間だけ行います。
+        各回で投稿可能な論文1本を残し、D3は新しいインターンを入れず、
+        博士論文と就職に集中します。特定企業へ固定せず、期間、公開、知財、
+        博士論文利用、終了後アクセスを満たすテーマで選びます。
       </Lead>
 
       <Callout
-        title="年次ごとに期間と役割を変える"
+        title="二回とも6〜8週間で論文を残す"
         badge="予定"
         tone="success"
         headingLevel={2}
       >
         <p>
-          D1・D2は開始前のベースラインと終了後2〜4週間の成果整理までを
-          一つの論文工程として管理します。D3は主要実験、全章構成、主要図表、
-          初稿70%以上、主要論文投稿、指導教員承認を満たす場合だけ実施します。
+          D1・D2は開始前のベースラインと終了後の成果整理までを
+          一つの論文工程として管理します。D3には企業研究を追加せず、
+          二本の企業研究論文を博士論文へ統合しながら就職先を決めます。
         </p>
       </Callout>
 
       <Section
         id="annual-plan"
-        eyebrow="THREE SUMMERS"
-        title="D1・D2・D3の年次計画"
-        intro="三回とも同じ目的ではありません。D1は最初の論文、D2は本格企業研究、D3は学位を妨げない小規模検証と就職判断です。"
+        eyebrow="TWO RESEARCH INTERNSHIPS"
+        title="D1・D2の年次計画"
+        intro="D1は既存共同研究から一論文、D2は異なる企業・研究質問から一論文を完成させます。"
       >
-        <CardGrid columns={3}>
+        <CardGrid columns={2}>
           {annualPlan.map((plan) => (
             <Card
               key={plan.phase}
@@ -205,9 +194,9 @@ export function InternshipsPage() {
           ))}
         </CardGrid>
         <details className="rm-details rm-details--appendix">
-          <summary>年次計画の原文と三年間共通ルール</summary>
-          <RecordCards items={internshipWindows} status="予定" columns={3} />
-          <Card title="三年間の運用ルール" badge="確定">
+          <summary>年次計画の原文とD1・D2共通ルール</summary>
+          <RecordCards items={internshipWindows} status="予定" columns={2} />
+          <Card title="D1・D2の運用ルール" badge="確定">
             <BulletList items={internshipThreeYearRules} />
           </Card>
         </details>
@@ -217,7 +206,7 @@ export function InternshipsPage() {
         id="candidates"
         eyebrow="CANDIDATES"
         title="企業候補を同じ軸で探す"
-        intro="表示はD1・D2・D3と目的で絞り込めます。2026年度情報は将来枠の証拠ではなく、期間や待遇を考える過年度参考です。"
+        intro="表示はD1・D2と目的で絞り込めます。2026年度情報は将来枠の証拠ではなく、期間や待遇を考える過年度参考です。"
       >
         <div
           className="rm-filter-bar"
@@ -236,7 +225,6 @@ export function InternshipsPage() {
               <option value="all">すべて</option>
               <option value="D1">D1</option>
               <option value="D2">D2</option>
-              <option value="D3">D3</option>
             </select>
           </label>
           <label htmlFor="internship-purpose">
@@ -251,7 +239,6 @@ export function InternshipsPage() {
               <option value="all">すべて</option>
               <option value="publication">論文を作る</option>
               <option value="comparison">企業研究職を比較</option>
-              <option value="decision">就職先を最終判断</option>
             </select>
           </label>
           <button
@@ -436,16 +423,16 @@ export function InternshipsPage() {
       <Section
         id="ntt-short"
         eyebrow="ALTERNATIVES"
-        title="NTTと短期候補の正しい位置付け"
-        intro="NTTはD3の固定先ではありません。確認済みの2026年度実績はテーマごとに2〜6週間未満で、D3の条件付き2〜4週間枠を比較するための過年度資料として扱います。"
+        title="NTTと短期候補のD2での位置付け"
+        intro="NTTの確認済み2026年度実績はテーマごとに2〜6週間未満です。D2の6〜8週間と論文化条件を満たすテーマが出た場合だけ、比較候補として扱います。"
       >
         <RecordCards items={nttInternshipThemes} status="要確認" columns={3} />
-        <Callout title="D3の選び方" badge="条件付き" tone="warning">
+        <Callout title="D2の選び方" badge="候補" tone="warning">
           <p>
-            2029年5月の学位ゲートを通過した場合だけ、既存研究を使える
-            2〜4週間のテーマを一社選びます。論文公開、博士論文利用、知財、
-            終了後アクセス、予備審査との両立を開始前に書面確認します。
-            条件を満たさなければ研究所訪問へ縮小するか、D3企業研究を中止します。
+            NTTを含む候補から、2028年6〜7月に6〜8週間取り組める
+            一社を選びます。投稿可能な論文1本、博士論文利用、知財、
+            終了後アクセスを開始前に書面確認します。期間や公開条件を
+            満たさない短期テーマは、研究所訪問の参考に留めます。
           </p>
         </Callout>
         <details className="rm-details rm-details--appendix">
@@ -479,7 +466,7 @@ export function InternshipsPage() {
         id="gates"
         eyebrow="GO / NO-GO"
         title="実施・変更・中止の条件"
-        intro="三回参加する目標より、2030年3月の博士修了と成果の公開可能性を優先します。"
+        intro="二回参加すること自体より、各回から論文を残すことと2030年3月の博士修了を優先します。"
       >
         <CardGrid columns={2}>
           <Card title="受諾する条件" badge="予定">
@@ -499,8 +486,8 @@ export function InternshipsPage() {
       <Section
         id="preparation"
         eyebrow="PREPARATION"
-        title="応募からD3までの準備"
-        intro="共通の応募基盤を一度作り、年度ごとに企業名と条件だけを更新します。"
+        title="応募からD2までの準備"
+        intro="共通の応募基盤を一度作り、D1・D2で企業名と条件だけを更新します。"
       >
         <RecordCards items={internshipPrep} status="予定" columns={2} />
         <UpdateNotice />
