@@ -24,11 +24,13 @@ import {
   internshipScoreRows,
   internshipStrategyOptions,
   internshipThemes,
+  internshipThreeYearRules,
   internshipWindows,
   jaistOverseasGrant,
   jspsRoutes,
   lifeCards,
   nextTwelveMonths,
+  nttInternshipThemes,
   oneTimeCosts,
   overseasChecks,
   overseasCompanyCandidates,
@@ -45,7 +47,6 @@ import {
   roadmapItems,
   scenarioOptions,
   shortInternshipCandidates,
-  shortInternshipThemes,
   sourceGroups,
   supportPrograms,
   toyotaEcosystem,
@@ -183,8 +184,8 @@ function App() {
                   <dd>Human–Robot Interaction</dd>
                 </div>
                 <div>
-                  <dt>大型外部研究</dt>
-                  <dd>3 projects / D1–D2</dd>
+                  <dt>外部研究</dt>
+                  <dd>up to 3 major + 0–2 short</dd>
                 </div>
               </dl>
               <p>
@@ -203,21 +204,21 @@ function App() {
           <SectionHeading
             number="00"
             eyebrow="THE DECISION"
-            title="毎年2回ではなく、D1〜D2で3つ"
-            text="外部研究を回数で埋めると、D2が過密になり論文化と回復の時間がなくなります。国内・企業・海外を一度ずつ、すべて博士論文へ接続する案を基準にします。"
+            title="大型は最大3件、短期は学位ゲート付き"
+            text="D1のCyberAgent、条件付きのD1冬国内研究、D2の海外研究を最大3件の大型案件として配置します。NTTとD3企業枠も、直前の論文・学位条件を満たした場合だけ実施します。"
           />
 
           <div className="thesis-statement">
             <span>中心方針</span>
             <p>
               博士修了を最優先にしながら、
-              <strong>国内研究滞在・企業研究インターン・海外研究留学</strong>
-              をD1〜D2へ配置。D3は学位論文と進路確定に集中する。
+              <strong>D1長期企業・国内研究滞在・D2海外研究</strong>
+              を大型案件として配置。企業インターン3回は目標ではなく上限とし、D2・D3の短期枠は未達なら中止する。
             </p>
           </div>
           <p className="cadence-note">
             <span>「年2回」の考え方</span>
-            毎年2回の長期滞在を固定せず、「大型外部研究1回＋短期訪問または国際学会1回」を基本の探索ペースにします。
+            毎年2回の長期滞在は固定しません。D1だけは企業長期と国内研究を投稿ゲートでつなぎ、D2・D3の短期企業枠は追加ではなく条件付きです。
           </p>
 
           <div className="priority-layout">
@@ -405,10 +406,10 @@ function App() {
             </div>
             <ul>
               <li>
-                <span>D1</span> 修士研究または国内滞在成果を国際会議へ1本投稿
+                <span>D1</span> CyberAgentまたは国内滞在の成果を1本投稿。冬の国内滞在はCyberAgent投稿後だけ
               </li>
               <li>
-                <span>D2</span> 企業研究成果1本、海外共同研究1本を投稿
+                <span>D2</span> 国内滞在成果と海外共同研究を投稿。NTTは論文本数に数えない
               </li>
               <li>
                 <span>D3開始</span> 独立研究2本以上を投稿済み、3章分の主要結果を保有
@@ -421,10 +422,10 @@ function App() {
 
           <div className="subsection-heading">
             <div>
-              <p className="eyebrow">THREE EXTERNAL PROJECTS</p>
-              <h3>外に出る3つの大型案件</h3>
+              <p className="eyebrow">UP TO THREE MAJOR + TWO SHORT</p>
+              <h3>大型は最大3件、短期は条件付き2件</h3>
             </div>
-            <p>現地でテーマを探すのではなく、準備済みの共同研究を完成させに行く。</p>
+            <p>短期枠は博士論文の柱にせず、研究所比較と就職判断に限定します。</p>
           </div>
 
           <div className="project-grid">
@@ -502,23 +503,23 @@ function App() {
           <SectionHeading
             number="04"
             eyebrow="ENTERPRISE RESEARCH INTERNSHIP · PRIMARY PLAN"
-            title="長期は1回、短期は最大1回"
-            text="博士論文を進める6〜8週間〜2か月の長期枠が中心です。2週間の企業研究所探索は任意で1回までとし、競合時は長期・論文型を優先します。"
+            title="企業は最大3回、役割は重ねない"
+            text="D1は論文を作る長期枠、D2はNTTで研究所を比べる短期枠、D3は就職先を確かめる条件付き枠。3回参加は必達ではなく、学位進捗が許す上限です。"
           />
 
           <div className="internship-hero">
             <div className="internship-date">
-              <span>PRIMARY · D1 WINTER</span>
-              <strong>2028.01—03</strong>
+              <span>PRIMARY · D1 PAPER SLOT</span>
+              <strong>2027.07—10</strong>
               <p>
-                募集または個別調整が成立した場合に、6〜8週間〜2か月実施。終了後6週間を論文化へ固定する。
+                CyberAgentを第一候補に6〜8週間〜2か月。2027年夏の実施は一つにし、採択時だけ国内滞在を投稿後のD1冬へ移す。
               </p>
             </div>
             <div className="internship-principle">
-              <p className="eyebrow">ONE CORE + ONE OPTIONAL SHORT</p>
-              <h3>「企業を経験した」ではなく、研究成果を持ち帰る。</h3>
+              <p className="eyebrow">ONE PAPER · ONE LAB · ONE CAREER</p>
+              <h3>三回を、三つの違う目的で使う。</h3>
               <p>
-                長期枠は8週間で答える一問、週次メンター、公開条件、帰任後の執筆契約がそろった案件だけを選びます。短期枠は研究文化と適性の確認に限定し、論文・単位・長期枠に数えません。
+                D1だけを論文本命にします。D2のNTTとD3の企業枠は研究所比較・キャリア判断に限定し、独立論文、JAISTの博士インターン単位、博士論文の必須章には数えません。
               </p>
             </div>
           </div>
@@ -534,6 +535,28 @@ function App() {
                 <p>{window.text}</p>
               </article>
             ))}
+          </div>
+
+          <div className="internship-score three-year-conditions">
+            <div className="internship-score-copy">
+              <p className="eyebrow">THREE-YEAR CONDITIONS</p>
+              <h3>三回実施するための、八つの条件</h3>
+              <p>短期枠は、直前の論文と学位ゲートを通過した回だけ実施します。条件を満たさない中止は失敗ではなく、計画どおりの判断です。</p>
+              <div>
+                <span><b>長期</b> D1に1回</span>
+                <span><b>短期</b> D2・D3で0〜2回</span>
+                <span><b>上限</b> 企業3回・合計約4か月相当</span>
+              </div>
+            </div>
+            <ol>
+              {internshipThreeYearRules.map((rule, index) => (
+                <li key={rule}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <p>{rule}</p>
+                  <em>必須</em>
+                </li>
+              ))}
+            </ol>
           </div>
 
           <div className="subsection-heading internship-subheading">
@@ -581,10 +604,10 @@ function App() {
           <div className="subsection-heading internship-subheading">
             <div>
               <p className="eyebrow">LONG / PAPER CANDIDATES</p>
-              <h3>長期・論文型の企業候補</h3>
+              <h3>D1長期とD3条件枠の候補</h3>
             </div>
             <p>
-              報酬・期間は2026年度または2026年7月確認時点の情報です。2028年度の募集、応募資格、勤務形態、知財条件を再確認します。
+              報酬・期間は2026年度または2026年7月確認時点です。D1はCyberAgentを本命にし、OMRON・SonyはD3で実施条件が合う場合だけ再検討します。
             </p>
           </div>
 
@@ -619,55 +642,55 @@ function App() {
 
           <div className="internship-choice">
             <div>
-              <span>論文優先</span>
+              <span>D1 · 論文</span>
               <strong>CyberAgent AI Lab</strong>
-              <p>2か月で論文へ進める本命。冬・春の実施可否は将来の募集または個別調整次第。</p>
+              <p>既存共同研究を2か月で国際論文へ進める本命。2027年度の募集時期・テーマは再確認する。</p>
             </div>
             <div>
-              <span>単位も検討</span>
-              <strong>OMRON SINIC X</strong>
-              <p>3か月設計の候補。ただし期間だけで単位認定されるわけではなく、JAISTの事前承認が必要。</p>
+              <span>D2 · 研究所探索</span>
+              <strong>NTT R&amp;D</strong>
+              <p>海外論文を投稿後、2月に2〜3週間だけ。知財はNTT帰属のため論文本命にはしない。</p>
             </div>
             <div>
-              <span>個別提案</span>
-              <strong>HRI-JP</strong>
-              <p>研究適合は高いが、公開中の博士向け枠は未確認。共同研究案として研究者経由で打診する。</p>
+              <span>D3 · 条件付き</span>
+              <strong>OMRON / Sony</strong>
+              <p>OMRONの1か月可テーマが第一候補。Sonyの現行3か月・週2日以上は高リスクで、原則は面談候補。</p>
             </div>
           </div>
 
           <div className="subsection-heading internship-subheading">
             <div>
-              <p className="eyebrow">OPTIONAL SHORT EXPLORATION</p>
-              <h3>短期枠の第一候補は、豊田中央研究所</h3>
+              <p className="eyebrow">D2 SHORT RESEARCH-LAB SLOT</p>
+              <h3>NTT R&amp;Dは、D2の短期本命</h3>
             </div>
             <p>
-              D1夏に最大1回だけ入れる探索枠です。2026年度実績を基準に2027年3〜6月に再確認し、国内研究滞在・投稿・長期インターンと競合するなら応募または参加を見送ります。
+              研究テーマとの相性と大企業研究所を比較する価値は高い一方、知財・期間から論文本命にはしません。海外成果を1月末までに投稿できた場合だけ、2029年2月に実施します。
             </p>
           </div>
 
           <div className="short-internship-focus">
             <div className="short-internship-window">
-              <p className="eyebrow">OPTIONAL · D1 SUMMER</p>
-              <strong>2027.08—09</strong>
-              <span>2026年度実績：2週間 · 平日10日</span>
+              <p className="eyebrow">CONDITIONAL · D2 WINTER</p>
+              <strong>2029.02</strong>
+              <span>2025年度冬期実績：2〜3週間程度</span>
             </div>
             <div className="short-internship-copy">
-              <span className="fact-badge">豊田中央研究所</span>
-              <h3>人の行動・認知を、HRIの方法へ接続する。</h3>
+              <span className="fact-badge">NTT R&amp;D</span>
+              <h3>対話・社会的信号・エージェントを、高密度に試す。</h3>
               <p>
-                2026年度は8月17〜28日または8月31日〜9月11日、長久手または東京で実施。旅費・通勤費・昼食・遠方者の住居・保険は会社基準で支援され、それ以外の給与・日当はありません。日程とテーマは2027年度版で再確認します。
+                2025年度冬期は翌年1〜3月の2〜3週間、2026年度夏期は全体目安4週間でした。2026年度夏期実績では、日当9,000円、条件付きの交通・宿泊支援、指導教員承認、第5希望までのテーマ選択がありました。成果の知財はNTT帰属で、守秘・知財契約が必要です。
               </p>
               <ExternalLink
-                href="https://www.tytlabs.co.jp/recruit/recruit/05_requirements.html"
+                href="https://www.ntt-labs.jp/saiyo/internship/recruitment1/"
                 className="text-link"
               >
-                公式募集要項
+                冬期の公式募集要項
               </ExternalLink>
             </div>
           </div>
 
           <div className="internship-theme-grid short-theme-grid">
-            {shortInternshipThemes.map((theme) => (
+            {nttInternshipThemes.map((theme) => (
               <article key={theme.key}>
                 <div>
                   <span>{theme.key}</span>
@@ -680,20 +703,20 @@ function App() {
           </div>
 
           <div className="internship-correction short-internship-rule">
-            <strong>短期枠の数え方</strong>
+            <strong>NTTを実施する条件</strong>
             <p>
-              豊田中央研究所やアイシンの2週間枠は、<b>論文1本・JAIST博士インターン単位・長期研究インターンには数えません</b>。
-              研究所文化、テーマ、就職先との相性を確かめる枠です。長期枠の準備・実施を圧迫する場合、または日程が衝突する場合は、長期枠を優先します。
+              <b>海外論文を2029年1月末までに投稿済み・帰国後8週間・体調安定・2〜3週間の適合テーマ</b>
+              をすべて満たした場合だけ実施します。4週間を超えるテーマ、公開条件が不明なテーマ、海外研究中の選考負荷が大きい場合は中止します。
             </p>
           </div>
 
           <div className="subsection-heading compact-subheading">
             <div>
-              <p className="eyebrow">SHORT ALTERNATIVES · 2026 RECORD</p>
-              <h3>第二候補は、テーマの直接性で選ぶ</h3>
+              <p className="eyebrow">REPLACEMENT OPTIONS · NOT ADDITIONS</p>
+              <h3>短期候補は、追加せず入れ替える</h3>
             </div>
             <p>
-              いずれも2026年度の公開実績であり、D1時点の募集、日程、対象、待遇を再確認します。短期枠は合計1回までです。
+              豊田中央研究所などはCyberAgentまたはNTTが不成立のときの補欠です。企業4回目として追加せず、実施年度の募集・テーマ・待遇を再確認します。
             </p>
           </div>
 
@@ -757,8 +780,8 @@ function App() {
 
           <div className="subsection-heading internship-subheading">
             <div>
-              <p className="eyebrow">RESEARCH QUESTION</p>
-              <h3>8週間で答える一問</h3>
+              <p className="eyebrow">D1 LONG SLOT · RESEARCH QUESTION</p>
+              <h3>D1の8週間で答える一問</h3>
             </div>
             <p>
               新しいテーマを探す期間にはしません。「推定 → 予測 → 適応」の博士研究から、企業環境でしか検証できない一問を切り出します。
@@ -793,8 +816,8 @@ function App() {
 
           <div className="subsection-heading internship-subheading">
             <div>
-              <p className="eyebrow">8-WEEK EXECUTION</p>
-              <h3>開始前に、半分終わらせる</h3>
+              <p className="eyebrow">D1 LONG SLOT · 8-WEEK EXECUTION</p>
+              <h3>D1長期枠は、開始前に半分終わらせる</h3>
             </div>
             <p>
               企業内の8週間は実験に集中します。問い、許可、倫理、契約は100%完了し、終了時に原稿60〜80%と投稿までの担当を持ち帰ります。
@@ -895,7 +918,7 @@ function App() {
               <h3>2026年から作る応募導線</h3>
             </div>
             <p>
-              募集は年度ごとに変わるため、毎年1月から監視し、3月末までに応募資料を完成させます。D1冬は冬募集と個別案件を中心に探します。
+              募集は年度ごとに変わります。CyberAgentはD1春、NTT冬期は過去実績を参考に前年10月頃から監視し、D3候補は2028年秋から期間条件を確認します。
             </p>
           </div>
 
@@ -923,7 +946,7 @@ function App() {
           <div className="internship-gates">
             <div className="internship-go">
               <p className="eyebrow">GO</p>
-              <h3>受ける条件</h3>
+              <h3>D1長期枠を受ける条件</h3>
               <ul>
                 {internshipGo.map((item) => (
                   <li key={item}>{item}</li>
@@ -932,7 +955,7 @@ function App() {
             </div>
             <div className="internship-reject">
               <p className="eyebrow">DECLINE / REDESIGN</p>
-              <h3>断る、または短期訪問へ変える条件</h3>
+              <h3>D1長期枠を断る、または再設計する条件</h3>
               <ul>
                 {internshipReject.map((item) => (
                   <li key={item}>{item}</li>
