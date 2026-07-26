@@ -24,6 +24,84 @@ type TimelineNormalization = {
   priority: Priority;
 };
 
+const domesticTransitionTimeline = {
+  date: {
+    start: "2027-02",
+    end: "2027-04",
+    precision: "月",
+    display: "2027.02–04",
+  },
+  phase: "M2",
+  category: "国内滞在",
+  title: "M2末〜D1開始の国内滞在研究",
+  priority: "高",
+} satisfies TimelineNormalization;
+
+const d1ResearchSetupTimeline = {
+  date: {
+    start: "2027-05",
+    end: "2027-06",
+    precision: "月",
+    display: "2027.05–06",
+  },
+  phase: "D1",
+  category: "研究",
+  title: "国内成果の統合とD1企業研究の準備",
+  priority: "最優先",
+} satisfies TimelineNormalization;
+
+const d1InternshipTimeline = {
+  date: {
+    start: "2027-07",
+    end: "2027-08",
+    precision: "月",
+    display: "2027.07–08",
+  },
+  phase: "D1",
+  category: "企業インターン",
+  title: "D1夏の論文型企業研究（6〜8週間）",
+  priority: "高",
+} satisfies TimelineNormalization;
+
+const d1TransitionTimeline = {
+  date: {
+    start: "2027-09",
+    end: "2027-09",
+    precision: "月",
+    display: "2027.09",
+  },
+  phase: "D1",
+  category: "海外研究",
+  title: "インターン成果の整理・回復・海外渡航準備",
+  priority: "最優先",
+} satisfies TimelineNormalization;
+
+const d1OverseasTimeline = {
+  date: {
+    start: "2027-10",
+    end: "2028-03",
+    precision: "月",
+    display: "2027.10–2028.03",
+  },
+  phase: "D1",
+  category: "海外研究",
+  title: "6か月の海外共同研究",
+  priority: "高",
+} satisfies TimelineNormalization;
+
+const d2PreparationTimeline = {
+  date: {
+    start: "2028-04",
+    end: "2028-05",
+    precision: "月",
+    display: "2028.04–05",
+  },
+  phase: "D2",
+  category: "研究",
+  title: "海外成果の統合とD2企業研究の準備",
+  priority: "最優先",
+} satisfies TimelineNormalization;
+
 const d2InternshipTimeline = {
   date: {
     start: "2028-06",
@@ -37,42 +115,29 @@ const d2InternshipTimeline = {
   priority: "高",
 } satisfies TimelineNormalization;
 
-const d2TransitionTimeline = {
+const d2CareerSelectionTimeline = {
   date: {
     start: "2028-08",
-    end: "2028-08",
+    end: "2028-12",
     precision: "月",
-    display: "2028.08",
+    display: "2028.08–12",
   },
   phase: "D2",
-  category: "海外研究",
-  title: "企業成果の整理・回復・海外研究の最終準備",
-  priority: "最優先",
-} satisfies TimelineNormalization;
-
-const d2OverseasTimeline = {
-  date: {
-    start: "2028-09",
-    end: "2029-02",
-    precision: "月",
-    display: "2028.09–2029.02",
-  },
-  phase: "D2",
-  category: "海外研究",
-  title: "6か月の海外共同研究で外的妥当性を検証",
+  category: "キャリア",
+  title: "D2企業成果の論文化・主要選考・内定比較",
   priority: "高",
 } satisfies TimelineNormalization;
 
-const d2ReturnTimeline = {
+const d2CareerCompletionTimeline = {
   date: {
-    start: "2029-03",
+    start: "2029-01",
     end: "2029-03",
     precision: "月",
-    display: "2029.03",
+    display: "2029.01–03",
   },
   phase: "D2",
-  category: "研究",
-  title: "帰国・回復・海外成果の統合",
+  category: "キャリア",
+  title: "内定承諾・進路確定・就活完了",
   priority: "最優先",
 } satisfies TimelineNormalization;
 
@@ -110,7 +175,7 @@ const timelineNormalization: Record<string, TimelineNormalization> = {
     },
     phase: "M2",
     category: "学位",
-    title: "修士論文審査とD1への移行",
+    title: "修士論文審査と国内滞在研究の開始",
     priority: "最優先",
   },
   "2027 Q2": {
@@ -122,7 +187,7 @@ const timelineNormalization: Record<string, TimelineNormalization> = {
     },
     phase: "D1",
     category: "研究",
-    title: "博士研究・履修・外部研究の基盤を作る",
+    title: "国内滞在からD1研究・企業研究準備へ移る",
     priority: "最優先",
   },
   "2027 Q3": {
@@ -134,7 +199,7 @@ const timelineNormalization: Record<string, TimelineNormalization> = {
     },
     phase: "D1",
     category: "企業インターン",
-    title: "D1夏の論文型企業研究",
+    title: "D1夏の企業研究と9月の回復・海外準備",
     priority: "高",
   },
   "2027 Q4": {
@@ -145,38 +210,19 @@ const timelineNormalization: Record<string, TimelineNormalization> = {
       display: "2027 Q4",
     },
     phase: "D1",
-    category: "研究",
-    title: "D1企業論文の投稿と国内滞在の確定",
-    priority: "最優先",
-  },
-  "2028.01–02": {
-    date: {
-      start: "2028-01",
-      end: "2028-02",
-      precision: "月",
-      display: "2028.01–02",
-    },
-    phase: "D1",
-    category: "国内滞在",
-    title: "D1冬の国内滞在研究",
+    category: "海外研究",
+    title: "D1の6か月海外共同研究を開始",
     priority: "高",
   },
-  "2028.03–05": {
-    date: {
-      start: "2028-03",
-      end: "2028-05",
-      precision: "月",
-      display: "2028.03–05",
-    },
-    phase: "D1→D2",
-    category: "研究",
-    title: "国内成果の原稿化とD2企業研究の準備",
-    priority: "最優先",
-  },
+  "2027.02–04": domesticTransitionTimeline,
+  "2027.05–06": d1ResearchSetupTimeline,
+  "2027.07–08": d1InternshipTimeline,
+  "2027.09": d1TransitionTimeline,
+  "2027.10–2028.03": d1OverseasTimeline,
+  "2028.04–05": d2PreparationTimeline,
   "2028.06–07": d2InternshipTimeline,
-  "2028.08": d2TransitionTimeline,
-  "2028.09–2029.02": d2OverseasTimeline,
-  "2029.03": d2ReturnTimeline,
+  "2028.08–12": d2CareerSelectionTimeline,
+  "2029.01–03": d2CareerCompletionTimeline,
   "2029 Q2": {
     date: {
       start: "2029-04",
@@ -186,7 +232,7 @@ const timelineNormalization: Record<string, TimelineNormalization> = {
     },
     phase: "D3",
     category: "学位",
-    title: "博士論文初稿と就職先の決定",
+    title: "博士論文初稿と主要実験の完了",
     priority: "最優先",
   },
   "2029 Q3": {
@@ -271,12 +317,12 @@ const monthlyActionCategories: EventCategory[][] = [
   ["研究", "研究", "研究"],
   ["研究", "海外研究", "国内滞在"],
   ["研究", "企業インターン", "健康・人間関係"],
-  ["学位", "資金・生活", "資金・生活"],
-  ["学位", "企業インターン", "資金・生活"],
-  ["学位", "研究", "企業インターン"],
-  ["学位", "企業インターン", "研究"],
-  ["企業インターン", "企業インターン", "研究", "国内滞在"],
-  ["企業インターン", "企業インターン", "企業インターン", "国内滞在"],
+  ["学位", "国内滞在", "海外研究", "資金・生活"],
+  ["学位", "国内滞在", "海外研究", "資金・生活"],
+  ["学位", "国内滞在", "研究"],
+  ["学位", "国内滞在", "企業インターン", "研究"],
+  ["研究", "企業インターン", "海外研究", "研究"],
+  ["企業インターン", "企業インターン", "企業インターン", "海外研究"],
 ];
 
 function phaseForMonth(month: string): Phase {
@@ -336,13 +382,12 @@ const degreeDateNormalization: Record<
   string,
   { sort: string; phase: Phase; status: RoadmapStatus }
 > = {
+  "2026.10–12": { sort: "2026-10", phase: "M2", status: "要確認" },
+  "2027.02–03": { sort: "2027-02", phase: "M2", status: "要確認" },
   "2027.04": { sort: "2027-04", phase: "D1", status: "予定" },
-  "2027.06": { sort: "2027-06", phase: "D1", status: "要確認" },
-  "2027.10": { sort: "2027-10", phase: "D1", status: "予定" },
-  "2027.12": { sort: "2027-12", phase: "D1", status: "要確認" },
-  "2028.01–02": { sort: "2028-01", phase: "D1", status: "要確認" },
+  "2027.05–09": { sort: "2027-05", phase: "D1", status: "要確認" },
   "2028.02末": { sort: "2028-02", phase: "D1", status: "要確認" },
-  "2028.03–04": { sort: "2028-03", phase: "D1→D2", status: "要確認" },
+  "2028.04–05": { sort: "2028-04", phase: "D2", status: "要確認" },
   "2028年度": { sort: "2028-04", phase: "D2", status: "要確認" },
   "2029.07": { sort: "2029-07", phase: "D3", status: "要確認" },
   "2029.10": { sort: "2029-10", phase: "D3", status: "要確認" },

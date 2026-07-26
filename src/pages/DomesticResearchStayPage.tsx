@@ -10,22 +10,27 @@ export function DomesticResearchStayPage() {
   return (
     <>
       <Lead>
-        D1冬に、研究方法を深めて論文の土台を作る国内滞在研究を置きます。
+        M2末からD1開始にかけて、研究方法を深めて博士研究の土台を作る
+        国内滞在研究を置きます。
       </Lead>
 
       <Section id="period" title="予定している期間">
         <details className="rm-details">
           <summary>
-            <time dateTime="2028-01">2028.01–02</time>
+            <time dateTime="2027-02">2027.02–04</time>
             <span>国内滞在研究</span>
           </summary>
           <KeyValueList
             items={[
               [
                 "目的",
-                "研究方法と分析の根拠を深め、D1の研究成果を論文へまとめる。",
+                "研究方法と分析の根拠を深め、D1開始後の博士研究へ接続できる成果を作る。",
               ],
-              ["期間", "4〜6週間"],
+              ["期間", "約2〜3か月"],
+              [
+                "在籍上の注意",
+                "M2と博士後期課程D1をまたぐため、期間ごとの受入身分、JAIST手続き、指導体制、資金の適用可否を開始前に確認する。",
+              ],
               ["残す成果", <BulletList items={deliverables} />],
             ]}
           />

@@ -51,14 +51,14 @@ const recurringExpenses = [
 const housingOptions = [
   {
     title: "JAIST学生寄宿舎",
-    timing: "D1〜海外留学終了までの基準",
-    value: "固定費を抑え、国内滞在中も維持して短期住居を別管理できる。",
+    timing: "D1入学〜海外留学終了までの基準",
+    value: "固定費を抑える。M2末の国内滞在用住居と、D1入寮の開始時期は別に管理する。",
     caution: "居住期限・寮費・申請条件は年度ごとに確認。",
     status: "予定",
   },
   {
     title: "JAIST周辺",
-    timing: "D2後半以降の候補",
+    timing: "D1海外留学後・D2前半以降の候補",
     value: "通学時間を短く保ちつつ、寮より生活の自由度を上げる。",
     caution: "車の必要性、冬季交通、初期費用を含める。",
     status: "候補",
@@ -85,7 +85,7 @@ const carDecision = [
   ["資金", "購入後も生活費6か月分が残る"],
   ["総費用", "本体だけでなく保険・税・車検・冬タイヤ・燃料・駐車場を含める"],
   ["代替", "シャトル・カーシェア・レンタカーの実績費用と比較"],
-  ["判断時期", "D2海外留学終了後、就職先・居住地が見えてから再判定"],
+  ["判断時期", "D1海外留学終了後、D2の就職先候補・居住地が見えてから再判定"],
 ] as const;
 
 export function FinanceLifePage() {
@@ -157,7 +157,7 @@ export function FinanceLifePage() {
             columns={2}
           />
           <h3 className="rm-subheading">
-            JSPS制度の位置付け（主なD2留学資金とは分ける）
+            JSPS制度の位置付け（D1留学に使える制度か個別確認）
           </h3>
           <RecordCards
             items={jspsFundingRoutes}
@@ -266,7 +266,7 @@ export function FinanceLifePage() {
         id="housing"
         eyebrow="HOUSING"
         title="住居と引っ越し"
-        intro="D1はJAIST学生寄宿舎を基準にし、D1冬の国内滞在を引っ越し扱いにしません。海外留学後に1年以上住む見込みが出てから再判定します。"
+        intro="M2末の国内滞在は短期住居として扱い、D1入学後はJAIST学生寄宿舎を基準にします。D1の海外留学から帰国後、1年以上住む見込みが出てから引っ越しを再判定します。"
       >
         <CardGrid columns={2}>
           {housingOptions.map((option) => (

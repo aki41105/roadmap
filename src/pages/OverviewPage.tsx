@@ -102,16 +102,22 @@ const quarterFocus = [
 
 const criticalDeadlines = [
   {
+    dateTime: "2026-12-31",
+    date: "2026年12月",
+    title: "国内滞在の受入・手続きを確定",
+    status: "提案",
+  },
+  {
+    dateTime: "2027-08-31",
+    date: "2027年8月31日",
+    title: "海外研究留学の最終GO",
+    status: "提案",
+  },
+  {
     dateTime: "2027-12-15",
     date: "2027年12月15日",
     title: "D1企業論文の投稿目標",
     status: "予定",
-  },
-  {
-    dateTime: "2028-02-29",
-    date: "2028年2月29日",
-    title: "副テーマ研究題目届・国内滞在の終了",
-    status: "要確認",
   },
   {
     dateTime: "2028-04-30",
@@ -120,10 +126,10 @@ const criticalDeadlines = [
     status: "提案",
   },
   {
-    dateTime: "2028-05-31",
-    date: "2028年5月31日",
-    title: "海外研究留学の最終GO",
-    status: "提案",
+    dateTime: "2029-03-31",
+    date: "2029年3月31日",
+    title: "D2内で就活・進路決定を完了",
+    status: "予定",
   },
   {
     dateTime: "2029-05-31",
@@ -154,23 +160,23 @@ const pendingDecisions = [
     href: "/roadmap/research/",
   },
   {
-    title: "D1冬の国内滞在先",
-    due: "2027年10月",
+    title: "M2末〜D1開始の国内滞在先",
+    due: "2026年12月",
     provisional: "NII本命、京都大学HRIは研究が適応行動へ進む場合",
-    next: "最近の論文を読み、D1開始後に個別提案",
+    next: "最近の論文を読み、2026年秋に個別提案と受入身分を確認",
     href: "/roadmap/research-stays/#domestic",
   },
   {
     title: "D2夏の企業研究先",
     due: "2028年3〜4月",
     provisional: "6〜8週間・論文公開可能で、7月中に終わる一社",
-    next: "期間、知財、博士論文利用、終了後アクセス、8月の移行月を比較",
+    next: "期間、知財、博士論文利用、終了後アクセス、就活日程との両立を比較",
     href: "/roadmap/internships/",
   },
   {
     title: "海外研究先と資金",
-    due: "2028年5月31日",
-    provisional: "2028年9月〜2029年2月の6か月共同研究枠",
+    due: "2027年8月31日",
+    provisional: "2027年10月〜2028年3月の6か月共同研究枠",
     next: "受入・資金・倫理・データ移転を順に確定",
     href: "/roadmap/research-stays/#overseas",
   },
@@ -183,7 +189,7 @@ const pendingDecisions = [
   },
   {
     title: "企業就職かアカデミアか",
-    due: "2029年3〜6月",
+    due: "2029年3月31日まで",
     provisional: "企業AI・ロボティクス研究職を軸に比較",
     next: "D1から研究者面談とポートフォリオを積む",
     href: "/roadmap/career/",
@@ -195,8 +201,8 @@ export function OverviewPage() {
     <>
       <Lead>
         2030年3月の博士修了を最優先に、D1・D2夏は一社で企業研究、
-        D3は博士論文と就職の完成に集中します。
-        D1冬は国内で方法論、D2は海外で6か月の共同研究を行います。今はM2で、
+        就活はD2内で完了し、D3は博士論文と審査だけに集中します。
+        M2末〜D1開始は国内で方法論、D1後半は海外で6か月の共同研究を行います。今はM2で、
         修士研究を凍結しながら博士論文の中心問いを決める段階です。
       </Lead>
 
@@ -237,7 +243,7 @@ export function OverviewPage() {
           </Card>
           <Card title="B・バランス案" eyebrow="基準シナリオ" badge="予定">
             <p>
-              外部研究5枠を役割分担し、博士論文・健康・資金のゲートを
+              外部研究4枠を役割分担し、博士論文・健康・資金のゲートを
               通過したものだけ実施します。
             </p>
           </Card>

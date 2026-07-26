@@ -43,6 +43,10 @@ export const internshipProgram = {
   fundingChecks: internshipFundingNotes,
   goConditions: internshipGo,
   rejectConditions: internshipReject,
+  careerConnection:
+    "D2の6〜7月インターンを就職先比較へ反映し、主要選考・内定比較・承諾を2029年3月までに終える。",
+  d3Policy:
+    "D3は新規インターン・応募・選考を行わず、博士論文と学位審査に集中する。",
   sourceIds: [
     "personal-integrated-plan",
     "roadmap-planning-proposal",
@@ -78,7 +82,7 @@ export const shortResearchInternshipCandidates = {
 export const nttReference = {
   status: "候補" as const,
   certainty: "公式" as const,
-  role: "D2の比較候補。6〜8週間と論文化条件を満たす場合だけ選ぶ",
+  role: "D2の比較候補。6〜8週間・論文化・就職先比較の条件を満たす場合だけ選ぶ",
   themes: nttInternshipThemes,
   sourceIds: [
     "personal-integrated-plan",

@@ -33,29 +33,29 @@ const gateNormalization: Record<string, GateNormalization> = {
     sourceIds: ["cyberagent-internship-2026"],
   },
   国内滞在の方向: {
-    sortDate: "2027-10",
+    sortDate: "2026-10",
     category: "国内滞在",
     priority: "高",
     sourceIds: ["nii-special-researcher", "kyoto-hri"],
   },
   D1企業論文: {
-    sortDate: "2027-12",
+    sortDate: "2027-09-30",
     category: "研究",
     priority: "最優先",
   },
   国内滞在の最終実施: {
-    sortDate: "2027-12",
+    sortDate: "2026-12",
     category: "国内滞在",
     priority: "高",
     sourceIds: ["nii-special-researcher", "jaist-minor-internship"],
   },
   国内滞在の終了: {
-    sortDate: "2028-02-29",
+    sortDate: "2027-04-30",
     category: "国内滞在",
     priority: "高",
   },
   国内成果の凍結: {
-    sortDate: "2028-05-15",
+    sortDate: "2027-06-15",
     category: "研究",
     priority: "最優先",
   },
@@ -70,15 +70,25 @@ const gateNormalization: Record<string, GateNormalization> = {
     priority: "高",
   },
   海外研究留学・最終GO: {
-    sortDate: "2028-05-31",
+    sortDate: "2027-08-31",
     category: "海外研究",
     priority: "高",
     sourceIds: ["jaist-research-stay-rules", "jaist-research-grants"],
   },
   引っ越し: {
-    sortDate: "2029-02",
+    sortDate: "2028-05",
     category: "資金・生活",
     priority: "中",
+  },
+  就活開始: {
+    sortDate: "2028-05",
+    category: "キャリア",
+    priority: "高",
+  },
+  内定比較: {
+    sortDate: "2028-12",
+    category: "キャリア",
+    priority: "高",
   },
   D3博士論文の進捗確認: {
     sortDate: "2029-05-31",
@@ -87,7 +97,7 @@ const gateNormalization: Record<string, GateNormalization> = {
     sourceIds: ["jaist-doctoral-schedule"],
   },
   就活: {
-    sortDate: "2029-06",
+    sortDate: "2029-03-31",
     category: "キャリア",
     priority: "高",
   },
@@ -143,7 +153,7 @@ const riskNormalization: Record<string, RiskNormalization> = {
     category: "研究",
     priority: "高",
   },
-  D1企業論文と国内滞在が衝突: {
+  修士審査・博士入学と国内滞在が衝突: {
     category: "国内滞在",
     priority: "高",
   },
@@ -151,16 +161,20 @@ const riskNormalization: Record<string, RiskNormalization> = {
     category: "国内滞在",
     priority: "高",
   },
-  国内成果がD2準備を圧迫: {
+  国内成果がD1準備を圧迫: {
     category: "研究",
     priority: "高",
   },
-  海外の助成候補を国内で消費する: {
+  D1海外の資金・資格が整わない: {
     category: "資金・生活",
     priority: "高",
   },
-  D2が過密: {
+  D1が過密: {
     category: "海外研究",
+    priority: "高",
+  },
+  D2が過密: {
+    category: "キャリア",
     priority: "高",
   },
   D3学位が遅れる: {

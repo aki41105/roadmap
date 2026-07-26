@@ -27,7 +27,7 @@ export const routes: RouteDefinition[] = [
     path: "/roadmap/timeline/",
     label: "全体タイムライン",
     shortLabel: "全体タイムライン",
-    description: "インターン、研究滞在、留学、博士論文・審査の期間を確認する。",
+    description: "M2末の国内滞在から博士論文・審査まで、主要活動の期間を確認する。",
     order: 1,
   },
   {
@@ -35,7 +35,7 @@ export const routes: RouteDefinition[] = [
     path: "/roadmap/internships/",
     label: "インターン・就活",
     shortLabel: "インターン・就活",
-    description: "D1・D2のインターンと就活の大きな時期を確認する。",
+    description: "D1・D2のインターンと、D2内で完了する就活の大きな時期を確認する。",
     order: 2,
   },
   {
@@ -43,7 +43,7 @@ export const routes: RouteDefinition[] = [
     path: "/roadmap/overseas/",
     label: "留学",
     shortLabel: "留学",
-    description: "D2の約6か月の海外研究留学を確認する。",
+    description: "D1の2027年10月〜2028年3月に置く6か月の海外研究留学を確認する。",
     order: 3,
   },
   {
@@ -51,7 +51,7 @@ export const routes: RouteDefinition[] = [
     path: "/roadmap/domestic/",
     label: "国内滞在研究",
     shortLabel: "国内滞在研究",
-    description: "D1冬の4〜6週間の国内滞在研究を確認する。",
+    description: "M2末〜D1開始の2027年2〜4月に置く国内滞在研究を確認する。",
     order: 4,
   },
   {

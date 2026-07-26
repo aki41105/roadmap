@@ -142,19 +142,22 @@ export function validateRoadmapData(): DataValidationReport {
     })),
   );
 
-  const expectedMonths = Array.from({ length: 36 }, (_, index) => {
-    const absoluteMonth = 3 + index;
-    const year = 2027 + Math.floor(absoluteMonth / 12);
-    const month = (absoluteMonth % 12) + 1;
-    return `${year}-${String(month).padStart(2, "0")}`;
-  });
+  const expectedMonths = Array.from(
+    { length: doctoralScheduleMeta.monthCount },
+    (_, index) => {
+      const absoluteMonth = 1 + index;
+      const year = 2027 + Math.floor(absoluteMonth / 12);
+      const month = (absoluteMonth % 12) + 1;
+      return `${year}-${String(month).padStart(2, "0")}`;
+    },
+  );
   const actualMonths = doctoralMonthPlans.map((month) => month.month);
   if (
     actualMonths.length !== doctoralScheduleMeta.monthCount ||
     actualMonths.some((month, index) => month !== expectedMonths[index])
   ) {
     throw new Error(
-      `博士課程月別予定は2027-04〜2030-03の連続36か月である必要があります: ${actualMonths.join(", ")}`,
+      `${doctoralScheduleMeta.title}の月別予定は${doctoralScheduleMeta.startMonth}〜${doctoralScheduleMeta.endMonth}の連続${doctoralScheduleMeta.monthCount}か月である必要があります: ${actualMonths.join(", ")}`,
     );
   }
   if (doctoralQuarterPlans.length !== 12) {
@@ -164,7 +167,8 @@ export function validateRoadmapData(): DataValidationReport {
   }
   for (const yearPlan of doctoralYearPlans) {
     const monthsInYear = doctoralMonthPlans.filter(
-      (month) => month.year === yearPlan.year,
+      (month) =>
+        month.month >= yearPlan.startMonth && month.month <= yearPlan.endMonth,
     );
     const quartersInYear = doctoralQuarterPlans.filter(
       (quarter) => quarter.year === yearPlan.year,

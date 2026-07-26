@@ -9,7 +9,6 @@ import {
   hostCandidates,
   jspsRoutes,
   overseasChecks,
-  overseasCompanyCandidates,
   overseasDelay,
   overseasExecution,
   overseasExploration,
@@ -40,28 +39,28 @@ import {
 
 const stayComparison = [
   [
-    "D1冬・国内滞在研究",
-    "4〜6週間",
+    "M2末〜D1開始・国内滞在研究",
+    "約2〜3か月",
     "短期住居・交通・二重住居費",
-    "国内は別予算を基本。JAIST研究留学助成を海外用に残す",
-    "高い：方法論・コードブック・原稿50〜70%",
-    "研究Bの推定根拠と相互行為分析",
-    "中：受入教員、所属大学申請、受入機関承認、倫理・データ",
-    "中：寮を維持し短期住居",
-    "2028年1月中旬〜2月末",
-    "第1優先。ただしD1企業論文投稿が条件",
+    "在籍区分ごとに共同研究費、受入先支援、自己資金等を確認",
+    "高い：方法論・コードブック・博士研究の初期成果",
+    "D1研究の推定根拠と相互行為分析",
+    "高：M2・D1それぞれの受入身分、JAIST手続き、資金、倫理・データ",
+    "高：修了・入学手続きと滞在生活の移行",
+    "2027年2〜4月",
+    "修士修了とD1開始を妨げない場合だけ実施",
   ],
   [
-    "D2後半・海外大学研究",
+    "D1後半・海外大学研究",
     "6か月",
     "渡航・住居・保険・ビザ・二重家賃",
-    "JAIST研究留学助成、JASSO協定派遣、受入先支援を最新年度で確認",
-    "高い：既存成果の一般化・外的妥当性",
-    "研究C・統合章の検証",
+    "JAIST研究留学助成、JASSO協定派遣、受入先支援を2027年度で確認",
+    "高い：D1夏までの成果を国際共同研究へ発展",
+    "博士論文の一章と国際共同論文",
     "高：受入、資金、倫理、データ移転、知財、著者順、ビザ",
     "高：海外生活と帰国後の回復",
-    "2028年9月〜2029年2月",
-    "最重要の海外枠。D2企業は6〜8週間に抑え、8月を移行月として保護",
+    "2027年10月〜2028年3月",
+    "D1の最重要海外枠。9月を回復・成果整理・渡航準備に保護",
   ],
 ] as const;
 
@@ -120,12 +119,12 @@ function StayOrganizationCards({
                   organization.fit ??
                     "候補研究室の最近の論文を読み、研究A〜Cとの接続を面談で確認する。",
                 ],
-                ["想定期間", isDomestic ? "4〜6週間" : "6か月"],
+                ["想定期間", isDomestic ? "約2〜3か月" : "6か月"],
                 [
                   "推奨時期",
                   isDomestic
-                    ? "D1冬・2028年1月中旬〜2月末"
-                    : "D2後半・2028年9月〜2029年2月",
+                    ? "M2末〜D1開始・2027年2〜4月"
+                    : "D1後半・2027年10月〜2028年3月",
                 ],
               ]}
             />
@@ -141,18 +140,20 @@ function StayOrganizationCards({
                   [
                     "資金",
                     isDomestic
-                      ? "国内は別予算を基本とし、短期住居・交通・二重住居費を確認。"
-                      : "JAIST研究留学助成、JASSO協定派遣、受入先支援を主候補として実施年度に確認。",
+                      ? "M2とD1それぞれで使える共同研究費、受入先支援、自己資金等を確認。博士課程向け制度が入学前にも使えるとはみなさない。"
+                      : "JAIST研究留学助成、JASSO協定派遣、受入先支援を主候補として2027年度の適用可否を確認。",
                   ],
                   [
                     "事前準備",
-                    "研究提案、受入教員、JAIST手続き、倫理・データ、公開・知財、住居・保険を確定。",
+                    isDomestic
+                      ? "研究提案、受入教員、M2・D1それぞれの受入身分とJAIST手続き、倫理・データ、住居を確定。"
+                      : "研究提案、受入教員、D1としてのJAIST手続き、倫理・データ、公開・知財、住居・保険を確定。",
                   ],
                   [
                     "論文への接続",
                     isDomestic
-                      ? "相互行為コードブックと方法論を研究B・博士論文へ接続。"
-                      : "既存成果の一般化・外的妥当性を研究C・統合章へ接続。",
+                      ? "相互行為コードブックと方法論をD1開始後の博士研究へ接続。"
+                      : "D1夏までの成果を博士論文の一章と国際共同論文へ接続。",
                   ],
                   ["メリット", organization.role],
                   [
@@ -179,7 +180,7 @@ export function ResearchStaysPage() {
   return (
     <>
       <Lead>
-        国内滞在はD1冬に一度、海外研究はD2後半に一度だけ置きます。
+        国内滞在はM2末からD1開始にかけて一度、海外研究はD1後半に一度だけ置きます。
         国内は「推定の根拠を深める方法論」、海外は「既存成果の一般化・外的妥当性」
         と役割を分け、企業研究と同じ成果を繰り返しません。
       </Lead>
@@ -198,7 +199,8 @@ export function ResearchStaysPage() {
         headingLevel={2}
       >
         <p>
-          D1冬の4〜6週間、D2後半の6か月はいずれも本人の計画です。
+          2027年2〜4月の国内滞在と、2027年10月〜2028年3月の海外6か月は
+          いずれも本人の計画です。
           受入教員の同意、JAIST側手続き、受入機関の正式承認、資金、倫理、
           データ・知財条件が揃うまで、返金不能な契約はしません。
         </p>
@@ -207,9 +209,21 @@ export function ResearchStaysPage() {
       <Section
         id="domestic"
         eyebrow="DOMESTIC RESEARCH STAY"
-        title="D1冬の国内滞在研究"
-        intro="本命はNII。研究がロボット適応へ進んだ場合のみ京都大学HRIを条件付き候補とし、RIKEN・ATR等は制度と所属を混同しないよう個別に確認します。"
+        title="M2末〜D1開始の国内滞在研究"
+        intro="2027年2〜4月の約2〜3か月を想定します。本命はNII。研究がロボット適応へ進んだ場合のみ京都大学HRIを条件付き候補とし、RIKEN・ATR等は制度と所属を混同しないよう個別に確認します。"
       >
+        <Callout
+          title="在籍区分をまたぐ計画"
+          badge="要確認"
+          tone="warning"
+        >
+          <p>
+            2〜3月はM2、4月は博士後期課程D1となる想定です。
+            同じ受入身分・申請・資金を3か月連続で使えるとはみなさず、
+            修士修了、博士入学、受入機関、JAIST双方の手続きを月ごとに確認します。
+          </p>
+        </Callout>
+
         <CardGrid columns={2}>
           {domesticDirections.map((direction) => (
             <Card
@@ -254,11 +268,11 @@ export function ResearchStaysPage() {
               caption="国内滞在の準備度"
             />
           </Card>
-          <Card title="4〜6週間の現地計画" badge="提案">
+          <Card title="約2〜3か月の現地計画" badge="提案">
             <TupleTable
               headings={["期間", "作業"]}
               rows={domesticSixWeekPlan}
-              caption="国内滞在の6週間モデル"
+              caption="国内滞在の2〜3か月モデル"
             />
           </Card>
         </CardGrid>
@@ -273,15 +287,22 @@ export function ResearchStaysPage() {
         </CardGrid>
 
         <Card
-          title={domesticFunding.title}
+          title="国内滞在の資金と在籍手続き"
           eyebrow="国内滞在の資金"
           badge="要確認"
         >
-          <p>{domesticFunding.body}</p>
+          <p>
+            JAIST研究留学助成の現行期間条件など制度上の事実は変えません。
+            ただし、博士後期課程入学前の2〜3月と入学後の4月を同じ制度で
+            連続して支援できるとは限りません。
+          </p>
           <KeyValueList
             items={[
-              ["次の行動", domesticFunding.action],
-              ["予算", domesticFunding.budget],
+              [
+                "次の行動",
+                "M2・D1それぞれの受入身分、JAIST手続き、共同研究費・受入先支援・自己資金の適用範囲を関係窓口へ確認する。",
+              ],
+              ["予算", "2〜3か月分を受入先と住居決定後に要再試算"],
               [
                 "公式情報",
                 <SourceAnchor href={domesticFunding.href}>
@@ -296,14 +317,14 @@ export function ResearchStaysPage() {
       <Section
         id="overseas"
         eyebrow="OVERSEAS RESEARCH"
-        title="D2後半の海外研究留学"
-        intro="2028年9月〜2029年2月の6か月を本命とし、D2企業研究で作った成果を別環境で検証し、共同研究を深めます。探索だけで終わらせず、博士論文へ統合できる成果を残します。"
+        title="D1後半の海外研究留学"
+        intro="2027年10月〜2028年3月の6か月を本命とし、D1夏までの成果を別環境で検証し、共同研究を深めます。探索だけで終わらせず、博士論文へ統合できる成果を残します。"
       >
         <Callout title="海外枠の位置付け" badge="予定" tone="success">
           <p>
-            D2企業研究は2028年6〜7月の6〜8週間に抑え、
-            8月を成果整理・回復・渡航準備の専用月として保護します。
-            9月からの海外研究は企業インターンを追加する枠ではなく、
+            D1企業研究は2027年7〜8月の6〜8週間に抑え、
+            9月を成果整理・回復・渡航準備の専用月として保護します。
+            10月からの海外研究は企業インターンを追加する枠ではなく、
             大学・研究機関で外的妥当性を検証する6か月の共同研究枠です。
           </p>
         </Callout>
@@ -313,7 +334,7 @@ export function ResearchStaysPage() {
             JAISTのOverseas Research Challenge Cは2か月超を対象とし、
             JASSOの協定派遣は8日以上1年以内を対象範囲としています。
             したがって6か月は期間だけで除外されませんが、受入形態・学内推薦・
-            単位・資金の適用は2028年度に個別確認します。
+            単位・資金の適用は2027年度に個別確認します。
           </p>
           <p>
             <SourceAnchor href="https://www.jaist.ac.jp/english/education/courses/ts-d-internship.html">
@@ -363,14 +384,8 @@ export function ResearchStaysPage() {
         <RecordCards items={overseasChecks} status="要確認" columns={2} />
 
         <details className="rm-details rm-details--appendix">
-          <summary>候補探索の観点と企業系の代替候補</summary>
+          <summary>候補探索の観点</summary>
           <RecordCards items={overseasExploration} status="候補" columns={2} />
-          <h4 className="rm-minor-heading">企業系の代替候補</h4>
-          <RecordCards
-            items={overseasCompanyCandidates}
-            status="候補"
-            columns={3}
-          />
         </details>
 
         <h3 className="rm-subheading">6か月留学の主な資金候補</h3>
@@ -393,11 +408,13 @@ export function ResearchStaysPage() {
         </Card>
 
         <h3 className="rm-subheading">
-          JSPS制度の位置付け（主なD2留学資金とは分ける）
+          JSPS制度の位置付け（主なD1留学資金とは分ける）
         </h3>
         <p className="rm-inline-note">
           若手研究者海外挑戦プログラムは募集終了済みです。
-          海外特別研究員は博士修了後2年間の制度で、D2の留学資金ではありません。
+          海外特別研究員は博士修了後2年間の制度で、D1の留学資金ではありません。
+          在学中に使える可能性がある制度も、2027年度と博士課程開始後の資格を
+          個別に確認します。
         </p>
         <RecordCards
           items={jspsRoutes}

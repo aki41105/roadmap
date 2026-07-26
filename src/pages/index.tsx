@@ -41,7 +41,7 @@ const pages: Record<RouteId, PageContent> = {
   "research-stays": {
     title: "国内・海外研究滞在",
     description:
-      "D1冬の国内滞在研究とD2冬の海外研究留学について、候補、資金、手続き、実施条件を比較するページ。",
+      "M2末〜D1開始の国内滞在研究と、D1後半の6か月の海外研究留学について、候補、資金、手続き、実施条件を比較するページ。",
     eyebrow: "RESEARCH STAYS",
     updatedAt,
     toc: [
@@ -54,21 +54,21 @@ const pages: Record<RouteId, PageContent> = {
   },
   overseas: {
     title: "留学",
-    description: "D2の約6か月だけを、期間・目的・成果に絞って確認。",
-    eyebrow: "OVERSEAS RESEARCH · D2",
+    description: "D1の2027年10月〜2028年3月に置く6か月の海外研究留学を、期間・目的・成果に絞って確認。",
+    eyebrow: "OVERSEAS RESEARCH · D1",
     updatedAt,
     Component: OverseasStudyPage,
   },
   domestic: {
     title: "国内滞在研究",
-    description: "D1冬の4〜6週間だけを、期間・目的・成果に絞って確認。",
-    eyebrow: "DOMESTIC RESEARCH · D1",
+    description: "M2末〜D1開始の2027年2〜4月に置く国内滞在研究を、期間・目的・成果に絞って確認。",
+    eyebrow: "DOMESTIC RESEARCH · M2→D1",
     updatedAt,
     Component: DomesticResearchStayPage,
   },
   internships: {
     title: "インターン・就活",
-    description: "D1・D2のインターンと、早めに始めて早めに終える就活の時期だけを確認。",
+    description: "D1・D2のインターンと、D2の中で応募から内定承諾まで終える就活の時期だけを確認。",
     eyebrow: "INTERNSHIPS & CAREER",
     updatedAt,
     Component: WorkOverviewPage,
@@ -95,7 +95,7 @@ const pages: Record<RouteId, PageContent> = {
   career: {
     title: "就職・キャリア",
     description:
-      "企業研究職、国立研究機関、ポスドク、大学教員、海外就職をD1から比較し、D3前半で決めるキャリア計画。",
+      "企業研究職、国立研究機関、ポスドク、大学教員、海外就職をD1から比較し、D2の中で進路を決めるキャリア計画。",
     eyebrow: "CAREER",
     updatedAt,
     toc: [
@@ -146,8 +146,8 @@ const pages: Record<RouteId, PageContent> = {
   timeline: {
     title: "全体タイムライン",
     description:
-      "インターン、研究滞在、留学、博士論文・審査だけを時系列で確認。",
-    eyebrow: "DOCTORAL SCHEDULE · 2027.04—2030.03",
+      "M2末の国内滞在から、インターン、留学、D2就活、博士論文・審査までを時系列で確認。",
+    eyebrow: "INTEGRATED SCHEDULE · 2027.02—2030.03",
     updatedAt,
     Component: TimelinePage,
   },

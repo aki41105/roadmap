@@ -68,8 +68,8 @@ const annualPlan = [
     title: "異なる企業で論文研究",
     first: "OMRON・Sony・NEC・日立・Woven・NTT等から条件で一社",
     duration: "6〜8週間",
-    goal: "D1と異なる研究質問から投稿可能な論文1本",
-    apply: "2028年5月までに一社・契約・住居・論文化条件を確定",
+    goal: "投稿可能な論文1本と、就職先を比較する実地情報",
+    apply: "D2前半の応募・面接と並行し、2028年5月までに実施条件を確定",
     status: "候補",
   },
 ] as const;
@@ -140,9 +140,11 @@ export function InternshipsPage() {
     <>
       <Lead>
         企業研究インターンはD1・D2に一回ずつ、各6〜8週間だけ行います。
-        各回で投稿可能な論文1本を残し、D3は新しいインターンを入れず、
-        博士論文と就職に集中します。特定企業へ固定せず、期間、公開、知財、
-        博士論文利用、終了後アクセスを満たすテーマで選びます。
+        各回で投稿可能な論文1本を残し、D2の6〜7月は就職先を比較する
+        実地材料にもします。就活は2029年3月までに承諾まで終え、
+        D3は新しいインターン・応募・選考を入れず、博士論文と審査に集中します。
+        特定企業へ固定せず、期間、公開、知財、博士論文利用、
+        終了後アクセスを満たすテーマで選びます。
       </Lead>
 
       <Callout
@@ -154,7 +156,7 @@ export function InternshipsPage() {
         <p>
           D1・D2は開始前のベースラインと終了後の成果整理までを
           一つの論文工程として管理します。D3には企業研究を追加せず、
-          二本の企業研究論文を博士論文へ統合しながら就職先を決めます。
+          D2末までに決めた進路を前提に、二本の企業研究論文を博士論文へ統合します。
         </p>
       </Callout>
 
@@ -162,7 +164,7 @@ export function InternshipsPage() {
         id="annual-plan"
         eyebrow="TWO RESEARCH INTERNSHIPS"
         title="D1・D2の年次計画"
-        intro="D1は既存共同研究から一論文、D2は異なる企業・研究質問から一論文を完成させます。"
+        intro="D1は既存共同研究から一論文、D2は異なる企業・研究質問から一論文を完成させ、就職先比較にも使います。"
       >
         <CardGrid columns={2}>
           {annualPlan.map((plan) => (
@@ -486,8 +488,8 @@ export function InternshipsPage() {
       <Section
         id="preparation"
         eyebrow="PREPARATION"
-        title="応募からD2までの準備"
-        intro="共通の応募基盤を一度作り、D1・D2で企業名と条件だけを更新します。"
+        title="応募からD2末の進路確定まで"
+        intro="共通の応募基盤を一度作り、D2インターンの経験を内定比較へ反映し、2029年3月までに承諾します。"
       >
         <RecordCards items={internshipPrep} status="予定" columns={2} />
         <UpdateNotice />

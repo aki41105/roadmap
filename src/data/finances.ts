@@ -1,6 +1,5 @@
 import {
   budgets,
-  domesticFunding,
   internshipFundingNotes,
   jaistOverseasGrant,
   jspsRoutes,
@@ -33,13 +32,20 @@ export const oneTimeCostEstimates: CostEstimate[] = oneTimeCosts.map(
   ([item, estimate], index) => {
     const isOverseasStayTotal =
       item.includes("海外") && item.includes("総費用");
+    const isDomesticStayTotal = item.includes("国内研究滞在");
 
     return {
       id: `one-time-cost-${String(index + 1).padStart(2, "0")}`,
-      item: isOverseasStayTotal ? "海外研究留学6か月の総費用（助成前）" : item,
+      item: isOverseasStayTotal
+        ? "海外研究留学6か月の総費用（助成前）"
+        : isDomesticStayTotal
+          ? "国内滞在研究2〜3か月の総費用"
+          : item,
       estimate: isOverseasStayTotal
         ? "受入国・都市・為替・二重家賃の確定後に要再試算"
-        : estimate,
+        : isDomesticStayTotal
+          ? "受入先・滞在月数・二重住居費の確定後に要再試算"
+          : estimate,
       status: "推定",
       certainty: "推定",
       sourceIds: ["roadmap-cost-estimates"],
@@ -60,10 +66,12 @@ export const overseasCostEstimates: CostEstimate[] = overseasCosts.map(
 
 export const domesticStayFunding = {
   id: "domestic-stay-funding",
-  title: domesticFunding.title,
-  body: domesticFunding.body,
-  action: domesticFunding.action,
-  estimate: domesticFunding.budget,
+  title: "M2末〜D1開始の国内滞在研究資金",
+  body:
+    "2027年2〜4月は修士課程と博士後期課程をまたぎます。JAIST研究留学助成の期間条件など制度上の事実は変えず、各月の在籍区分で対象となるかを別々に確認します。",
+  action:
+    "受入身分、JAISTの申請主体と手続き、修士在籍中・博士入学後それぞれに使える共同研究費・SPRING研究費・受入先支援・自己資金を関係窓口へ確認する。",
+  estimate: "2〜3か月分を受入先決定後に要再試算",
   status: "要確認" as const,
   certainty: "本人計画" as const,
   sourceIds: [
@@ -78,7 +86,8 @@ export const overseasStayFunding = {
   label: jaistOverseasGrant.label,
   title: jaistOverseasGrant.title,
   body: jaistOverseasGrant.body,
-  action: jaistOverseasGrant.action,
+  action:
+    "2027年10月開始のD1留学に利用できるか、2027年度の申請時期、博士課程開始前から必要な準備、併給条件を学生・留学生支援課へ確認する。",
   status: "要確認" as const,
   certainty: "公式" as const,
   sourceIds: ["jaist-research-stay-rules", "jaist-research-grants"],
@@ -90,11 +99,12 @@ export const overseasPrimaryFundingRoutes: FundingRoute[] = [
     label: "第一候補",
     title: "JAIST研究留学助成",
     body:
-      "現行要項では派遣期間が3か月以上1年以内のため、6か月計画は期間条件の範囲内です。ただし採択、対象経費、併給条件は2028年度要項で確認します。",
+      "現行要項では派遣期間が3か月以上1年以内です。2027年10月〜2028年3月の6か月は期間条件の範囲内ですが、D1開始年度の対象資格、採択、対象経費、併給条件は別に確認します。",
     action:
-      "指導教員と相談し、2028年度の申請締切、月額、渡航費、他の給付型助成との併給可否を学生・留学生支援課へ確認する。",
-    eligibility: "石川キャンパスの博士後期課程学生・在学中1回。実施年度に要確認",
-    caveat: "期間条件を満たしても採択や全額支援が保証されるわけではありません。",
+      "指導教員と相談し、2027年度の申請締切、D1開始直後からの申請可否、月額、渡航費、他の給付型助成との併給可否を学生・留学生支援課へ確認する。",
+    eligibility: "石川キャンパスの博士後期課程学生・在学中1回。2027年度要項で要確認",
+    caveat:
+      "期間条件を満たしても採択や全額支援は保証されません。博士課程開始前に行う準備・契約への適用可否も別途確認します。",
     status: "要確認",
     certainty: "公式",
     sourceIds: ["jaist-research-stay-rules", "jaist-research-grants"],
@@ -104,11 +114,12 @@ export const overseasPrimaryFundingRoutes: FundingRoute[] = [
     label: "第二候補",
     title: "JASSO海外留学支援制度（協定派遣）",
     body:
-      "協定等に基づく8日以上1年以内の派遣が対象となり得る制度です。JAISTの対象協定、学内推薦枠、派遣計画、採用年度の資格を満たすか確認します。",
+      "協定等に基づく8日以上1年以内の派遣が対象となり得る制度です。期間条件は変えず、JAISTの対象協定、学内推薦枠、2027年度の派遣計画、D1開始年度の資格を満たすか確認します。",
     action:
-      "受入先を絞る前に、JAISTが対象プログラムを実施するか、個人の6か月研究留学が学内推薦の対象になるかを国際交流窓口へ確認する。",
+      "受入先を絞る前に、JAISTが2027年度に対象プログラムを実施するか、D1の6か月研究留学が学内推薦の対象になるかを国際交流窓口へ確認する。",
     eligibility: "大学経由の協定派遣・学内推薦。個人応募として利用できるとは限らない",
-    caveat: "制度期間に入ることと、JAISTから申請できることは別です。",
+    caveat:
+      "制度期間に入ることと、JAISTから申請できることは別です。博士課程開始前の準備期間に申請できるかも確認します。",
     status: "要確認",
     certainty: "公式",
     sourceIds: ["jasso-agreement-dispatch", "jaist-study-abroad"],
@@ -120,7 +131,7 @@ export const overseasPrimaryFundingRoutes: FundingRoute[] = [
     body:
       "受入大学や研究室の給与、滞在費、住居、学費免除、渡航支援があれば、6か月分の自己負担を減らせます。",
     action:
-      "受入交渉時に、支援額、支給期間、税・ビザへの影響、JAIST・JASSO等との併給可否を書面で確認する。",
+      "2027年度の受入交渉時に、支援額、支給期間、税・ビザへの影響、JAIST・JASSO等との併給可否を書面で確認する。",
     eligibility: "受入先・研究室・国・身分ごとに異なる",
     caveat: "募集がない場合もあるため、確定前は収入として予算へ入れません。",
     status: "候補",
@@ -167,10 +178,10 @@ export const jspsFundingRoutes: FundingRoute[] = jspsRoutes.map(
       certainty: "公式",
       sourceIds: sourceId ? [sourceId] : ["personal-integrated-plan"],
       caveat: isClosedProgram
-        ? "若手研究者海外挑戦プログラムは募集終了済みで、2028年の資金候補には含めません。"
+        ? "若手研究者海外挑戦プログラムは募集終了済みで、2027年の資金候補には含めません。"
         : isPostdoctoralProgram
-          ? "海外特別研究員は博士修了後2年間の制度であり、D2の6か月留学資金ではありません。"
-          : "D2の6か月留学に利用できるか、採用年度の資格・手続・経費重複条件を最新要項で確認する。",
+          ? "海外特別研究員は博士修了後2年間の制度であり、D1の6か月留学資金ではありません。"
+          : "D1の6か月留学に利用できるか、2027年度の採用資格、博士課程開始前後の手続き、経費重複条件を最新要項で確認する。",
     };
   },
 );
