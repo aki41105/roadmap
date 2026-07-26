@@ -1004,14 +1004,13 @@ h1 em {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
 .project-card {
   display: flex;
-  grid-column: span 2;
-  min-height: 570px;
+  min-height: 520px;
   flex-direction: column;
   padding: 28px;
   border: 1px solid var(--line);
@@ -1019,7 +1018,7 @@ h1 em {
 }
 
 .project-card:nth-last-child(-n + 2) {
-  grid-column: span 3;
+  grid-column: auto;
 }
 
 .project-topline {
