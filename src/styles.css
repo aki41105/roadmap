@@ -1613,6 +1613,233 @@ h1 em {
   line-height: 1.8;
 }
 
+.compact-subheading {
+  margin-top: clamp(65px, 8vw, 105px);
+}
+
+.short-internship-focus {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  border: 1px solid var(--ink);
+}
+
+.short-internship-window,
+.short-internship-copy {
+  min-height: 355px;
+  padding: clamp(34px, 5vw, 62px);
+}
+
+.short-internship-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--white);
+  background: var(--blue);
+}
+
+.short-internship-window .eyebrow {
+  color: #bfd1dc;
+}
+
+.short-internship-window strong {
+  margin: 46px 0 34px;
+  font-family: var(--serif);
+  font-size: clamp(2.1rem, 5vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.short-internship-window > span {
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--serif);
+  font-size: 0.74rem;
+}
+
+.short-internship-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--paper-light);
+}
+
+.short-internship-copy h3 {
+  max-width: 620px;
+  margin: 34px 0 22px;
+  font-size: clamp(1.55rem, 3vw, 2.7rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.short-internship-copy > p {
+  max-width: 660px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 0.76rem;
+  line-height: 1.9;
+}
+
+.short-internship-copy .text-link {
+  margin-top: auto;
+}
+
+.short-theme-grid {
+  border-top: 0;
+}
+
+.short-internship-rule {
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.short-candidate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--line);
+}
+
+.short-candidate-grid article {
+  display: flex;
+  min-height: 410px;
+  flex-direction: column;
+  padding: 34px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.45);
+}
+
+.short-candidate-grid article > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.short-candidate-grid article > div span,
+.short-candidate-grid article > div small {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.short-candidate-grid article > div span {
+  color: var(--wine);
+}
+
+.short-candidate-grid article > div small {
+  max-width: 220px;
+  color: var(--muted);
+  text-align: right;
+}
+
+.short-candidate-grid h3 {
+  margin: 31px 0 20px;
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  font-weight: 500;
+}
+
+.short-candidate-grid article > p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 0.72rem;
+  line-height: 1.82;
+}
+
+.short-candidate-grid .short-candidate-caution {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.short-candidate-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: auto;
+}
+
+.short-candidate-grid .short-candidate-links .text-link {
+  margin-top: 0;
+}
+
+.toyota-ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.toyota-ecosystem-grid article {
+  display: flex;
+  min-height: 385px;
+  grid-column: span 2;
+  flex-direction: column;
+  padding: 31px;
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.47);
+}
+
+.toyota-ecosystem-grid article:nth-last-child(-n + 2) {
+  grid-column: span 3;
+}
+
+.toyota-ecosystem-grid article > span {
+  color: var(--wine);
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+.toyota-ecosystem-grid h3 {
+  margin: 29px 0 20px;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  font-weight: 500;
+}
+
+.toyota-ecosystem-grid article > p,
+.toyota-ecosystem-grid article > strong {
+  font-family: var(--serif);
+  font-size: 0.7rem;
+  line-height: 1.8;
+}
+
+.toyota-ecosystem-grid article > p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.toyota-ecosystem-grid article > strong {
+  margin-top: 19px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--blue);
+  font-weight: 500;
+}
+
+.toyota-ecosystem-grid .text-link {
+  margin-top: auto;
+}
+
+.internship-strategy {
+  margin-top: 16px;
+}
+
+.overseas-company-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.overseas-company-grid article {
+  min-height: 640px;
+}
+
+.overseas-company-rule {
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+}
+
 .internship-theme-grid,
 .internship-output-grid {
   display: grid;
@@ -3637,6 +3864,29 @@ footer p {
     min-height: 0;
   }
 
+  .toyota-ecosystem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .toyota-ecosystem-grid article,
+  .toyota-ecosystem-grid article:nth-last-child(-n + 2) {
+    grid-column: span 1;
+  }
+
+  .toyota-ecosystem-grid article:last-child {
+    grid-column: 1 / -1;
+    min-height: 320px;
+  }
+
+  .overseas-company-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .overseas-company-grid article:last-child {
+    grid-column: 1 / -1;
+    min-height: 470px;
+  }
+
   .caution {
     margin-top: 30px;
   }
@@ -3924,10 +4174,13 @@ footer p {
   }
 
   .internship-hero,
+  .short-internship-focus,
   .internship-windows,
   .internship-rule-grid,
   .internship-procedure-grid,
   .internship-candidate-grid,
+  .short-candidate-grid,
+  .toyota-ecosystem-grid,
   .internship-choice,
   .internship-theme-grid,
   .internship-output-grid,
@@ -3977,6 +4230,26 @@ footer p {
 
   .internship-candidate-grid article {
     min-height: 0;
+  }
+
+  .short-internship-window,
+  .short-internship-copy {
+    min-height: 0;
+  }
+
+  .short-candidate-grid article,
+  .toyota-ecosystem-grid article,
+  .toyota-ecosystem-grid article:nth-last-child(-n + 2),
+  .toyota-ecosystem-grid article:last-child,
+  .overseas-company-grid article:last-child {
+    min-height: 0;
+    grid-column: auto;
+  }
+
+  .short-candidate-grid article,
+  .toyota-ecosystem-grid article {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
 
   .internship-correction {
@@ -4257,10 +4530,14 @@ footer p {
 
   .internship-date,
   .internship-principle,
+  .short-internship-window,
+  .short-internship-copy,
   .internship-windows article,
   .internship-rule-grid article,
   .internship-procedure-grid article,
   .internship-candidate-grid article,
+  .short-candidate-grid article,
+  .toyota-ecosystem-grid article,
   .internship-choice > div,
   .internship-theme-grid article,
   .internship-output-grid article,

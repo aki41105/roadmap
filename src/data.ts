@@ -40,15 +40,15 @@ export const roadmapItems: RoadmapItem[] = [
     period: "2027 Q2",
     stage: "D1",
     research: "20単位の取得表、博士研究計画、倫理テンプレートを作る。",
-    outside: "国内滞在先と研究課題・著者・知財・投稿先を正式合意。",
+    outside: "国内滞在先を正式合意。3〜6月に短期企業研究所の募集を確認し、競合しなければ1枠だけ応募。",
     life: "資金を確定し、週次または隔週の指導面談を固定する。",
   },
   {
     period: "2027 Q3",
     stage: "D1",
     research: "国内研究滞在6〜8週間。研究1の実験と主要図を完成。",
-    outside: "副テーマ候補として国内HRIネットワークを作る。単位化は事前確認。",
-    life: "山小屋は3日〜2週間まで。帰還後2〜3日は低負荷にする。",
+    outside: "短期企業研究所は国内滞在・投稿と重ならない場合だけ最大2週間。長期論文型には数えない。",
+    life: "短期企業枠を入れる年は山小屋を見送る。入れない年も山小屋は3日〜2週間まで。",
   },
   {
     period: "2027 Q4",
@@ -82,7 +82,7 @@ export const roadmapItems: RoadmapItem[] = [
     period: "2028.09–11",
     stage: "D2",
     research: "海外共同研究で研究3を進め、主要結果を持ち帰る。",
-    outside: "海外研究留学3か月。帰国時に原稿60〜80%と投稿日を持ち帰る。",
+    outside: "海外大学研究留学または海外企業研究インターンの一つ。帰国時に原稿60〜80%と投稿日を持ち帰る。",
     life: "助成と二重家賃を管理。車は原則として修了後へ延期する。",
   },
   {
@@ -195,12 +195,12 @@ export const externalProjects = [
   {
     number: "03",
     time: "D2 · 2028.09–11",
-    title: "海外研究留学",
+    title: "海外大学／企業研究",
     duration: "3か月",
     result: "研究3・国際共同論文",
-    purpose: "研究3を国際共同研究として完成させ、海外の研究環境とキャリアも探索する。",
+    purpose: "海外大学研究留学か海外企業研究インターンの一つを選び、研究3を国際共同研究として完成させる。",
     caution:
-      "JAISTの研究留学助成を受けられるのは在学中1回。資金、倫理、データ持ち出し、輸出管理を出発前に完了する。",
+      "両方へ応募してよいが、実施は一つ。企業枠はJAIST助成の対象や在留資格が異なるため、資金、倫理、知財、輸出管理を個別確認する。",
   },
 ];
 
@@ -220,8 +220,11 @@ export const hostCandidates = [
       "CyberAgent AI Lab",
       "OMRON SINIC X",
       "NEC 研究インターン",
+      "豊田中央研究所（短期探索）",
+      "アイシン（短期探索）",
       "Honda Research Institute Japan（個別提案）",
       "日立・Sony 長期有給インターン",
+      "IBM Research Tokyo（個別募集を監視）",
       "Preferred Networks",
       "ジョブ型研究インターンシップ",
     ],
@@ -236,6 +239,9 @@ export const hostCandidates = [
       "USC Institute for Creative Technologies",
       "King’s College London",
       "University of British Columbia",
+      "MERL（海外企業・大学留学の代替）",
+      "Honda Research Institute USA（同上）",
+      "Toyota Research Institute（テーマ監視）",
     ],
   },
 ];
@@ -363,6 +369,128 @@ export const internshipCandidates = [
     fit: "機械学習、ロボティクス、実世界AIの技術経験と就職先判断に向く。",
     caution: "PFNは大学研究テーマの持込み不可、知財は同社帰属。論文が出ない場合は博士論文成果に数えない。",
     href: "https://www.preferred.jp/ja/careers/internship",
+  },
+  {
+    rank: "07",
+    name: "IBM Research Tokyo",
+    role: "有償研究枠を個別に監視",
+    facts: "Speech / NLP、Neuro-symbolic AI、AutoAI、Offline RL、Safe Policy Evaluation、Multi-agent等の研究領域があり、研究インターンは通年で機会が生じ得る。",
+    fit: "対話理解、方策評価、複数主体の相互作用を博士研究へ接続できる可能性がある。",
+    caution: "東京での具体的な長期博士枠、期間、募集時期、論文化条件は案件次第。長期・論文型の確定枠とはせず、個別求人を監視する。",
+    href: "https://research.ibm.com/projects/ai-in-tokyo",
+  },
+];
+
+export const shortInternshipThemes = [
+  {
+    key: "65",
+    label: "FIRST CHOICE",
+    title: "人の行動や認知に関する研究",
+    text: "人―人相互作用の状態推定と介入を扱う。認知科学・心理実験の方法を、ラポール推定とHRIの適応行動へ接続する。",
+  },
+  {
+    key: "11",
+    label: "SECOND CHOICE",
+    title: "屋内環境における人行動理解",
+    text: "カメラ等から人の行動を認識・予測する。Python、LLM、機械学習を使う博士研究との接続が明確。",
+  },
+  {
+    key: "＋",
+    label: "RELATED",
+    title: "人間―機械・センシング・LLM",
+    text: "ID 26・27の人間―機械系、28・29のヒト挙動センシング、8の認知心理実験、4のLLM最適化を年度ごとに比較する。",
+  },
+];
+
+export const shortInternshipCandidates = [
+  {
+    name: "アイシン",
+    period: "2026実績 · 10日間",
+    role: "車載対話AIを試す第二候補",
+    facts: "LLM-as-a-Judgeによる車載エージェント評価、リアルタイム音声AI、行動認識AI等のテーマを公開。無給、交通費・条件付き宿泊支援。",
+    caution: "論文投稿、博士論文利用、終了後の共同研究は保証されない。正式テーマ名で応募し、架空のテーマIDは使わない。",
+    href: "https://www.aisin.com/jp/recruit/summerinternship/theme/",
+  },
+  {
+    name: "KDDI総合研究所",
+    period: "2026実績 · 10営業日",
+    role: "人中心AI・Physical AIの短期探索",
+    facts: "ロボット・ドローンの映像やセンサを用いるPhysical AI、人に寄り添うAIエージェント等を、調査から実験・報告まで経験する。",
+    caution: "短期の研究プロセス体験。論文や継続共同研究の確約とは扱わない。",
+    href: "https://www.kddi-research.jp/internship.html",
+  },
+  {
+    name: "シャープ",
+    period: "2026実績 · 5日または10日",
+    role: "音声対話システムの実装探索",
+    facts: "LLMを活用した音声対話システム開発など、音声処理・エージェント実装・評価に近い博士対象テーマがある。",
+    caution: "テーマは年度で変わる。合致テーマがある年だけ短期探索として応募する。",
+    href: "https://corporate.jp.sharp/recruit/newgraduate/internship/theme.html",
+  },
+  {
+    name: "Panasonic / 東芝",
+    period: "2026実績 · 約1〜2週間",
+    role: "年度テーマが合う場合の予備候補",
+    facts: "両社とも研究開発を含む短期テーマを多数公開し、博士学生が応募できるテーマがある。",
+    caution: "公開・論文条件はテーマごとに確認。豊田中央研究所、アイシン、KDDI、シャープより優先度は下げる。",
+    href: "https://recruit.jpn.panasonic.com/internship/courses/ojt/",
+    secondaryHref: "https://www.global.toshiba/jp/recruit/corporate/internship.html",
+  },
+];
+
+export const toyotaEcosystem = [
+  {
+    name: "豊田中央研究所",
+    category: "短期 · 研究所探索",
+    value: "基礎・先端研究の文化と、人の行動・認知テーマとの相性を2週間で確かめる。",
+    rule: "D1夏の第一候補。ただし長期論文型や国内研究滞在と衝突すれば見送る。",
+    href: "https://www.tytlabs.co.jp/recruit/recruit/05_rdinternship.html",
+  },
+  {
+    name: "アイシン",
+    category: "短期 · 車載応用AI",
+    value: "LLM評価、音声AI、行動認識を車載エージェントへ落とす実装を経験する。",
+    rule: "既存接点があれば、実習応募と研究者面談・共同研究相談を比較する。",
+    href: "https://www.aisin.com/jp/recruit/summerinternship/",
+  },
+  {
+    name: "Woven by Toyota",
+    category: "長期 · 実装／キャリア",
+    value: "3か月・週5日の有給枠で、大規模モビリティソフトウェアの開発現場を知る。",
+    rule: "論文型ではなく就職判断の枠。博士論文成果を別に確保できる場合だけ選ぶ。",
+    href: "https://woven.toyota/en/careers/internship/",
+  },
+  {
+    name: "Toyota Research Institute",
+    category: "海外 · テーマ監視",
+    value: "博士向け12週間級の研究枠が出る。World Models、Multi-agent、Sim-to-real等の募集実績がある。",
+    rule: "HRI・対話に直接合うテーマが出た年だけ、海外大学留学の代替として検討する。",
+    href: "https://jobs.lever.co/tri",
+  },
+  {
+    name: "DENSO IT Laboratory",
+    category: "個別打診 · 公募未確認",
+    value: "機械学習研究、学会発表、大学連携の文化との相性を研究者ベースで確認する。",
+    rule: "標準的な学生インターン制度は未確認。指導教員経由の面談・共同研究打診に留める。",
+    href: "https://d-itlab.co.jp/recruit/",
+  },
+];
+
+export const internshipStrategyOptions = [
+  {
+    label: "A · 最優先",
+    title: "長期・論文型だけ",
+    text: "CyberAgent、OMRON、NEC等で博士論文の一章を完成する。日程が競合する場合の標準案。",
+  },
+  {
+    label: "B · 条件付き",
+    title: "豊田中央2週間 ＋ 長期1回",
+    text: "短期を研究文化・就職適合の探索に限定し、論文・長期インターン・休養を圧迫しない場合だけ追加する。",
+  },
+  {
+    label: "D2 · 別の判断ゲート",
+    title: "海外企業と大学を比較",
+    text: "これはD1短期枠とは別の判断。MERLやHRI-USAの条件が良ければ、2028年9〜11月の海外大学留学と入れ替える。",
   },
 ];
 
@@ -532,19 +660,19 @@ export const overseasRoadmap = [
   {
     time: "2027.04–2028.03",
     label: "D1 · 固定",
-    title: "テーマ・受入先・資金を固める",
-    text: "博士論文のどの章にするか、Visiting PhD等の身分、指導体制、投稿先を合意。必要なら1〜2週間の事前訪問を行う。",
+    title: "大学か企業かを、同じ条件で絞る",
+    text: "博士論文の章、受入身分、指導体制、投稿先を合意。海外大学と企業の両方へ応募してよいが、実施候補は各1〜2件へ絞る。",
   },
   {
     time: "2028.04–08",
     label: "D2 · 準備",
-    title: "出発前に研究を走らせる",
-    text: "倫理、データ契約、ベースライン、予備実験、住居、保険、ビザ、JAIST手続きを完了。企業案件との間を8週間以上空ける。",
+    title: "6月末までに一つを選ぶ",
+    text: "採択、論文・博士論文利用、知財、ビザ、資金を比較して大学か企業を決定。倫理、契約、予備実験、住居、保険、JAIST手続きを完了する。",
   },
   {
     time: "2028.09–11",
     label: "D2 · 実施",
-    title: "3か月で主要結果まで持ち帰る",
+    title: "選んだ一枠で主要結果まで持ち帰る",
     text: "現地でテーマを探さず、準備済みの共同研究を完成。帰国時に再現コード、主要図表、原稿60〜80%、投稿日を確定する。",
   },
   {
@@ -600,7 +728,7 @@ export const overseasExecution = [
   {
     label: "MONTH 3",
     title: "論文化と引き継ぎ",
-    items: ["追加実験と執筆", "研究室発表", "知財・公開確認", "残実験と帰国後タスクを分担"],
+    items: ["追加実験と執筆", "受入先で成果発表", "知財・公開確認", "残実験と帰国後タスクを分担"],
   },
 ];
 
@@ -608,10 +736,10 @@ export const overseasChecks = [
   {
     title: "身分・JAIST手続き",
     items: [
-      "Visiting PhD等の受入身分と指導体制",
+      "Visiting PhD等またはResearch Internの受入身分・契約",
+      "受入教員または企業研究メンターの定期指導",
       "学外機関への指導委託の要否（現行案内は開始2か月以上前が目安）",
-      "授業・ゼミ・TA・RAとの調整",
-      "申請年度の助成・提出期限・併給条件",
+      "大学枠はJAIST助成、企業枠は対象可否・給与との併給を確認",
     ],
   },
   {
@@ -688,6 +816,36 @@ export const overseasExploration = [
   },
 ];
 
+export const overseasCompanyCandidates = [
+  {
+    rank: "01",
+    name: "MERL",
+    role: "海外企業研究の最有力挑戦枠",
+    facts: "2026年公募のSA0191は、マルチモーダル場面理解、自然言語によるロボット対話、LLMを用いた屋内監視を扱い、通常3〜6か月。成果公開と博士研究への接続可能性を明記している。",
+    fit: "人の状態推定、マルチモーダル理解、ロボット対話へ直結。OR0299のHRI・Robot Learning・Shared Autonomyも年度テーマとして監視する。",
+    caution: "D1でROS2・Robot Learning／VLMの小さな実績を補強する。博士論文利用は契約上保証されないため、公式給与表記の月額6–8Kの通貨・期間・知財・ビザ・終了後アクセスも応募時に確認する。",
+    href: "https://www.merl.com/employment/internship-openings.php?ai=on#SA0191",
+  },
+  {
+    rank: "02",
+    name: "Honda Research Institute USA",
+    role: "現在の研究に最も近い海外候補",
+    facts: "2026年はAffective ComputingとHuman-AI Group Interactionの3か月枠を公開。研究インターンの学術発表を奨励している。",
+    fit: "会話・時系列・映像から集団状態を推定し、信頼、介入タイミング、参加バランスを扱う点がラポール研究に近い。",
+    caution: "給与、博士論文利用、終了後データアクセスは公開情報にない。受諾前に書面確認する。",
+    href: "https://usa.honda-ri.com/intern-positions",
+  },
+  {
+    rank: "03",
+    name: "Toyota Research Institute",
+    role: "テーマが合う年だけ応募",
+    facts: "Fall 2026のWorld Models枠は、有給12週間の博士向け研究インターン。Multi-agent Interaction、World Models、強化学習、知覚、Sim-to-realを扱い、トップ会議投稿を目指す。",
+    fit: "複数主体の相互作用やロボット学習へ展開する場合に有力。トヨタ系の海外研究文化も確認できる。",
+    caution: "現在の公開枠にはラポール・対話品質へ直接合うHuman-Centered AI枠を確認できない。2028年度の募集テーマを監視する。",
+    href: "https://jobs.lever.co/tri",
+  },
+];
+
 export const overseasCosts = [
   ["航空券", "15〜30万円"],
   ["住居", "30〜75万円"],
@@ -702,7 +860,7 @@ export const jaistOverseasGrant = {
   title: "研究留学助成制度",
   body: "現行の実施要項では、派遣期間は3か月以上1年以内。国外留学は滞在費月額10万円、往復渡航費1回分、大学が認める査証等の旅行雑費が対象で、利用は在学中1回限り。",
   action:
-    "3Dプログラムは大学指定日までに申請。同じ研究留学に関する他の給付型助成との併給は現行要項では不可のため、JSPS・受入先支援と比較して一つの資金表に整理し、2028年度要項を学生・留学生支援課へ確認する。",
+    "大学研究留学では本命の資金候補。海外企業のResearch Internが対象になるか、給与との併給が可能かは個別確認する。同じ研究留学に関する他の給付型助成との併給は現行要項では不可のため、2028年度要項を学生・留学生支援課へ確認する。",
   href: "https://www.jaist.ac.jp/studentlife/data/off-campus_research_youkou_J.pdf",
 };
 
@@ -743,7 +901,7 @@ export const jspsRoutes = [
 
 export const overseasGo = [
   "博士論文のどの章になるかを説明できる",
-  "受入教員・身分・定期指導が確定",
+  "受入教員または企業研究メンター・身分・定期指導が確定",
   "資金、住居、保険、ビザが確定",
   "倫理・データ移転・公開可否が確定",
   "ベースラインと予備実験が完了",
@@ -1248,6 +1406,53 @@ export const sourceGroups: { title: string; links: LinkItem[] }[] = [
         href: "https://woven.toyota/en/careers/internship/",
       },
       {
+        label: "豊田中央研究所 研究職インターン",
+        href: "https://www.tytlabs.co.jp/recruit/recruit/05_requirements.html",
+        note: "2026年度は平日10日間。2027年度の日程・テーマは再確認",
+      },
+      {
+        label: "豊田中央研究所 2026年度テーマ一覧",
+        href: "https://www.tytlabs.co.jp/recruit/images/internship/intern_theme.pdf",
+      },
+      {
+        label: "アイシン 夏季インターン",
+        href: "https://www.aisin.com/jp/recruit/summerinternship/",
+        note: "2026年度は10日間。論文型ではなく短期探索として扱う",
+      },
+      {
+        label: "KDDI総合研究所 インターンシップ",
+        href: "https://www.kddi-research.jp/internship.html",
+      },
+      {
+        label: "シャープ インターンテーマ",
+        href: "https://corporate.jp.sharp/recruit/newgraduate/internship/theme.html",
+      },
+      {
+        label: "Panasonic OJTインターン",
+        href: "https://recruit.jpn.panasonic.com/internship/courses/ojt/",
+      },
+      {
+        label: "東芝 インターンシップ",
+        href: "https://www.global.toshiba/jp/recruit/corporate/internship.html",
+      },
+      {
+        label: "IBM Research Tokyo · AI",
+        href: "https://research.ibm.com/projects/ai-in-tokyo",
+      },
+      {
+        label: "IBM Japan · Internship",
+        href: "https://www.ibm.com/jp-ja/careers/internships",
+      },
+      {
+        label: "DENSO IT Laboratory · Recruit",
+        href: "https://d-itlab.co.jp/recruit/",
+        note: "標準的な学生インターン公募は未確認。個別打診候補",
+      },
+      {
+        label: "DENSO IT Laboratory · Research",
+        href: "https://d-itlab.co.jp/research/",
+      },
+      {
         label: "RIKEN Student Researcher",
         href: "https://www.riken.jp/en/careers/programs/rsr/",
       },
@@ -1283,6 +1488,27 @@ export const sourceGroups: { title: string; links: LinkItem[] }[] = [
       {
         label: "UBC Visiting International Research Students",
         href: "https://global.ubc.ca/visiting-international-research-students",
+      },
+      {
+        label: "MERL Internship Openings",
+        href: "https://www.merl.com/employment/internship-openings.php?ai=on#SA0191",
+        note: "海外大学留学と同じ2028年9〜11月枠の代替候補",
+      },
+      {
+        label: "Honda Research Institute USA · Intern Positions",
+        href: "https://usa.honda-ri.com/intern-positions",
+      },
+      {
+        label: "HRI-USA · Affective Computing",
+        href: "https://usa.honda-ri.com/-/research-intern-affective-computing-for-collective-intelligence",
+      },
+      {
+        label: "HRI-USA · Human-AI Group Interaction",
+        href: "https://usa.honda-ri.com/-/research-intern-human-ai-group-interaction",
+      },
+      {
+        label: "Toyota Research Institute · Open Roles",
+        href: "https://jobs.lever.co/tri",
       },
     ],
   },

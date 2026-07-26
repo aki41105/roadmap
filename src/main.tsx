@@ -22,6 +22,7 @@ import {
   internshipRisks,
   internshipRules,
   internshipScoreRows,
+  internshipStrategyOptions,
   internshipThemes,
   internshipWindows,
   jaistOverseasGrant,
@@ -30,6 +31,7 @@ import {
   nextTwelveMonths,
   oneTimeCosts,
   overseasChecks,
+  overseasCompanyCandidates,
   overseasCosts,
   overseasDelay,
   overseasExecution,
@@ -42,8 +44,11 @@ import {
   riskRows,
   roadmapItems,
   scenarioOptions,
+  shortInternshipCandidates,
+  shortInternshipThemes,
   sourceGroups,
   supportPrograms,
+  toyotaEcosystem,
 } from "./data";
 import "./styles.css";
 
@@ -137,7 +142,7 @@ function App() {
         <section className="hero" id="top" aria-labelledby="hero-title">
           <div className="hero-grid">
             <div className="hero-copy">
-              <p className="eyebrow">INTEGRATED PLAN · LAST UPDATED 2026.07.25</p>
+              <p className="eyebrow">INTEGRATED PLAN · LAST UPDATED 2026.07.26</p>
               <h1 id="hero-title">
                 博士修了までの
                 <br />
@@ -497,8 +502,8 @@ function App() {
           <SectionHeading
             number="04"
             eyebrow="ENTERPRISE RESEARCH INTERNSHIP · PRIMARY PLAN"
-            title="企業研究インターンは、一度に絞る"
-            text="博士論文の一章、国際論文、就職先判断を同時に残す6〜8週間〜2か月。本命はD1冬、代替はD2前半とし、海外留学の直前には入れません。"
+            title="長期は1回、短期は最大1回"
+            text="博士論文を進める6〜8週間〜2か月の長期枠が中心です。2週間の企業研究所探索は任意で1回までとし、競合時は長期・論文型を優先します。"
           />
 
           <div className="internship-hero">
@@ -510,10 +515,10 @@ function App() {
               </p>
             </div>
             <div className="internship-principle">
-              <p className="eyebrow">THE ONE-INTERNSHIP RULE</p>
+              <p className="eyebrow">ONE CORE + ONE OPTIONAL SHORT</p>
               <h3>「企業を経験した」ではなく、研究成果を持ち帰る。</h3>
               <p>
-                8週間で答える一問、週次メンター、公開条件、帰任後の執筆契約がそろった案件だけを選びます。単位、論文、就職探索は同じ制度ではないため、目的を混同しません。
+                長期枠は8週間で答える一問、週次メンター、公開条件、帰任後の執筆契約がそろった案件だけを選びます。短期枠は研究文化と適性の確認に限定し、論文・単位・長期枠に数えません。
               </p>
             </div>
           </div>
@@ -575,8 +580,8 @@ function App() {
 
           <div className="subsection-heading internship-subheading">
             <div>
-              <p className="eyebrow">CANDIDATE SHORTLIST</p>
-              <h3>目的で選ぶ、企業候補</h3>
+              <p className="eyebrow">LONG / PAPER CANDIDATES</p>
+              <h3>長期・論文型の企業候補</h3>
             </div>
             <p>
               報酬・期間は2026年度または2026年7月確認時点の情報です。2028年度の募集、応募資格、勤務形態、知財条件を再確認します。
@@ -628,6 +633,126 @@ function App() {
               <strong>HRI-JP</strong>
               <p>研究適合は高いが、公開中の博士向け枠は未確認。共同研究案として研究者経由で打診する。</p>
             </div>
+          </div>
+
+          <div className="subsection-heading internship-subheading">
+            <div>
+              <p className="eyebrow">OPTIONAL SHORT EXPLORATION</p>
+              <h3>短期枠の第一候補は、豊田中央研究所</h3>
+            </div>
+            <p>
+              D1夏に最大1回だけ入れる探索枠です。2026年度実績を基準に2027年3〜6月に再確認し、国内研究滞在・投稿・長期インターンと競合するなら応募または参加を見送ります。
+            </p>
+          </div>
+
+          <div className="short-internship-focus">
+            <div className="short-internship-window">
+              <p className="eyebrow">OPTIONAL · D1 SUMMER</p>
+              <strong>2027.08—09</strong>
+              <span>2026年度実績：2週間 · 平日10日</span>
+            </div>
+            <div className="short-internship-copy">
+              <span className="fact-badge">豊田中央研究所</span>
+              <h3>人の行動・認知を、HRIの方法へ接続する。</h3>
+              <p>
+                2026年度は8月17〜28日または8月31日〜9月11日、長久手または東京で実施。旅費・通勤費・昼食・遠方者の住居・保険は会社基準で支援され、それ以外の給与・日当はありません。日程とテーマは2027年度版で再確認します。
+              </p>
+              <ExternalLink
+                href="https://www.tytlabs.co.jp/recruit/recruit/05_requirements.html"
+                className="text-link"
+              >
+                公式募集要項
+              </ExternalLink>
+            </div>
+          </div>
+
+          <div className="internship-theme-grid short-theme-grid">
+            {shortInternshipThemes.map((theme) => (
+              <article key={theme.key}>
+                <div>
+                  <span>{theme.key}</span>
+                  <small>{theme.label}</small>
+                </div>
+                <h3>{theme.title}</h3>
+                <p>{theme.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="internship-correction short-internship-rule">
+            <strong>短期枠の数え方</strong>
+            <p>
+              豊田中央研究所やアイシンの2週間枠は、<b>論文1本・JAIST博士インターン単位・長期研究インターンには数えません</b>。
+              研究所文化、テーマ、就職先との相性を確かめる枠です。長期枠の準備・実施を圧迫する場合、または日程が衝突する場合は、長期枠を優先します。
+            </p>
+          </div>
+
+          <div className="subsection-heading compact-subheading">
+            <div>
+              <p className="eyebrow">SHORT ALTERNATIVES · 2026 RECORD</p>
+              <h3>第二候補は、テーマの直接性で選ぶ</h3>
+            </div>
+            <p>
+              いずれも2026年度の公開実績であり、D1時点の募集、日程、対象、待遇を再確認します。短期枠は合計1回までです。
+            </p>
+          </div>
+
+          <div className="short-candidate-grid">
+            {shortInternshipCandidates.map((candidate) => (
+              <article key={candidate.name}>
+                <div>
+                  <span>{candidate.period}</span>
+                  <small>{candidate.role}</small>
+                </div>
+                <h3>{candidate.name}</h3>
+                <p>{candidate.facts}</p>
+                <p className="short-candidate-caution">{candidate.caution}</p>
+                <div className="short-candidate-links">
+                  <ExternalLink href={candidate.href} className="text-link">
+                    {candidate.secondaryHref ? "Panasonic公式" : "公式ページ"}
+                  </ExternalLink>
+                  {candidate.secondaryHref && (
+                    <ExternalLink href={candidate.secondaryHref} className="text-link">
+                      東芝公式
+                    </ExternalLink>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="subsection-heading compact-subheading">
+            <div>
+              <p className="eyebrow">TOYOTA RESEARCH ECOSYSTEM</p>
+              <h3>トヨタ系は、目的を分けて見る</h3>
+            </div>
+            <p>
+              同じトヨタ系でも、研究所探索、車載応用、実装キャリア、海外研究では役割が異なります。一つの順位ではなく、博士計画上の用途で選びます。
+            </p>
+          </div>
+
+          <div className="toyota-ecosystem-grid">
+            {toyotaEcosystem.map((candidate) => (
+              <article key={candidate.name}>
+                <span>{candidate.category}</span>
+                <h3>{candidate.name}</h3>
+                <p>{candidate.value}</p>
+                <strong>{candidate.rule}</strong>
+                <ExternalLink href={candidate.href} className="text-link">
+                  公式情報
+                </ExternalLink>
+              </article>
+            ))}
+          </div>
+
+          <div className="internship-choice internship-strategy">
+            {internshipStrategyOptions.map((option) => (
+              <div key={option.label}>
+                <span>{option.label}</span>
+                <strong>{option.title}</strong>
+                <p>{option.text}</p>
+              </div>
+            ))}
           </div>
 
           <div className="subsection-heading internship-subheading">
@@ -821,8 +946,8 @@ function App() {
           <SectionHeading
             number="05"
             eyebrow="OVERSEAS RESEARCH · PRIMARY PLAN"
-            title="本命は、D2の2028年9〜11月"
-            text="海外研究留学は3か月。D1でテーマ・受入先・倫理・資金を固め、D2春〜夏に予備実験まで終え、帰国後6〜8週間で投稿します。"
+            title="D2の海外枠は、大学か企業の一つ"
+            text="2028年9〜11月の3か月は、海外大学研究留学または海外企業研究インターンの一つだけを実施。D1で両方を探索し、D2の6月末までに条件の良い一枠へ決めます。"
           />
 
           <div className="overseas-hero">
@@ -830,15 +955,15 @@ function App() {
               <span>D2 · 3 MONTHS</span>
               <strong>2028.09—11</strong>
               <p>
-                Visiting PhD等の受入身分 ＋ JAISTの必要手続き ＋
-                JAIST助成・JSPS・受入先支援を比較し、併給条件に合う資金を選ぶ。
+                Visiting PhD等または海外企業のResearch Intern ＋ JAISTの必要手続き。
+                大学枠はJAIST助成・JSPS・受入先支援、企業枠は給与・ビザ・知財条件を比較する。
               </p>
             </div>
             <div className="overseas-why">
               <p className="eyebrow">WHY THIS WINDOW</p>
               <h3>研究を始めに行くのではなく、完成させに行く。</h3>
               <p>
-                D1末までに博士研究の位置付けを決め、D2春〜夏に倫理・契約・実装・予備実験を終えます。D3前に投稿期間を残せるため、学位日程と就活を守れます。
+                D1末までに博士研究の位置付けを決め、D2春〜夏に倫理・契約・実装・予備実験を終えます。大学か企業かに関係なく、D3前に投稿期間を残せる条件を優先します。
               </p>
             </div>
           </div>
@@ -951,6 +1076,53 @@ function App() {
               第二候補や外部制度は本命計画を増やすためではなく、本命が成立しない場合の代替案です。募集・利用資格・受入条件は申請年度に公式情報で確認します。
             </p>
           </details>
+
+          <div className="subsection-heading overseas-subheading">
+            <div>
+              <p className="eyebrow">OVERSEAS CORPORATE ALTERNATIVE</p>
+              <h3>海外企業は、大学留学の追加ではなく代替</h3>
+            </div>
+            <p>
+              MERL、HRI-USA、TRIは大学留学と同じ3か月級です。両方へ応募して構いませんが、実施は一つに絞り、同じ論文・知財・指導・資金の評価表で比較します。
+            </p>
+          </div>
+
+          <div className="internship-candidate-grid overseas-company-grid">
+            {overseasCompanyCandidates.map((candidate) => (
+              <article key={candidate.name}>
+                <div className="internship-candidate-top">
+                  <span>{candidate.rank}</span>
+                  <p>{candidate.role}</p>
+                </div>
+                <h3>{candidate.name}</h3>
+                <dl>
+                  <div>
+                    <dt>2026公募</dt>
+                    <dd>{candidate.facts}</dd>
+                  </div>
+                  <div>
+                    <dt>研究との接続</dt>
+                    <dd>{candidate.fit}</dd>
+                  </div>
+                  <div>
+                    <dt>確認事項</dt>
+                    <dd>{candidate.caution}</dd>
+                  </div>
+                </dl>
+                <ExternalLink href={candidate.href} className="text-link">
+                  公式ページ
+                </ExternalLink>
+              </article>
+            ))}
+          </div>
+
+          <div className="internship-correction overseas-company-rule">
+            <strong>判断期限：2028年6月末</strong>
+            <p>
+              大学と企業の採否が出たら、<b>国際論文の実現性、博士論文利用、知財、週次指導、終了後アクセス、ビザ、資金</b>
+              を比較します。条件の良い一枠だけを受諾し、もう一方は辞退します。2026年の募集実績を2028年の確約とは扱いません。
+            </p>
+          </div>
 
           <div className="subsection-heading overseas-subheading">
             <div>
