@@ -4,4 +4,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   base: "/roadmap/",
   plugins: [react()],
+  build: {
+    target: "es2022",
+  },
 });
