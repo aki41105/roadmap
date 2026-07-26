@@ -133,19 +133,9 @@ const pages: Record<RouteId, PageContent> = {
   timeline: {
     title: "D1〜D3スケジュール",
     description:
-      "2027年4月から2030年3月までの36か月を、D1・D2・D3、月別、四半期、全体、判断、余白で確認。",
+      "インターン、研究滞在、留学、博士論文・審査だけを時系列で確認。",
     eyebrow: "DOCTORAL SCHEDULE · 2027.04—2030.03",
     updatedAt,
-    toc: [
-      { id: "year-goals", label: "年次目標" },
-      { id: "doctoral-schedule", label: "月別・四半期" },
-      { id: "overall", label: "3年間全体" },
-      { id: "schedule-decisions", label: "判断ポイント" },
-      { id: "reality-checks", label: "現実性チェック" },
-      { id: "deadlines", label: "学位日程" },
-      { id: "operating-rules", label: "余白・削減ルール" },
-      { id: "appendix", label: "補助タイムライン" },
-    ],
     Component: TimelinePage,
   },
   decisions: {
