@@ -9,10 +9,18 @@ import {
   allScheduleEvents,
   DATA_AS_OF,
   degreeDeadlineEvents,
+  doctoralYearPlans,
   type EventCategory,
   type Phase,
   type RoadmapStatus,
 } from "../data/index";
+import { DoctoralScheduleExplorer } from "../components/schedule/DoctoralScheduleExplorer";
+import {
+  DoctoralDecisionGrid,
+  DoctoralOverallView,
+  ScheduleOperatingRules,
+  ScheduleRealityChecks,
+} from "../components/schedule/DoctoralScheduleSupport";
 import {
   Badge,
   Card,
@@ -65,13 +73,13 @@ const overlapWarnings = [
   {
     time: "2028年6〜11月",
     title: "D2企業研究と海外留学",
-    signal: "企業論文未投稿、または企業終了から海外開始まで8週間未満",
+    signal: "企業論文未投稿、または企業終了から海外開始まで4週間未満",
     response: "海外研究を延期・短縮",
   },
   {
     time: "2029年5〜10月",
     title: "D3企業研究と学位工程",
-    signal: "5月31日に学位ゲート未達、骨子未提出、8月31日に残務",
+    signal: "5月31日に学位ゲート未達、骨子未提出、または9月末に残務",
     response: "D3企業研究を中止し、博士論文を優先",
   },
 ] as const;
@@ -119,9 +127,10 @@ export function TimelinePage() {
   return (
     <>
       <Lead>
-        2026年7月から2030年3月までの研究・学位・外部活動・生活を、
-        同じ時系列で確認します。正式締切、本人の計画、過年度からの推定を
-        文字ラベルで区別し、準備と回復も予定に含めます。
+        2027年4月から2030年3月までの36か月を、博士修了から逆算して
+        月別・四半期・3年間の三つの粒度で確認します。D1は研究軸、
+        D2は外部研究、D3は学位と就職が中心です。会社や受入先は候補であり、
+        正式日程・契約・資金は年度ごとに確認します。
       </Lead>
 
       <div className="rm-now-line" role="note" aria-label="現在日">
@@ -134,10 +143,58 @@ export function TimelinePage() {
       </div>
 
       <Section
-        id="controls"
+        id="year-goals"
+        eyebrow="ANNUAL GOALS"
+        title="D1・D2・D3の役割"
+        intro="活動数を均等にするのではなく、年度ごとに残す成果を変えます。詳しい月次計画は次の年次タブで確認できます。"
+      >
+        <CardGrid columns={3}>
+          {doctoralYearPlans.map((plan) => (
+            <Card
+              key={plan.year}
+              title={`${plan.year}・${plan.startMonth}〜${plan.endMonth}`}
+              badge={plan.status}
+            >
+              <p>{plan.purpose}</p>
+              <p>
+                <strong>守る線：</strong>
+                {plan.guardrail}
+              </p>
+            </Card>
+          ))}
+        </CardGrid>
+      </Section>
+
+      <DoctoralScheduleExplorer />
+      <DoctoralOverallView />
+      <DoctoralDecisionGrid />
+      <ScheduleRealityChecks />
+
+      <Section
+        id="deadlines"
+        eyebrow="DEGREE DEADLINES"
+        title="学位の重要日程"
+        intro="2030年3月修了に向けた標準モデルです。2030年の正式日ではないため、実施年度の履修案内・教務通知・担当窓口で必ず置き換えます。"
+      >
+        <div className="rm-deadline-strip">
+          {degreeDeadlineEvents.map((event) => (
+            <article key={event.id}>
+              <time dateTime={event.date.start}>{event.date.display}</time>
+              <h3>{event.title}</h3>
+              <Badge>{event.status}</Badge>
+              {event.nextAction ? <p>{event.nextAction}</p> : null}
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <ScheduleOperatingRules />
+
+      <Section
+        id="appendix"
         eyebrow="VIEW CONTROLS"
-        title="表示を切り替える"
-        intro="JavaScriptが無効な場合は、全イベントが四半期順で表示されます。"
+        title="補助タイムラインを絞り込む"
+        intro="M2の準備期間を含む旧タイムラインも、補助資料として残しています。JavaScriptが無効な場合は全イベントが表示されます。"
       >
         <div className="rm-filter-bar rm-filter-bar--wide">
           <label htmlFor="timeline-group">
@@ -295,24 +352,6 @@ export function TimelinePage() {
                 })}
               </div>
             </section>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        id="deadlines"
-        eyebrow="DEGREE DEADLINES"
-        title="学位の重要日程"
-        intro="現在は多くが予定月・本人の内部目標です。正式日が公開されたら必ず置き換えます。"
-      >
-        <div className="rm-deadline-strip">
-          {degreeDeadlineEvents.map((event) => (
-            <article key={event.id}>
-              <time dateTime={event.date.start}>{event.date.display}</time>
-              <h3>{event.title}</h3>
-              <Badge>{event.status}</Badge>
-              {event.nextAction ? <p>{event.nextAction}</p> : null}
-            </article>
           ))}
         </div>
       </Section>

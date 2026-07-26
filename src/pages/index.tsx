@@ -63,7 +63,7 @@ const pages: Record<RouteId, PageContent> = {
   internships: {
     title: "企業研究インターン",
     description:
-      "D1・D2・D3の夏に一社・6〜8週間・一つの原稿を目指す企業研究インターン計画と候補比較。",
+      "D1は6〜8週間、D2は2〜3か月、D3は学位優先の条件付き2〜4週間とする企業研究インターン計画と候補比較。",
     eyebrow: "ENTERPRISE RESEARCH",
     updatedAt,
     toc: [
@@ -131,18 +131,20 @@ const pages: Record<RouteId, PageContent> = {
     Component: WellbeingPage,
   },
   timeline: {
-    title: "全体タイムライン",
+    title: "D1〜D3スケジュール",
     description:
-      "2026年7月から2030年3月までの研究、学位、外部活動、就活、生活を月・四半期・年・カテゴリ・学年で確認。",
-    eyebrow: "TIMELINE · 2026.07—2030.03",
+      "2027年4月から2030年3月までの36か月を、D1・D2・D3、月別、四半期、全体、判断、余白で確認。",
+    eyebrow: "DOCTORAL SCHEDULE · 2027.04—2030.03",
     updatedAt,
     toc: [
-      { id: "controls", label: "表示切替" },
-      { id: "timeline", label: "全期間" },
+      { id: "year-goals", label: "年次目標" },
+      { id: "doctoral-schedule", label: "月別・四半期" },
+      { id: "overall", label: "3年間全体" },
+      { id: "schedule-decisions", label: "判断ポイント" },
+      { id: "reality-checks", label: "現実性チェック" },
       { id: "deadlines", label: "学位日程" },
-      { id: "overlaps", label: "重なり警告" },
-      { id: "recovery", label: "準備・回復" },
-      { id: "monthly", label: "直近12か月" },
+      { id: "operating-rules", label: "余白・削減ルール" },
+      { id: "appendix", label: "補助タイムライン" },
     ],
     Component: TimelinePage,
   },

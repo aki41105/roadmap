@@ -96,13 +96,13 @@ const gateNormalization: Record<string, GateNormalization> = {
     category: "企業インターン",
     priority: "高",
   },
-  D3夏の開始限界: {
-    sortDate: "2029-07-23",
+  D3夏の骨子後再確認: {
+    sortDate: "2029-07",
     category: "企業インターン",
     priority: "高",
   },
   D3企業活動の終了: {
-    sortDate: "2029-08-31",
+    sortDate: "2029-09",
     category: "企業インターン",
     priority: "最優先",
   },

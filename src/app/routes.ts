@@ -56,8 +56,8 @@ export const routes: readonly RouteDefinition[] = [
   {
     id: "timeline",
     path: "/roadmap/timeline/",
-    label: "全期間タイムライン",
-    shortLabel: "タイムライン",
+    label: "D1〜D3スケジュール",
+    shortLabel: "D1〜D3予定",
   },
   {
     id: "decisions",
@@ -117,4 +117,3 @@ export function getAdjacentRoutes(routeId: RouteId): {
 export function absoluteRouteUrl(path: string): string {
   return new URL(path, siteOrigin).toString();
 }
-

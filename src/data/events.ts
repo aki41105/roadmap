@@ -121,24 +121,24 @@ const timelineNormalization: Record<string, TimelineNormalization> = {
     title: "国内成果の原稿化とD2企業研究の準備",
     priority: "最優先",
   },
-  "2028.06–07": {
+  "2028.06–08": {
     date: {
       start: "2028-06",
-      end: "2028-07",
+      end: "2028-08",
       precision: "月",
-      display: "2028.06–07",
+      display: "2028.06–08",
     },
     phase: "D2",
     category: "企業インターン",
     title: "D2夏の論文型企業研究",
     priority: "高",
   },
-  "2028.08–10": {
+  "2028.09–10": {
     date: {
-      start: "2028-08",
+      start: "2028-09",
       end: "2028-10",
       precision: "月",
-      display: "2028.08–10",
+      display: "2028.09–10",
     },
     phase: "D2",
     category: "海外研究",

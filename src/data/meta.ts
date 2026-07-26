@@ -51,7 +51,8 @@ export const routes: RouteDefinition[] = [
     path: "/roadmap/internships/",
     label: "企業研究インターン",
     shortLabel: "インターン",
-    description: "D1・D2・D3の6〜8週間論文型企業研究と、候補・契約・中止条件。",
+    description:
+      "D1の6〜8週間、D2の2〜3か月、D3の条件付き2〜4週間の企業研究と、候補・契約・中止条件。",
     order: 4,
   },
   {

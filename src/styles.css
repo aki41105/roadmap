@@ -308,6 +308,40 @@ time,
   color: var(--red);
 }
 
+.rm-status-badge--confirmed,
+.rm-status-badge--completed {
+  background: var(--olive-pale);
+  color: var(--olive);
+}
+
+.rm-status-badge--planned,
+.rm-status-badge--in-progress {
+  background: var(--blue-pale);
+  color: var(--blue);
+}
+
+.rm-status-badge--candidate {
+  background: var(--purple-pale);
+  color: var(--purple);
+}
+
+.rm-status-badge--needs-check,
+.rm-status-badge--estimated {
+  background: var(--gold-pale);
+  color: var(--gold);
+}
+
+.rm-status-badge--proposal {
+  background: var(--wine-pale);
+  color: var(--wine);
+}
+
+.rm-status-badge--postponed,
+.rm-status-badge--cancelled {
+  background: var(--red-pale);
+  color: var(--red);
+}
+
 .rm-callout {
   display: grid;
   grid-template-columns: minmax(10rem, 0.32fr) minmax(0, 1fr);
@@ -1169,6 +1203,988 @@ time,
   font-size: 0.8rem;
 }
 
+/* Doctoral schedule: shared shell and controls */
+.rm-doctoral-explorer,
+.rm-doctoral-overall,
+.rm-doctoral-decisions,
+.rm-doctoral-reality,
+.rm-doctoral-operating {
+  min-width: 0;
+}
+
+.rm-doctoral-overall__header,
+.rm-doctoral-decisions__header,
+.rm-doctoral-reality__header,
+.rm-doctoral-operating__header,
+.rm-doctoral-monthly-view,
+.rm-doctoral-quarterly-view,
+.rm-doctoral-block__disclosure {
+  min-width: 0;
+}
+
+.rm-doctoral-block__disclosure {
+  width: 100%;
+}
+
+.rm-doctoral-explorer {
+  margin-bottom: clamp(4.5rem, 9vw, 8rem);
+  scroll-margin-top: 6rem;
+}
+
+.rm-doctoral-explorer__header {
+  max-width: 58rem;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.rm-doctoral-explorer__eyebrow {
+  margin: 0 0 0.45rem;
+  color: var(--wine);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.rm-doctoral-explorer__header h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.65rem, 3.4vw, 2.65rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.rm-doctoral-explorer__goal {
+  max-width: 52rem;
+  margin: 0.8rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  line-height: 1.85;
+}
+
+.rm-doctoral-explorer__caveat {
+  max-width: 52rem;
+  margin: 1rem 0 0;
+  padding: 0.8rem 0.95rem;
+  border-left: 3px solid var(--gold);
+  background: var(--gold-pale);
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+.rm-doctoral-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem 1.25rem;
+  margin-bottom: 1rem;
+  padding: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--surface) 88%, var(--paper-deep));
+  box-shadow: 0 0.25rem 1.2rem rgb(70 48 30 / 4%);
+}
+
+.rm-doctoral-year-tabs,
+.rm-doctoral-view-switch {
+  min-width: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.rm-doctoral-year-tabs {
+  flex: 1 1 20rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.rm-doctoral-view-switch {
+  flex: 0 1 15rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.rm-doctoral-year-tab,
+.rm-doctoral-view-switch__button {
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid transparent;
+  border-radius: 0.55rem;
+  background: transparent;
+  color: var(--ink-soft);
+  font-weight: 800;
+  line-height: 1.25;
+  cursor: pointer;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.rm-doctoral-year-tab:hover,
+.rm-doctoral-view-switch__button:hover {
+  border-color: var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.rm-doctoral-year-tab[aria-selected="true"] {
+  border-color: var(--wine);
+  background: var(--wine-pale);
+  color: var(--wine);
+  box-shadow: inset 0 -2px 0 var(--wine);
+}
+
+.rm-doctoral-view-switch__button[aria-pressed="true"] {
+  border-color: var(--blue);
+  background: var(--blue-pale);
+  color: var(--blue);
+}
+
+.rm-doctoral-year-tab:focus-visible,
+.rm-doctoral-view-switch__button:focus-visible,
+.rm-doctoral-month-card__details > summary:focus-visible,
+.rm-doctoral-item-details > summary:focus-visible,
+.rm-doctoral-overall .rm-detail-card__summary:focus-visible,
+.rm-doctoral-decisions .rm-detail-card__summary:focus-visible,
+.rm-doctoral-reality .rm-detail-card__summary:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.rm-doctoral-year-panel,
+.rm-doctoral-view-panel {
+  min-width: 0;
+}
+
+/* Doctoral schedule: annual goal */
+.rm-doctoral-year-goals {
+  min-width: 0;
+  margin-bottom: 1.15rem;
+  padding: clamp(1.1rem, 2.8vw, 1.75rem);
+  border: 1px solid var(--line);
+  border-top: 0.25rem solid var(--wine);
+  border-radius: 0.85rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.rm-doctoral-year-goals__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem 1rem;
+}
+
+.rm-doctoral-year-goals__header h3 {
+  margin: 0.2rem 0 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.28rem, 2.4vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.rm-doctoral-year-goals__period {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  color: var(--wine);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+}
+
+.rm-doctoral-badges,
+.rm-doctoral-block__badges {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.rm-doctoral-year-goals__purpose {
+  max-width: 56rem;
+  margin: 1rem 0;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 1.03rem;
+  line-height: 1.85;
+}
+
+.rm-doctoral-year-goals__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(14rem, 0.65fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.rm-doctoral-year-goals__body h4 {
+  margin: 0 0 0.55rem;
+  font-size: 0.9rem;
+}
+
+.rm-doctoral-year-goals__guardrail {
+  min-width: 0;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--olive);
+  border-radius: 0.45rem;
+  background: var(--olive-pale);
+}
+
+.rm-doctoral-year-goals__guardrail p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+/* Doctoral schedule: month and quarter views */
+.rm-doctoral-view-panel {
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+}
+
+.rm-doctoral-view-panel__header {
+  max-width: 52rem;
+  margin-bottom: 1rem;
+}
+
+.rm-doctoral-view-panel__header h4 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2.1vw, 1.45rem);
+}
+
+.rm-doctoral-view-panel__header p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.rm-doctoral-month-grid,
+.rm-doctoral-quarter-grid,
+.rm-doctoral-major-list,
+.rm-doctoral-schedule-items,
+.rm-doctoral-year__blocks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rm-doctoral-month-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.rm-doctoral-month-card,
+.rm-doctoral-quarter-card {
+  min-width: 0;
+}
+
+.rm-doctoral-month-card > article,
+.rm-doctoral-quarter-card > article {
+  min-width: 0;
+  height: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.72rem;
+  background: var(--surface);
+  box-shadow: 0 0.25rem 1.2rem rgb(70 48 30 / 4%);
+  overflow: clip;
+}
+
+.rm-doctoral-month-card > article {
+  display: flex;
+  flex-direction: column;
+}
+
+.rm-doctoral-month-card__header {
+  padding: 0.85rem 1rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--wine-pale) 52%, var(--surface));
+}
+
+.rm-doctoral-month-card__date {
+  margin: 0;
+  color: var(--wine);
+  font-family: var(--serif);
+  font-size: 1.08rem;
+}
+
+.rm-doctoral-month-card__focus {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.rm-doctoral-month-card__focus strong,
+.rm-doctoral-month-card__major h6,
+.rm-doctoral-quarter-domain h6,
+.rm-doctoral-month-detail-group h5 {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+}
+
+.rm-doctoral-month-card__focus p {
+  margin: 0.2rem 0 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.rm-doctoral-month-card__major {
+  flex: 1;
+  padding: 0.8rem 1rem;
+}
+
+.rm-doctoral-month-card__major h6 {
+  margin: 0 0 0.5rem;
+}
+
+.rm-doctoral-major-list {
+  display: grid;
+  gap: 0.48rem;
+}
+
+.rm-doctoral-major-list > li {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.65rem;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.rm-doctoral-major-list > li > span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.rm-doctoral-month-card__counts {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0;
+  border-block: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper-deep) 36%, var(--surface));
+}
+
+.rm-doctoral-month-card__counts > div {
+  min-width: 0;
+  padding: 0.55rem 0.28rem;
+  text-align: center;
+}
+
+.rm-doctoral-month-card__counts > div + div {
+  border-left: 1px solid var(--line);
+}
+
+.rm-doctoral-month-card__counts dt {
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 800;
+}
+
+.rm-doctoral-month-card__counts dd {
+  margin: 0.05rem 0 0;
+  color: var(--ink);
+  font-size: 0.74rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.rm-doctoral-month-card__details,
+.rm-doctoral-item-details {
+  min-width: 0;
+}
+
+.rm-doctoral-month-card__details > summary,
+.rm-doctoral-item-details > summary {
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1rem;
+  color: var(--blue);
+  font-size: 0.8rem;
+  font-weight: 850;
+  line-height: 1.4;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.rm-doctoral-month-card__details > summary,
+.rm-doctoral-item-details > summary,
+.rm-doctoral-overall .rm-detail-card__summary,
+.rm-doctoral-decisions .rm-detail-card__summary,
+.rm-doctoral-reality .rm-detail-card__summary {
+  list-style: none;
+}
+
+.rm-doctoral-month-card__details > summary::-webkit-details-marker,
+.rm-doctoral-item-details > summary::-webkit-details-marker,
+.rm-doctoral-overall .rm-detail-card__summary::-webkit-details-marker,
+.rm-doctoral-decisions .rm-detail-card__summary::-webkit-details-marker,
+.rm-doctoral-reality .rm-detail-card__summary::-webkit-details-marker {
+  display: none;
+}
+
+.rm-doctoral-month-card__details > summary::before,
+.rm-doctoral-item-details > summary::before {
+  content: "+";
+  flex: 0 0 auto;
+  display: grid;
+  width: 1.35rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+
+.rm-doctoral-month-card__details[open] > summary::before,
+.rm-doctoral-item-details[open] > summary::before {
+  content: "−";
+}
+
+.rm-doctoral-month-card__details-body {
+  display: grid;
+  gap: 1rem;
+  padding: 0 1rem 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.rm-doctoral-month-detail-group {
+  min-width: 0;
+  padding-top: 0.9rem;
+}
+
+.rm-doctoral-month-detail-group + .rm-doctoral-month-detail-group {
+  border-top: 1px solid var(--line);
+}
+
+.rm-doctoral-month-detail-group h5 {
+  margin: 0 0 0.45rem;
+}
+
+.rm-doctoral-list {
+  margin: 0.45rem 0;
+  padding-left: 1.15rem;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.rm-doctoral-list li {
+  margin-block: 0.28rem;
+  padding-left: 0.15rem;
+}
+
+.rm-doctoral-empty {
+  margin: 0.4rem 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+.rm-doctoral-schedule-items {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.rm-doctoral-schedule-item {
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  background: color-mix(in srgb, var(--surface) 72%, var(--paper-deep));
+}
+
+.rm-doctoral-schedule-item__summary {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.55rem;
+  color: var(--ink);
+  font-weight: 750;
+  font-size: 0.86rem;
+}
+
+.rm-doctoral-schedule-item__summary > span:first-child {
+  min-width: 0;
+  flex: 1 1 13rem;
+  overflow-wrap: anywhere;
+}
+
+.rm-doctoral-schedule-item__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin: 0.65rem 0 0;
+}
+
+.rm-doctoral-schedule-item__facts > div {
+  min-width: 0;
+}
+
+.rm-doctoral-schedule-item__facts dt {
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.rm-doctoral-schedule-item__facts dd {
+  margin: 0.05rem 0 0;
+  font-size: 0.76rem;
+  overflow-wrap: anywhere;
+}
+
+.rm-doctoral-item-details {
+  margin-top: 0.65rem;
+  border-top: 1px solid var(--line);
+}
+
+.rm-doctoral-item-details > summary {
+  padding-inline: 0;
+}
+
+.rm-doctoral-item-details__body {
+  display: grid;
+  gap: 0.7rem;
+  padding-top: 0.15rem;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.rm-doctoral-item-details__body h6,
+.rm-doctoral-item-details__body p {
+  margin: 0;
+}
+
+.rm-doctoral-quarter-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.rm-doctoral-quarter-card > article {
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+}
+
+.rm-doctoral-quarter-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.7rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.rm-doctoral-quarter-card__date {
+  margin: 0 0 0.25rem;
+  color: var(--wine);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+}
+
+.rm-doctoral-quarter-card__header h5 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+}
+
+.rm-doctoral-quarter-domains {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.rm-doctoral-quarter-domain {
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  background: color-mix(in srgb, var(--surface) 72%, var(--paper-deep));
+}
+
+.rm-doctoral-quarter-domain h6 {
+  margin: 0 0 0.45rem;
+  color: var(--wine);
+}
+
+.rm-doctoral-quarter-domain .rm-doctoral-list {
+  font-size: 0.8rem;
+}
+
+.rm-doctoral-quarter-card__buffer {
+  margin-top: 0.85rem;
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--olive);
+  background: var(--olive-pale);
+}
+
+.rm-doctoral-quarter-card__buffer strong {
+  color: var(--olive);
+  font-size: 0.76rem;
+}
+
+.rm-doctoral-quarter-card__buffer p {
+  margin: 0.15rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.rm-doctoral-noscript {
+  margin: 1rem 0;
+  padding: 0.8rem 0.95rem;
+  border-left: 3px solid var(--gold);
+  background: var(--gold-pale);
+  color: var(--ink-soft);
+}
+
+/* Doctoral schedule: overall, decisions and disclosures */
+.rm-doctoral-overall__goal,
+.rm-doctoral-reality__summary,
+.rm-doctoral-operating__principle {
+  margin-bottom: 1.35rem;
+}
+
+.rm-doctoral-overall__years {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.rm-doctoral-year {
+  border-top: 0.25rem solid var(--wine);
+}
+
+.rm-doctoral-year__header h3 {
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+}
+
+.rm-doctoral-year__purpose {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  line-height: 1.8;
+}
+
+.rm-doctoral-year__outcomes {
+  margin-bottom: 1rem;
+}
+
+.rm-doctoral-year__blocks {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.rm-doctoral-block {
+  min-width: 0;
+}
+
+.rm-doctoral-overall .rm-detail-card,
+.rm-doctoral-decisions .rm-detail-card,
+.rm-doctoral-reality .rm-detail-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  background: color-mix(in srgb, var(--surface) 74%, var(--paper-deep));
+  overflow: clip;
+}
+
+.rm-doctoral-overall .rm-detail-card__summary,
+.rm-doctoral-decisions .rm-detail-card__summary,
+.rm-doctoral-reality .rm-detail-card__summary {
+  min-width: 0;
+  min-height: 2.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.65rem;
+  padding: 0.65rem 0.75rem;
+  color: var(--blue);
+  font-size: 0.82rem;
+  font-weight: 850;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.rm-doctoral-overall .rm-detail-card__summary-label,
+.rm-doctoral-decisions .rm-detail-card__summary-label,
+.rm-doctoral-reality .rm-detail-card__summary-label {
+  min-width: 0;
+  flex: 1 1 10rem;
+  overflow-wrap: anywhere;
+}
+
+.rm-doctoral-overall .rm-detail-card__disclosure,
+.rm-doctoral-decisions .rm-detail-card__disclosure,
+.rm-doctoral-reality .rm-detail-card__disclosure {
+  flex: 0 0 auto;
+  width: 1.35rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+.rm-doctoral-overall .rm-detail-card__disclosure::before,
+.rm-doctoral-decisions .rm-detail-card__disclosure::before,
+.rm-doctoral-reality .rm-detail-card__disclosure::before {
+  content: "+";
+  line-height: 1;
+}
+
+.rm-doctoral-overall .rm-detail-card[open] .rm-detail-card__disclosure::before,
+.rm-doctoral-decisions .rm-detail-card[open] .rm-detail-card__disclosure::before,
+.rm-doctoral-reality .rm-detail-card[open] .rm-detail-card__disclosure::before {
+  content: "−";
+}
+
+.rm-doctoral-overall .rm-detail-card__body,
+.rm-doctoral-decisions .rm-detail-card__body,
+.rm-doctoral-reality .rm-detail-card__body {
+  min-width: 0;
+  padding: 0.85rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.rm-doctoral-block__heading {
+  min-width: 0;
+  flex: 1 1 10rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.rm-doctoral-block__heading time {
+  color: var(--wine);
+  font-size: 0.68rem;
+}
+
+.rm-doctoral-block__heading strong {
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.rm-doctoral-block__badges {
+  justify-content: flex-end;
+}
+
+.rm-doctoral-block__details {
+  min-width: 0;
+}
+
+.rm-doctoral-block__summary {
+  font-size: 0.84rem;
+}
+
+.rm-doctoral-priority,
+.rm-doctoral-evidence,
+.rm-doctoral-reality__status {
+  width: max-content;
+  max-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.65rem;
+  padding: 0.22rem 0.52rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 850;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.rm-doctoral-priority {
+  background: var(--wine-pale);
+  color: var(--wine);
+}
+
+.rm-doctoral-evidence {
+  background: var(--grey-pale);
+  color: var(--ink-soft);
+}
+
+.rm-doctoral-decisions__grid {
+  align-items: stretch;
+}
+
+.rm-doctoral-decision {
+  border-top: 0.2rem solid var(--gold);
+}
+
+.rm-doctoral-decision__header {
+  flex-wrap: wrap;
+}
+
+.rm-doctoral-decision__essentials {
+  margin-bottom: 1rem;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.rm-doctoral-decision__details {
+  margin-top: auto;
+}
+
+.rm-doctoral-decision__footer {
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--line);
+}
+
+/* Doctoral schedule: reality checks */
+.rm-doctoral-reality__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.rm-doctoral-reality__item {
+  border-top: 0.2rem solid var(--line-strong);
+}
+
+.rm-doctoral-reality__item[data-reality-state="plan-clear"] {
+  border-top-color: var(--olive);
+}
+
+.rm-doctoral-reality__item[data-reality-state="attention"] {
+  border-top-color: var(--red);
+}
+
+.rm-doctoral-reality__item[data-reality-state="verify"] {
+  border-top-color: var(--gold);
+}
+
+.rm-doctoral-reality__status--plan-clear {
+  background: var(--olive-pale);
+  color: var(--olive);
+}
+
+.rm-doctoral-reality__status--attention {
+  background: var(--red-pale);
+  color: var(--red);
+}
+
+.rm-doctoral-reality__status--verify {
+  background: var(--gold-pale);
+  color: var(--gold);
+}
+
+.rm-doctoral-reality__assessment {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.rm-doctoral-reality__details {
+  margin-top: auto;
+}
+
+/* Doctoral schedule: operating rules */
+.rm-doctoral-operating__primary {
+  align-items: stretch;
+}
+
+.rm-doctoral-operating__health,
+.rm-doctoral-operating__priorities {
+  border-top: 0.2rem solid var(--olive);
+}
+
+.rm-doctoral-operating__priority-lists {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.rm-doctoral-operating__priority-lists section {
+  min-width: 0;
+}
+
+.rm-doctoral-operating__priority-lists h4 {
+  margin-top: 0;
+}
+
+.rm-doctoral-operating__reduction-order {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.rm-doctoral-operating__buffers,
+.rm-doctoral-operating__conflicts {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.rm-doctoral-operating__buffers > header,
+.rm-doctoral-operating__conflicts > header {
+  max-width: 52rem;
+  margin-bottom: 1rem;
+}
+
+.rm-doctoral-operating__buffers > header h3,
+.rm-doctoral-operating__conflicts > header h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.rm-doctoral-operating__buffers > header p,
+.rm-doctoral-operating__conflicts > header p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.rm-doctoral-buffer {
+  border-left: 0.25rem solid var(--olive);
+}
+
+.rm-doctoral-buffer h4,
+.rm-doctoral-conflict h4 {
+  margin: 0 0 0.55rem;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1rem;
+}
+
+.rm-doctoral-buffer__minimum {
+  color: var(--olive);
+}
+
+.rm-doctoral-conflicts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.rm-doctoral-conflict {
+  border-left: 0.25rem solid var(--red);
+}
+
+.rm-doctoral-buffer p,
+.rm-doctoral-conflict p {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
 @media (max-width: 1180px) {
   .rm-card-grid[data-columns="4"] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1180,6 +2196,10 @@ time,
 
   .rm-filter-bar--wide {
     grid-template-columns: repeat(2, minmax(8rem, 1fr));
+  }
+
+  .rm-doctoral-quarter-domains {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1203,6 +2223,14 @@ time,
     padding-bottom: 0.45rem;
     border-bottom: 1px solid var(--line);
   }
+
+  .rm-card-grid.rm-doctoral-overall__years {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rm-doctoral-year-goals__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 @media (max-width: 700px) {
@@ -1222,6 +2250,37 @@ time,
   .rm-risk-register,
   .rm-source-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rm-doctoral-month-grid,
+  .rm-doctoral-reality__list,
+  .rm-doctoral-conflicts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rm-doctoral-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rm-doctoral-year-tabs,
+  .rm-doctoral-view-switch {
+    width: 100%;
+  }
+
+  .rm-doctoral-view-panel {
+    padding: 0.8rem;
+  }
+
+  .rm-doctoral-quarter-domains,
+  .rm-doctoral-operating__priority-lists {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rm-doctoral-overall .rm-detail-card__summary,
+  .rm-doctoral-decisions .rm-detail-card__summary,
+  .rm-doctoral-reality .rm-detail-card__summary {
+    align-items: flex-start;
   }
 
   .rm-action-list > li {
@@ -1388,13 +2447,54 @@ time,
     grid-template-columns: 1fr;
     gap: 0.18rem;
   }
+
+  .rm-doctoral-year-tab,
+  .rm-doctoral-view-switch__button {
+    padding-inline: 0.45rem;
+  }
+
+  .rm-doctoral-year-goals,
+  .rm-doctoral-month-card > article,
+  .rm-doctoral-quarter-card > article {
+    border-radius: 0.65rem;
+  }
+
+  .rm-doctoral-month-card__counts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rm-doctoral-month-card__counts > div:nth-child(4) {
+    border-left: 0;
+  }
+
+  .rm-doctoral-month-card__counts > div:nth-child(n + 4) {
+    border-top: 1px solid var(--line);
+  }
+
+  .rm-doctoral-schedule-item__facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rm-doctoral-block__badges {
+    flex-basis: 100%;
+    justify-content: flex-start;
+  }
 }
 
 @media (forced-colors: active) {
   .rm-badge,
   .rm-card,
   .rm-callout,
-  .rm-event__content {
+  .rm-event__content,
+  .rm-doctoral-year-tab,
+  .rm-doctoral-view-switch__button,
+  .rm-doctoral-month-card > article,
+  .rm-doctoral-quarter-card > article,
+  .rm-doctoral-quarter-domain,
+  .rm-doctoral-schedule-item,
+  .rm-doctoral-priority,
+  .rm-doctoral-evidence,
+  .rm-doctoral-reality__status {
     border: 1px solid CanvasText;
   }
 
@@ -1452,8 +2552,40 @@ time,
   }
 
   .rm-filter-bar,
-  .rm-section-switcher {
+  .rm-section-switcher,
+  .rm-doctoral-controls {
     display: none !important;
+  }
+
+  .rm-doctoral-year-panel[hidden],
+  .rm-doctoral-view-panel[hidden] {
+    display: block !important;
+  }
+
+  .rm-doctoral-year-panel + .rm-doctoral-year-panel,
+  .rm-doctoral-view-panel + .rm-doctoral-view-panel {
+    margin-top: 1.25rem;
+  }
+
+  .rm-doctoral-month-grid,
+  .rm-doctoral-reality__list,
+  .rm-doctoral-conflicts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rm-doctoral-quarter-domains,
+  .rm-doctoral-operating__priority-lists {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rm-doctoral-month-card > article,
+  .rm-doctoral-quarter-card > article,
+  .rm-doctoral-year-goals,
+  .rm-doctoral-overall .rm-detail-card,
+  .rm-doctoral-decisions .rm-detail-card,
+  .rm-doctoral-reality .rm-detail-card {
+    box-shadow: none;
+    break-inside: avoid;
   }
 
   details:not([open]) > *:not(summary) {
@@ -1465,6 +2597,12 @@ time,
   }
 
   details > summary::before {
+    display: none !important;
+  }
+
+  .rm-doctoral-overall .rm-detail-card__disclosure,
+  .rm-doctoral-decisions .rm-detail-card__disclosure,
+  .rm-doctoral-reality .rm-detail-card__disclosure {
     display: none !important;
   }
 

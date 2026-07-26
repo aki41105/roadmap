@@ -11,5 +11,6 @@ export * from "./finances";
 export * from "./decisions";
 export * from "./career";
 export * from "./wellbeing";
+export * from "./doctoralSchedule";
 export * from "./validate";
 export * from "./migration";

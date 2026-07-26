@@ -70,7 +70,7 @@ const projectNormalization: ProjectNormalization[] = [
     id: "d2-enterprise-research",
     date: {
       start: "2028-06",
-      end: "2028-07",
+      end: "2028-08",
       precision: "月",
       display: externalProjects[2].time,
     },
@@ -103,8 +103,8 @@ const projectNormalization: ProjectNormalization[] = [
   {
     id: "d3-enterprise-additional-paper",
     date: {
-      start: "2029-07",
-      end: "2029-08",
+      start: "2029-08",
+      end: "2029-09",
       precision: "月",
       display: externalProjects[4].time,
     },
@@ -182,8 +182,8 @@ export const thesisChapterRelations: ThesisChapterRelation[] = [
   {
     id: "chapter-d3-enterprise",
     label: "D3夏",
-    target: "5月末時点で学位が成立する場合だけ、追加論文として企業研究を行う",
-    thesisRole: "学位非依存の追加成果",
+    target: "5月末の学位ゲートを通過した場合だけ、2〜4週間で既存テーマを追加検証する",
+    thesisRole: "学位を遅らせない任意の追加成果・就職先比較",
     status: "候補",
     sourceIds: ["personal-integrated-plan", "roadmap-planning-proposal"],
   },
