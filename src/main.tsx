@@ -7,6 +7,15 @@ import {
   decisionGates,
   degreeMilestones,
   degreeRequirements,
+  domesticAdjust,
+  domesticCandidates,
+  domesticDirections,
+  domesticFunding,
+  domesticGo,
+  domesticOtherCandidates,
+  domesticReadiness,
+  domesticRoadmap,
+  domesticSixWeekPlan,
   eightWeekPlan,
   externalProjects,
   hostCandidates,
@@ -58,6 +67,7 @@ const navigation = [
   ["#timeline", "年表"],
   ["#research", "研究"],
   ["#internship", "企業インターン"],
+  ["#domestic", "国内滞在"],
   ["#overseas", "海外留学"],
   ["#degree", "学位・制度"],
   ["#career", "就活"],
@@ -185,7 +195,7 @@ function App() {
                 </div>
                 <div>
                   <dt>外部研究</dt>
-                  <dd>3 summer paper slots + overseas</dd>
+                  <dd>3 summer + domestic + overseas</dd>
                 </div>
               </dl>
               <p>
@@ -204,21 +214,21 @@ function App() {
           <SectionHeading
             number="00"
             eyebrow="THE DECISION"
-            title="D1・D2・D3の夏を、論文型企業研究へ"
-            text="毎夏一社、6〜8週間の企業研究を置きます。受入先は固定せず、投稿・博士論文利用・知財・終了後アクセスを書面で合意できるテーマだけを選びます。"
+            title="毎夏の企業研究に、国内と海外の学術滞在を重ねる"
+            text="D1・D2・D3の夏は一社で論文型企業研究。D1冬に国内研究を一度、D2冬に海外大学研究を一度置き、役割が重ならない五つの外部研究へ整理します。"
           />
 
           <div className="thesis-statement">
             <span>中心方針</span>
             <p>
               博士修了を最優先にしながら、
-              <strong>毎夏の論文型企業研究3回・D2冬の海外大学研究</strong>
-              を一本の博士研究へ接続する。各夏は「採択」ではなく、企業承認済みの投稿可能原稿を作ることを成功条件にする。
+              <strong>毎夏の論文型企業研究3回・D1冬の国内研究・D2冬の海外大学研究</strong>
+              を一本の博士研究へ接続する。国内では方法論、海外では外的妥当性を補い、企業研究と同じ役割を繰り返さない。
             </p>
           </div>
           <p className="cadence-note">
             <span>毎夏の使い方</span>
-            D1・D2・D3とも企業は一社だけ。期間中に主要結果を固め、終了後6〜10週間で投稿する。D3の成果は学位成立の必須条件にしません。
+            D1・D2・D3とも企業は一社だけ。D1企業論文を先に投稿できた場合のみ、2028年1〜2月の国内滞在を4〜6週間実施します。
           </p>
 
           <div className="priority-layout">
@@ -251,7 +261,7 @@ function App() {
                 "車",
                 "任意の学会",
                 "山小屋",
-                "同年2回目の外部活動",
+                "計画外の追加外部活動",
                 "博士論文に入らない共同研究",
               ].map((item, index) => (
                 <span key={item}>
@@ -406,7 +416,10 @@ function App() {
             </div>
             <ul>
               <li>
-                <span>D1</span> CyberAgentを第一候補に、夏の企業成果を2027年末までに投稿
+                <span>D1夏</span> CyberAgentを第一候補に、企業成果を2027年12月15日までに投稿
+              </li>
+              <li>
+                <span>D1冬</span> 国内滞在で理論・方法を補強。副テーマ候補の原稿を50〜70%まで進める
               </li>
               <li>
                 <span>D2</span> 別企業で博士論文の第二研究を進め、海外大学では外部検証を追加
@@ -415,17 +428,17 @@ function App() {
                 <span>D3</span> 夏の企業成果は追加論文。5月末時点で学位が成立する場合だけ実施
               </li>
               <li>
-                <span>成功条件</span> 各回で企業承認済みの投稿可能原稿を作る。採択数は固定しない
+                <span>成功条件</span> 企業研究3回では、企業承認済みの投稿可能原稿を作る。採択数は固定しない
               </li>
             </ul>
           </div>
 
           <div className="subsection-heading">
             <div>
-              <p className="eyebrow">THREE SUMMERS + ONE OVERSEAS STAY</p>
-              <h3>論文型企業研究を3回、海外大学研究を1回</h3>
+              <p className="eyebrow">THREE SUMMERS + TWO ACADEMIC STAYS</p>
+              <h3>企業研究3回、国内滞在1回、海外研究1回</h3>
             </div>
-            <p>海外企業を選ぶ場合はD2夏の企業枠と入れ替え、企業活動を四つ目として追加しません。</p>
+            <p>国内は方法論、海外は外的妥当性を補います。どちらも企業研究と同じ役割の追加案件にはしません。</p>
           </div>
 
           <div className="project-grid">
@@ -457,10 +470,10 @@ function App() {
 
           <div className="execution-plan">
             <div className="execution-copy">
-              <p className="eyebrow">8-WEEK EXECUTION</p>
-              <h3>2か月を論文へ変える工程</h3>
+              <p className="eyebrow">THREE SUMMER PROJECTS · 8-WEEK EXECUTION</p>
+              <h3>毎夏の2か月企業研究を、論文へ変える工程</h3>
               <p>
-                出発前に研究質問、データ、倫理、ベースライン、知財、著者順、投稿先をそろえる。帰国時には原稿60〜80%を持ち帰る。
+                この8週間工程は企業研究3回専用です。開始前に研究質問、データ、倫理、ベースライン、知財、著者順、投稿先をそろえ、終了時に原稿60〜80%を持ち帰ります。
               </p>
             </div>
             <ol>
@@ -654,7 +667,9 @@ function App() {
             <div>
               <span>D3 · 追加論文</span>
               <strong>年度ごとに最適な一社</strong>
-              <p>NTTを含む候補から、骨子提出後に6〜8週間実施し、原則8月末までに終了できるテーマを選ぶ。社名は固定しない。</p>
+              <p>
+                NTTを含む候補から、正式な骨子提出後に7月23日までに開始し、6〜8週間で8月31日までに終了できるテーマを選ぶ。社名は固定しない。
+              </p>
             </div>
           </div>
 
@@ -965,9 +980,211 @@ function App() {
           </div>
         </section>
 
-        <section className="section overseas-section" id="overseas">
+        <section className="section domestic-section" id="domestic">
           <SectionHeading
             number="05"
+            eyebrow="DOMESTIC RESEARCH STAY · INDIVIDUAL ARRANGEMENT"
+            title="D1冬に一度だけ、研究方法を増やす"
+            text="2028年1月中旬〜2月末のうち4〜6週間を相談します。NII・坊農研究室を第一候補に、D1夏の成果を見て京都大学HRI案へ切り替えます。"
+          />
+
+          <div className="domestic-hero">
+            <div className="domestic-date">
+              <span>D1 WINTER · PROPOSED WINDOW</span>
+              <strong>2028.01—02</strong>
+              <p>
+                4〜6週間の国内滞在研究。D1企業論文の投稿、正式受入れ、倫理・データ・資金がそろった場合だけ実施します。
+              </p>
+            </div>
+            <div className="domestic-purpose">
+              <p className="eyebrow">PRIMARY PURPOSE</p>
+              <h3>企業とは違う方法を、博士研究へ持ち帰る。</h3>
+              <p>
+                NIIには、本人の提案研究として会話分析とマルチモーダル相互行為分析を学び、LLMがラポールを推定できる理由を説明する計画を相談します。ロボット適応を博士論文の中心にする場合だけ、京都大学HRIを主受入先候補へ切り替えます。
+              </p>
+            </div>
+          </div>
+
+          <div className="domestic-status-note">
+            <span>確定日程ではない</span>
+            <p>
+              NIIの2028年冬4〜6週間という公募枠は確認できません。特別共同利用研究員等として、受入教員の内諾、JAISTからの正式申請、NIIの承認を得る個別調整案です。
+            </p>
+          </div>
+
+          <div className="subsection-heading domestic-subheading">
+            <div>
+              <p className="eyebrow">THE OCTOBER DECISION</p>
+              <h3>D1夏の結果で、二つの方向から選ぶ</h3>
+            </div>
+            <p>
+              現時点ではNIIを本命にします。企業研究後の2027年10月に、博士論文の不足が「説明」か「ロボット行動」かを見て決定します。
+            </p>
+          </div>
+
+          <div className="domestic-direction-grid">
+            {domesticDirections.map((direction) => (
+              <article key={direction.label}>
+                <span>{direction.label}</span>
+                <h3>{direction.title}</h3>
+                <p>{direction.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="subsection-heading domestic-subheading">
+            <div>
+              <p className="eyebrow">PRIMARY HOST OPTIONS</p>
+              <h3>主受入先は一機関に絞る</h3>
+            </div>
+            <p>
+              京都大学、RIKEN、ATRは別機関です。京都案では京都大学を主受入先候補とし、RIKEN・ATRは各機関から個別許可を得られた場合だけ連携します。
+            </p>
+          </div>
+
+          <div className="internship-candidate-grid domestic-candidate-grid">
+            {domesticCandidates.map((candidate) => (
+              <article key={candidate.name}>
+                <div className="internship-candidate-top">
+                  <span>{candidate.rank}</span>
+                  <p>{candidate.role}</p>
+                </div>
+                <h3>{candidate.name}</h3>
+                <dl>
+                  <div>
+                    <dt>公式情報</dt>
+                    <dd>{candidate.facts}</dd>
+                  </div>
+                  <div>
+                    <dt>研究との接続</dt>
+                    <dd>{candidate.fit}</dd>
+                  </div>
+                  <div>
+                    <dt>実施条件</dt>
+                    <dd>{candidate.caution}</dd>
+                  </div>
+                </dl>
+                <ExternalLink href={candidate.href} className="text-link">
+                  公式ページ
+                </ExternalLink>
+              </article>
+            ))}
+          </div>
+
+          <div className="subsection-heading domestic-subheading">
+            <div>
+              <p className="eyebrow">PREPARATION &amp; DELIVERY</p>
+              <h3>正式打診はD1春、現地では分析に集中</h3>
+            </div>
+            <p>
+              2026年は論文を読み方向を決める期間。紹介・提案・受入相談は2027年春に始め、12月までにデータと論文構成を準備します。
+            </p>
+          </div>
+
+          <div className="overseas-roadmap domestic-roadmap" aria-label="国内滞在研究の準備工程">
+            {domesticRoadmap.map((phase, index) => (
+              <article key={phase.time}>
+                <span className="phase-index">{String(index + 1).padStart(2, "0")}</span>
+                <p className="eyebrow">{phase.label}</p>
+                <time>{phase.time}</time>
+                <h3>{phase.title}</h3>
+                <p>{phase.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="internship-execution domestic-execution">
+            <div className="internship-readiness">
+              <p className="eyebrow">DAY 0 READINESS</p>
+              <h3>出発時の完成度</h3>
+              <dl>
+                {domesticReadiness.map(([item, target, detail]) => (
+                  <div key={item}>
+                    <dt>{item}</dt>
+                    <dd>
+                      <strong>{target}</strong>
+                      <span>{detail}</span>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            <ol>
+              {domesticSixWeekPlan.map(([week, action]) => (
+                <li key={week}>
+                  <span>WEEK {week}</span>
+                  <p>{action}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="domestic-funding">
+            <div>
+              <p className="eyebrow">FUNDING RULE</p>
+              <h3>{domesticFunding.title}</h3>
+            </div>
+            <p>{domesticFunding.body}</p>
+            <div>
+              <strong>{domesticFunding.budget}</strong>
+              <p>{domesticFunding.action}</p>
+              <ExternalLink href={domesticFunding.href} className="text-link">
+                JAIST公式要項
+              </ExternalLink>
+            </div>
+          </div>
+
+          <div className="internship-gates domestic-gates">
+            <div className="internship-go">
+              <p className="eyebrow">GO</p>
+              <h3>4〜6週間実施する条件</h3>
+              <ul>
+                {domesticGo.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="internship-reject">
+              <p className="eyebrow">SHORTEN / MOVE ONLINE</p>
+              <h3>訪問へ縮小する条件</h3>
+              <ul>
+                {domesticAdjust.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <details className="candidate-panel domestic-other-candidates">
+            <summary>
+              <span>
+                <small>BACKUP HOSTS</small>
+                その他の国内候補を見る
+              </span>
+              <i aria-hidden="true">＋</i>
+            </summary>
+            <p>
+              研究上の適合と、2028年冬に正式な受入手続きを組めるかを分けて比較します。4〜6週間の公募枠と断定せず、各機関へ個別確認します。
+            </p>
+            <div>
+              {domesticOtherCandidates.map((candidate) => (
+                <section key={candidate.name}>
+                  <span>{candidate.focus}</span>
+                  <h4>{candidate.name}</h4>
+                  <p>{candidate.role}</p>
+                  <strong>{candidate.caution}</strong>
+                  <ExternalLink href={candidate.href} className="text-link">
+                    公式情報
+                  </ExternalLink>
+                </section>
+              ))}
+            </div>
+          </details>
+        </section>
+
+        <section className="section overseas-section" id="overseas">
+          <SectionHeading
+            number="06"
             eyebrow="OVERSEAS RESEARCH · PRIMARY PLAN"
             title="D2冬は、海外大学で外部検証する"
             text="D2夏の企業研究後、2028年11月〜2029年1月に約3か月の海外大学研究留学を置きます。企業論文の第二実験や異文化検証を進め、独立した四本目を必達にしません。"
@@ -1142,8 +1359,9 @@ function App() {
           <div className="internship-correction overseas-company-rule">
             <strong>判断期限：2028年3月末</strong>
             <p>
-              大学と企業の採否が出たら、<b>国際論文の実現性、博士論文利用、知財、週次指導、終了後アクセス、ビザ、資金</b>
-              を比較します。条件の良い一枠だけを受諾し、もう一方は辞退します。2026年の募集実績を2028年の確約とは扱いません。
+              D2夏の国内企業候補と海外企業候補の採否が出たら、
+              <b>国際論文の実現性、博士論文利用、知財、週次指導、終了後アクセス、ビザ、資金</b>
+              を比較します。同じD2夏企業枠として一社だけを受諾し、D2冬の海外大学研究は別の最終GO条件で判断します。2026年の募集実績を2028年の確約とは扱いません。
             </p>
           </div>
 
@@ -1221,8 +1439,8 @@ function App() {
 
           <div className="overseas-gates">
             <div className="overseas-go">
-              <p className="eyebrow">GO · 2028.08</p>
-              <h3>すべてそろえば出発</h3>
+              <p className="eyebrow">PRELIMINARY · 2028.08 / FINAL GO · 2028.09</p>
+              <h3>8月に仮判定、9月に最終確定</h3>
               <ul>
                 {overseasGo.map((item) => (
                   <li key={item}>{item}</li>
@@ -1243,7 +1461,7 @@ function App() {
 
         <section className="section degree-section" id="degree">
           <SectionHeading
-            number="06"
+            number="07"
             eyebrow="DEGREE & SUPPORT"
             title="学位の公式要件と、申請候補の支援制度"
             text="修了要件は制度上の基準です。日程表はJAISTの標準月と個人の内部締切を分けて表示し、各年度に最新版へ差し替えます。"
@@ -1339,7 +1557,7 @@ function App() {
 
         <section className="section career-section" id="career">
           <SectionHeading
-            number="07"
+            number="08"
             eyebrow="CAREER"
             title="就活は早く始め、D3前半で終える"
             text="D3後半に選考を残すと、学位論文骨子・予備審査・提出と衝突します。探索はD1、体験はD2、決定はD3前半へ。"
@@ -1372,7 +1590,7 @@ function App() {
 
         <section className="section life-section" id="life">
           <SectionHeading
-            number="08"
+            number="09"
             eyebrow="LIFE & MONEY"
             title="暮らしも、博士課程の設計に入れる"
             text="引っ越し、車、山小屋、恋愛、健康は研究の外側ではありません。固定費と時間を先に見積もり、実行条件を明確にします。"
@@ -1450,7 +1668,7 @@ function App() {
 
         <section className="section decisions-section" id="decisions">
           <SectionHeading
-            number="09"
+            number="10"
             eyebrow="DECISION GATES"
             title="予定ではなく、条件で決める"
             text="その時点で条件がそろっていなければ、延期・縮小・中止できるようにします。"
@@ -1530,7 +1748,7 @@ function App() {
 
         <section className="section sources-section" id="sources">
           <SectionHeading
-            number="10"
+            number="11"
             eyebrow="SOURCES & UPDATES"
             title="参考資料と更新ルール"
             text="制度・募集・学会締切は変わります。公式資料と個人の計画案を分け、定期的に差し替えます。"
