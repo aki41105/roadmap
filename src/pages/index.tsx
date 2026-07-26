@@ -1,34 +1,26 @@
 import type { PageContent, RouteId } from "../app/types";
 import { CareerPage } from "./CareerPage";
 import { DecisionsPage } from "./DecisionsPage";
+import { DomesticResearchStayPage } from "./DomesticResearchStayPage";
 import { FinanceLifePage } from "./FinanceLifePage";
 import { InternshipsPage } from "./InternshipsPage";
-import { OverviewPage } from "./OverviewPage";
+import { OtherPage } from "./OtherPage";
+import { OverseasStudyPage } from "./OverseasStudyPage";
 import { ResearchPage } from "./ResearchPage";
 import { ResearchStaysPage } from "./ResearchStaysPage";
 import { TimelinePage } from "./TimelinePage";
 import { WellbeingPage } from "./WellbeingPage";
+import { WorkOverviewPage } from "./WorkOverviewPage";
 
 const updatedAt = "2026-07-26";
 
 const pages: Record<RouteId, PageContent> = {
   overview: {
-    title: "博士修了までの統合ロードマップ",
-    description:
-      "2026年7月から2030年3月までの現在地、次の90日、重要締切、判断待ち、リスクを30秒で確認できる博士課程ダッシュボード。",
-    eyebrow: "OVERVIEW · 2026—2030",
+    title: "その他",
+    description: "研究・学位、暮らし、お金、判断資料を必要なときだけ確認。",
+    eyebrow: "OTHER",
     updatedAt,
-    toc: [
-      { id: "current", label: "現在地" },
-      { id: "next-90", label: "次の90日" },
-      { id: "quarter", label: "今四半期" },
-      { id: "deadlines", label: "重要締切" },
-      { id: "decisions", label: "判断待ち" },
-      { id: "risks", label: "重大リスク" },
-      { id: "principles", label: "守る順番" },
-      { id: "update", label: "更新方法" },
-    ],
-    Component: OverviewPage,
+    Component: OtherPage,
   },
   research: {
     title: "研究・学位",
@@ -60,7 +52,28 @@ const pages: Record<RouteId, PageContent> = {
     ],
     Component: ResearchStaysPage,
   },
+  overseas: {
+    title: "留学",
+    description: "D2冬の約3か月だけを、期間・目的・成果に絞って確認。",
+    eyebrow: "OVERSEAS RESEARCH · D2",
+    updatedAt,
+    Component: OverseasStudyPage,
+  },
+  domestic: {
+    title: "国内滞在研究",
+    description: "D1冬の4〜6週間だけを、期間・目的・成果に絞って確認。",
+    eyebrow: "DOMESTIC RESEARCH · D1",
+    updatedAt,
+    Component: DomesticResearchStayPage,
+  },
   internships: {
+    title: "インターン・就活",
+    description: "D1〜D3のインターンと、早めに始めて早めに終える就活の時期だけを確認。",
+    eyebrow: "INTERNSHIPS & CAREER",
+    updatedAt,
+    Component: WorkOverviewPage,
+  },
+  "internship-details": {
     title: "企業研究インターン",
     description:
       "D1は6〜8週間、D2は2〜3か月、D3は学位優先の条件付き2〜4週間とする企業研究インターン計画と候補比較。",
@@ -131,7 +144,7 @@ const pages: Record<RouteId, PageContent> = {
     Component: WellbeingPage,
   },
   timeline: {
-    title: "D1〜D3スケジュール",
+    title: "全体タイムライン",
     description:
       "インターン、研究滞在、留学、博士論文・審査だけを時系列で確認。",
     eyebrow: "DOCTORAL SCHEDULE · 2027.04—2030.03",

@@ -12,60 +12,105 @@ export interface RouteDefinition {
 
 export const routes: readonly RouteDefinition[] = [
   {
-    id: "overview",
-    path: "/roadmap/",
-    label: "概要ダッシュボード",
-    shortLabel: "概要",
-  },
-  {
-    id: "research",
-    path: "/roadmap/research/",
-    label: "研究計画",
-    shortLabel: "研究",
-  },
-  {
-    id: "research-stays",
-    path: "/roadmap/research-stays/",
-    label: "国内・海外研究滞在",
-    shortLabel: "研究滞在",
+    id: "timeline",
+    path: "/roadmap/timeline/",
+    label: "全体タイムライン",
+    shortLabel: "全体タイムライン",
   },
   {
     id: "internships",
     path: "/roadmap/internships/",
-    label: "企業研究インターン",
-    shortLabel: "インターン",
+    label: "インターン・就活",
+    shortLabel: "インターン・就活",
+  },
+  {
+    id: "overseas",
+    path: "/roadmap/overseas/",
+    label: "留学",
+    shortLabel: "留学",
+  },
+  {
+    id: "domestic",
+    path: "/roadmap/domestic/",
+    label: "国内滞在研究",
+    shortLabel: "国内滞在研究",
+  },
+  {
+    id: "overview",
+    path: "/roadmap/",
+    label: "その他",
+    shortLabel: "その他",
+  },
+  {
+    id: "research",
+    path: "/roadmap/research/",
+    label: "研究・学位",
+    shortLabel: "研究・学位",
+  },
+  {
+    id: "research-stays",
+    path: "/roadmap/research-stays/",
+    label: "国内・海外研究滞在の詳細",
+    shortLabel: "研究滞在の詳細",
+  },
+  {
+    id: "internship-details",
+    path: "/roadmap/internship-details/",
+    label: "企業研究インターンの詳細",
+    shortLabel: "インターンの詳細",
   },
   {
     id: "career",
     path: "/roadmap/career/",
-    label: "就職・キャリア",
-    shortLabel: "キャリア",
+    label: "就活・キャリアの詳細",
+    shortLabel: "就活の詳細",
   },
   {
     id: "finance-life",
     path: "/roadmap/finance-life/",
-    label: "資金・住居・暮らし",
-    shortLabel: "お金・暮らし",
+    label: "お金・住居・車",
+    shortLabel: "お金・住居・車",
   },
   {
     id: "wellbeing",
     path: "/roadmap/wellbeing/",
-    label: "健康・人間関係",
-    shortLabel: "ウェルビーイング",
-  },
-  {
-    id: "timeline",
-    path: "/roadmap/timeline/",
-    label: "D1〜D3スケジュール",
-    shortLabel: "D1〜D3予定",
+    label: "生活・健康・人間関係",
+    shortLabel: "生活・健康",
   },
   {
     id: "decisions",
     path: "/roadmap/decisions/",
-    label: "判断・リスク・出典",
-    shortLabel: "判断・出典",
+    label: "判断・リスク・資料",
+    shortLabel: "判断・資料",
   },
 ] as const;
+
+const primaryRouteIds: readonly RouteId[] = [
+  "timeline",
+  "internships",
+  "overseas",
+  "domestic",
+  "overview",
+];
+
+export const primaryRoutes = primaryRouteIds.map(
+  (id) => routes.find((route) => route.id === id) as RouteDefinition,
+);
+
+const primaryRouteByRoute: Record<RouteId, RouteId> = {
+  timeline: "timeline",
+  internships: "internships",
+  overseas: "overseas",
+  domestic: "domestic",
+  overview: "overview",
+  research: "overview",
+  "research-stays": "overview",
+  "internship-details": "internships",
+  career: "internships",
+  "finance-life": "overview",
+  wellbeing: "overview",
+  decisions: "overview",
+};
 
 const routeById = new Map(routes.map((route) => [route.id, route]));
 const routeByPath = new Map(routes.map((route) => [route.path, route]));
@@ -94,7 +139,7 @@ export function normalizePathname(pathname: string): string {
 export function resolveRoute(pathname: string): RouteDefinition {
   return (
     routeByPath.get(normalizePathname(pathname)) ??
-    routeById.get("overview") ??
+    routeById.get("timeline") ??
     routes[0]
   );
 }
@@ -103,14 +148,21 @@ export function getRouteById(id: RouteId): RouteDefinition {
   return routeById.get(id) ?? routes[0];
 }
 
+export function getPrimaryRouteId(id: RouteId): RouteId {
+  return primaryRouteByRoute[id];
+}
+
 export function getAdjacentRoutes(routeId: RouteId): {
   previous?: RouteDefinition;
   next?: RouteDefinition;
 } {
-  const index = routes.findIndex((route) => route.id === routeId);
+  const index = primaryRoutes.findIndex((route) => route.id === routeId);
+  if (index < 0) return {};
+
   return {
-    previous: index > 0 ? routes[index - 1] : undefined,
-    next: index >= 0 && index < routes.length - 1 ? routes[index + 1] : undefined,
+    previous: index > 0 ? primaryRoutes[index - 1] : undefined,
+    next:
+      index < primaryRoutes.length - 1 ? primaryRoutes[index + 1] : undefined,
   };
 }
 

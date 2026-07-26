@@ -188,7 +188,9 @@ export function CareerPage() {
         </div>
         <p className="rm-inline-note">
           期間・待遇・論文化・知財・公式リンクは
-          <a href="/roadmap/internships/#candidates">企業インターン候補</a>
+          <a href="/roadmap/internship-details/#candidates">
+            企業インターン候補
+          </a>
           で一元管理しています。
         </p>
       </Section>

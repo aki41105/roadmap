@@ -9,13 +9,13 @@ export function Breadcrumbs({ route }: BreadcrumbsProps) {
     <nav className="breadcrumbs" aria-label="パンくずリスト">
       <ol>
         <li>
-          {route.id === "overview" ? (
-            <span aria-current="page">概要</span>
+          {route.id === "timeline" ? (
+            <span aria-current="page">全体タイムライン</span>
           ) : (
-            <a href="/roadmap/">概要</a>
+            <a href="/roadmap/timeline/">全体タイムライン</a>
           )}
         </li>
-        {route.id !== "overview" ? (
+        {route.id !== "timeline" ? (
           <li>
             <span aria-current="page">{route.label}</span>
           </li>
@@ -24,4 +24,3 @@ export function Breadcrumbs({ route }: BreadcrumbsProps) {
     </nav>
   );
 }
-

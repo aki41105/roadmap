@@ -5,8 +5,8 @@ const legacyHashTargets: Readonly<Record<string, string>> = {
   "#research": "/roadmap/research/",
   "#degree": "/roadmap/research/#degree",
   "#internship": "/roadmap/internships/",
-  "#domestic": "/roadmap/research-stays/#domestic",
-  "#overseas": "/roadmap/research-stays/#overseas",
+  "#domestic": "/roadmap/domestic/",
+  "#overseas": "/roadmap/overseas/",
   "#career": "/roadmap/career/",
   "#life": "/roadmap/finance-life/",
   "#decisions": "/roadmap/decisions/",
@@ -35,4 +35,3 @@ export function redirectLegacyHash(): boolean {
   window.location.replace(target);
   return true;
 }
-

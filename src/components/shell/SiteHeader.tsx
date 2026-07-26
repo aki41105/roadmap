@@ -9,7 +9,11 @@ interface SiteHeaderProps {
 export function SiteHeader({ currentRouteId }: SiteHeaderProps) {
   return (
     <header className="site-header">
-      <a className="site-brand" href="/roadmap/" aria-label="博士ロードマップの概要へ">
+      <a
+        className="site-brand"
+        href="/roadmap/timeline/"
+        aria-label="博士ロードマップの全体タイムラインへ"
+      >
         <span className="site-brand__mark" aria-hidden="true">
           AR
         </span>
@@ -22,7 +26,7 @@ export function SiteHeader({ currentRouteId }: SiteHeaderProps) {
       <div className="site-header__actions">
         <ThemeToggle />
         <details className="mobile-menu">
-          <summary>
+          <summary aria-label="メニューを開く">
             <span aria-hidden="true">☰</span>
             <span>メニュー</span>
           </summary>
@@ -34,4 +38,3 @@ export function SiteHeader({ currentRouteId }: SiteHeaderProps) {
     </header>
   );
 }
-

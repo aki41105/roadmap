@@ -2,21 +2,19 @@
 
 ## 博士修了までの統合ロードマップ
 
-2026年7月から2030年3月までの研究、留学、インターン、就活、住居、資金、生活を、9ページの個人ダッシュボードとして整理しています。
+2026年7月から2030年3月までの計画を、5つの入口から確認できる個人ロードマップとして整理しています。
 
-公開ページ: https://aki41105.github.io/roadmap/
+公開ページ: https://aki41105.github.io/roadmap/timeline/
 
 ## ページ
 
-- `/roadmap/` — 現在地、次の90日、締切、判断、リスク
-- `/roadmap/research/` — 研究・学位
-- `/roadmap/research-stays/` — 国内・海外研究滞在
-- `/roadmap/internships/` — 企業研究インターン
-- `/roadmap/career/` — 就職・キャリア
-- `/roadmap/finance-life/` — お金・住居・車
-- `/roadmap/wellbeing/` — 生活・健康・人間関係
-- `/roadmap/timeline/` — D1〜D3の36か月計画、月別・四半期・3年間表示
-- `/roadmap/decisions/` — 判断・リスク・資料
+- `/roadmap/timeline/` — 全体タイムライン
+- `/roadmap/internships/` — インターン・就活
+- `/roadmap/overseas/` — 留学
+- `/roadmap/domestic/` — 国内滞在研究
+- `/roadmap/` — その他
+
+詳しい研究、制度、候補、資金、生活、判断資料は、各入口から開く詳細ページに残しています。
 - `/roadmap/legacy/` — 2026年7月26日時点の改修前バックアップ
 
 ## 編集する場所
@@ -24,7 +22,7 @@
 - `src/data.ts` — 旧ページから移行した詳細データの原本
 - `src/data/` — 予定、組織、研究、資金、判断、出典の共通データ
 - `src/data/doctoralSchedule.ts` — 2027年4月〜2030年3月の36か月、12四半期、8判断点の原本
-- `src/pages/` — 9ページの表示内容
+- `src/pages/` — 5つの入口と詳細ページの表示内容
 - `src/components/` — ナビゲーション、状態、表、資料などの共通部品
 - `src/styles.css`、`src/app/shell.css` — ロードマップ専用の見た目
 - `src/app/routes.ts` — URLとナビゲーション
@@ -44,7 +42,7 @@ npm install
 npm run dev
 ```
 
-公開用の9ページを生成して検査する場合:
+公開用ページを生成して検査する場合:
 
 ```bash
 npm run lint
@@ -52,7 +50,7 @@ npm run build
 npm run preview
 ```
 
-`npm run build` は型検査、ブラウザ用ビルド、静的プリレンダリング、全9ルート・canonical・主要HTML・アセットの確認を行います。主要本文はHTMLへ書き出されるため、JavaScriptが無効でも読めます。
+`npm run build` は型検査、ブラウザ用ビルド、静的プリレンダリング、全ルート・canonical・主要HTML・アセットの確認を行います。主要本文はHTMLへ書き出されるため、JavaScriptが無効でも読めます。
 
 ## 公開
 

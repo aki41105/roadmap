@@ -2,13 +2,16 @@ import type { ComponentType } from "react";
 
 export type RouteId =
   | "overview"
+  | "timeline"
+  | "internships"
+  | "overseas"
+  | "domestic"
   | "research"
   | "research-stays"
-  | "internships"
+  | "internship-details"
   | "career"
   | "finance-life"
   | "wellbeing"
-  | "timeline"
   | "decisions";
 
 export interface TocItem {
@@ -24,4 +27,3 @@ export interface PageContent {
   toc?: readonly TocItem[];
   Component: ComponentType;
 }
-

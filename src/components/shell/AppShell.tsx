@@ -28,9 +28,6 @@ export function AppShell({ route, page, children }: AppShellProps) {
         <aside className="app-sidebar">
           <p className="app-sidebar__label">博士修了までの計画</p>
           <SiteNav currentRouteId={route.id} />
-          <a className="legacy-link" href="/roadmap/legacy/">
-            改修前のページを見る
-          </a>
         </aside>
 
         <main id="main-content" className="app-main" tabIndex={-1}>

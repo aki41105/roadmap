@@ -70,9 +70,9 @@ try {
   }
   if (
     !Array.isArray(serverModule.prerenderPaths) ||
-    serverModule.prerenderPaths.length !== 9
+    serverModule.prerenderPaths.length !== 12
   ) {
-    throw new TypeError("SSR entry must export the nine prerenderPaths.");
+    throw new TypeError("SSR entry must export the twelve prerenderPaths.");
   }
 
   const routePaths = serverModule.prerenderPaths;

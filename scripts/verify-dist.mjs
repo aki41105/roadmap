@@ -17,8 +17,8 @@ const routeFiles = manifest.routes.map((routePath) => {
 
 const failures = [];
 
-if (routeFiles.length !== 9) {
-  failures.push(`routes-manifest.json: expected 9 routes, found ${routeFiles.length}`);
+if (routeFiles.length !== 12) {
+  failures.push(`routes-manifest.json: expected 12 routes, found ${routeFiles.length}`);
 }
 
 for (const relativeFile of routeFiles) {
