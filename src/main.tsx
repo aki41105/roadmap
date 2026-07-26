@@ -545,7 +545,7 @@ function App() {
               <div>
                 <span><b>長期</b> D1に1回</span>
                 <span><b>短期</b> D2・D3で0〜2回</span>
-                <span><b>上限</b> 企業3回・合計約4か月相当</span>
+                <span><b>回数</b> 企業参加は最大3回</span>
               </div>
             </div>
             <ol>
